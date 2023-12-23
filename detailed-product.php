@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<?php include "head.php" ?>
+<style>
+    .image-container {
+        position: relative;
+        width: 400px;
+        /* Adjust the width and height as needed */
+        height: 400px;
+        overflow: hidden;
+    }
+
+    #zoom-image {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s;
+        /* Smooth transition for zoom effect */
+        transform-origin: top left;
+        /* Set the transform origin to the top left corner */
+    }
+</style>
+
+<body>
+
+
+    <?php include "navbar.php"; ?>
+    <div class="container-account">
+        <div class="jumbotron text-center" style="background-color:#f6f4f2;">
+            <h2 class="display-5" style="padding-top:120px">Detailed Product</h2>
+            <p class="lead">Shop</p>
+        </div>
+    </div>
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "silverstaronline";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    if (isset($_GET['product_id'])) {
+        $produtId = $_GET['product_id'];
+        // You can now use $myVariable in this page.
+    }
+
+    $sql = "SELECT * FROM `products` WHERE id = $produtId";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+    }
+
+
+    ?>
+    <?php if (isset($user)): ?>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="col col-12">
+                        <?php
+                        $sql2 = "SELECT image FROM `product_images` WHERE product_id = $produtId";
+                        $result2 = mysqli_query($conn, $sql2);
+                        if (mysqli_num_rows($result2) > 0) {
+                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                                if ($firstImage === null) {
+                                    $firstImage = $row2['image'];
+                                    ;
+                                }
+                                ?>
+                                <img src="<?php echo $row2['image']; ?>" alt="Image" class="img-fluid mb-2 square-image"
+                                    onclick="replaceImage(this)">
+                                <?php
+                            }
+                        }
+                        ?>
+                        <!-- <img src="images/second-slider-inner-image-1-2.jpg" alt="Image" class="img-fluid mb-2 square-image"
+                            onclick="replaceImage(this)">
+                        <img src="images/second-slider-inner-image2.jpg" alt="Image" class="img-fluid mb-2 square-image"
+                            onclick="replaceImage(this)">
+                        <img src="images/second-slider-inner-image22.jpg" alt="Image" class="img-fluid mb-2 square-image"
+                            onclick="replaceImage(this)"> -->
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-start">
+                    <div class="image-container" onmousemove="zoomImage(event)">
+                        <img src="<?php echo $firstImage; ?>" alt="Image" class="img-fluid" id="zoom-image">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-between">
+                    <div>
+                        <h1 style="font-size:2.9rem;">
+                            <?= $user['name'] ?>
+                        </h1>
+                        <h3 class="card-text-dinnis-h2">Price</h3>
+                        <p class="card-text-dinnis">Rs
+                            <?= $user['selling_price'] ?>
+                        </p>
+                        <h3 class="card-text-dinnis-h2 mt-2">Size </h3>
+                        <p class="card-text-dinnis">
+                            <?= $user['size'] ?>
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="card-text-dinnis-h2">description</h2>
+                        <p class="card-text-dinnis">
+                            <?= $user['description'] ?>
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <h3>Quantity</h3>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-light border" id="decrementBtn">-</button>
+                                </span>
+                                <input type="text" class="form-control text-center" id="quantityInput"
+                                    value="<?= $user['quantity'] ?>" min="1" max="100">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-light border" id="incrementBtn">+</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <form id="addToCartForm" method="post"
+                            action="backend-of-frontend/add-to-cart-logic-for-detailed-page.php">
+                            <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
+                            <input type="hidden" name="quantity" id="quantityHiddenInput" value="<?= $user['quantity'] ?>">
+                            <button type="submit" class="black-button">
+                                <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container mt-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: inherit;font-size: 20px;" id="reviews-tab" data-toggle="tab"
+                        href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="size-tab" data-toggle="tab" href="#size"
+                        role="tab" aria-controls="size" aria-selected="false">Size</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="shipping-returns-tab" data-toggle="tab"
+                        href="#shipping-returns" role="tab" aria-controls="shipping-returns" aria-selected="false">Shipping
+                        and Returns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="more-products-tab" data-toggle="tab"
+                        href="#more-products" role="tab" aria-controls="more-products" aria-selected="false">Additional
+                        Information</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active border-bottom border-left border-right px-5 py-5" id="reviews"
+                    role="tabpanel" aria-labelledby="reviews-tab">
+                    <!-- Reviews content goes here -->
+                    <h3>What the product has to say</h3>
+                    <p class="card-text-dinnis">
+                        <?= $user['description'] ?>
+                    </p>
+                </div>
+                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="size" role="tabpanel"
+                    aria-labelledby="size-tab">
+                    <!-- Size information goes here -->
+                    <p class="card-text-dinnis">
+                        <?= $user['size'] ?>
+                    </p>
+                </div>
+                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="shipping-returns"
+                    role="tabpanel" aria-labelledby="shipping-returns-tab">
+                    <!-- Shipping and Returns information goes here -->
+                    <h3>Our Policies</h3>
+                    <p class="card-text-dinnis">
+                        <?= $user['shipping_and_return'] ?>
+                    </p>
+                </div>
+                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="more-products"
+                    role="tabpanel" aria-labelledby="more-products-tab">
+                    <!-- More Products content goes here -->
+
+                    <p class="card-text-dinnis">
+                        <?= $user['additional_information'] ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+
+    <div class=" mx-5 my-5 text-center">
+        <h1 class="mx-5 my-5">Latest Beauty</h1>
+        <div class="row text-center">
+            <?php include "backend-of-frontend/fetch-latest-beauty.php" ?>
+        </div>
+    </div>
+
+
+
+
+
+    <?php include "footer.php" ?>
+    <script>
+        function zoomImage ( event ) {
+            const container = document.querySelector( '.image-container' );
+            const image = document.querySelector( '#zoom-image' );
+            const containerRect = container.getBoundingClientRect();
+
+            // Calculate the mouse position relative to the container
+            const x = ( event.clientX - containerRect.left ) / containerRect.width;
+            const y = ( event.clientY - containerRect.top ) / containerRect.height;
+
+            // Apply zoom effect with the mouse position as the transform origin
+            image.style.transformOrigin = `${ x * 100 }% ${ y * 100 }%`;
+            image.style.transform = 'scale(1.5)'; // Adjust the scale factor as needed
+        }
+
+        // Reset the zoom when the mouse leaves the container
+        document.querySelector( '.image-container' ).onmouseleave = function () {
+            const image = document.querySelector( '#zoom-image' );
+            image.style.transform = 'scale(1)';
+        };
+        function replaceImage ( clickedImage ) {
+            // Get the source of the clicked image
+            var newImageSrc = clickedImage.src;
+
+            // Get the image in the col-md-4 section
+            var zoomImage = document.getElementById( "zoom-image" );
+
+            // Replace the src of the col-md-4 image with the clicked image's src
+            zoomImage.src = newImageSrc;
+        }
+
+    </script>
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+            var quantityInput = document.getElementById( 'quantityInput' );
+            var quantityHiddenInput = document.getElementById( 'quantityHiddenInput' );
+            var decrementButton = document.getElementById( 'decrementBtn' );
+            var incrementButton = document.getElementById( 'incrementBtn' );
+
+            decrementButton.addEventListener( 'click', function () {
+                var currentValue = parseInt( quantityInput.value, 10 );
+                if ( currentValue > 1 ) {
+                    quantityInput.value = currentValue - 1;
+                    quantityHiddenInput.value = currentValue - 1;
+                }
+            } );
+
+            incrementButton.addEventListener( 'click', function () {
+                var currentValue = parseInt( quantityInput.value, 10 );
+                quantityInput.value = currentValue + 1;
+                quantityHiddenInput.value = currentValue + 1;
+            } );
+        } );
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

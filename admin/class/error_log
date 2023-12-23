@@ -1,0 +1,156 @@
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:03 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:04 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:05 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:06 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:20:08 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:41:16 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:41:18 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:41:29 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:41:32 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:47:04 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:47:07 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:47:21 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:50:45 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::real_escape_string(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 116
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:50:47 Asia/Kolkata] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 466
+[15-Dec-2023 20:03:36 Asia/Kolkata] PHP Warning:  imagejpeg(../../src/images/categories/thumbnails/f463cfb23caa564d2884ea62d6506124_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 269
+[15-Dec-2023 20:03:36 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/f463cfb23caa564d2884ea62d6506124_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:36 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpHyUf6y' to '../../src/images/categories/f463cfb23caa564d2884ea62d6506124_category_icon.jpeg' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:40 Asia/Kolkata] PHP Warning:  imagejpeg(../../src/images/categories/thumbnails/d68cb1bfc3f745ea952a25db600cfb43_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 269
+[15-Dec-2023 20:03:40 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/d68cb1bfc3f745ea952a25db600cfb43_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:40 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpbb7j8N' to '../../src/images/categories/d68cb1bfc3f745ea952a25db600cfb43_category_icon.jpeg' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:42 Asia/Kolkata] PHP Warning:  imagejpeg(../../src/images/categories/thumbnails/527fafa7ad0889975406c0a3c245aa00_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 269
+[15-Dec-2023 20:03:42 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/527fafa7ad0889975406c0a3c245aa00_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:42 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpXhBybN' to '../../src/images/categories/527fafa7ad0889975406c0a3c245aa00_category_icon.jpeg' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:44 Asia/Kolkata] PHP Warning:  imagejpeg(../../src/images/categories/thumbnails/79c563d20f47e37ff3f83b80bc229016_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 269
+[15-Dec-2023 20:03:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/79c563d20f47e37ff3f83b80bc229016_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php3duNRp' to '../../src/images/categories/79c563d20f47e37ff3f83b80bc229016_category_icon.jpeg' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:46 Asia/Kolkata] PHP Warning:  imagejpeg(../../src/images/categories/thumbnails/b44d95b2cc965034cc4f7d297461e6a3_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 269
+[15-Dec-2023 20:03:46 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/b44d95b2cc965034cc4f7d297461e6a3_category_icon.jpeg): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[15-Dec-2023 20:03:46 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpOfEnRV' to '../../src/images/categories/b44d95b2cc965034cc4f7d297461e6a3_category_icon.jpeg' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[20-Dec-2023 13:23:03 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/section-image3.png): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:03 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/section-image3.png): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:23:10 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/f463cfb23caa564d2884ea62d6506124_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:10 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/f463cfb23caa564d2884ea62d6506124_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:23:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in /home3/checkaic/public_html/silver_check/admin/class/operations.php:454
+Stack trace:
+#0 /home3/checkaic/public_html/silver_check/admin/class/processor.php(195): operations->delete_category('23')
+#1 {main}
+  thrown in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 454
+[20-Dec-2023 13:23:20 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/b44d95b2cc965034cc4f7d297461e6a3_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:20 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/b44d95b2cc965034cc4f7d297461e6a3_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:23:23 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in /home3/checkaic/public_html/silver_check/admin/class/operations.php:454
+Stack trace:
+#0 /home3/checkaic/public_html/silver_check/admin/class/processor.php(195): operations->delete_category('27')
+#1 {main}
+  thrown in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 454
+[20-Dec-2023 13:23:31 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/79c563d20f47e37ff3f83b80bc229016_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:31 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/79c563d20f47e37ff3f83b80bc229016_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:23:37 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/527fafa7ad0889975406c0a3c245aa00_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:37 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/527fafa7ad0889975406c0a3c245aa00_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:23:42 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/d68cb1bfc3f745ea952a25db600cfb43_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 456
+[20-Dec-2023 13:23:42 Asia/Kolkata] PHP Warning:  unlink(../../src/images/categories/thumbnails/d68cb1bfc3f745ea952a25db600cfb43_category_icon.jpeg): No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 457
+[20-Dec-2023 13:25:44 Asia/Kolkata] PHP Warning:  imagepng(../../src/images/categories/thumbnails/fa597b532c2c067cce015036fc2d7532_category_icon.png): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 282
+[20-Dec-2023 13:25:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/categories/fa597b532c2c067cce015036fc2d7532_category_icon.png): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[20-Dec-2023 13:25:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpnrUIuO' to '../../src/images/categories/fa597b532c2c067cce015036fc2d7532_category_icon.png' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 362
+[20-Dec-2023 14:16:44 Asia/Kolkata] PHP Warning:  imagepng(../../src/images/subcategories/thumbnails/ef59423b91e813e1e8123a715cc2526b_subcategory_icon.png): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 282
+[20-Dec-2023 14:16:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/subcategories/ef59423b91e813e1e8123a715cc2526b_subcategory_icon.png): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 497
+[20-Dec-2023 14:16:44 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php7NZ3U2' to '../../src/images/subcategories/ef59423b91e813e1e8123a715cc2526b_subcategory_icon.png' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 497
+[20-Dec-2023 16:13:06 Asia/Kolkata] PHP Warning:  move_uploaded_file(../../src/images/slider/7bab53427bd9ff12cccf4d1bc87ff13f_slider_image.png): failed to open stream: No such file or directory in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 1036
+[20-Dec-2023 16:13:06 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phplhzOdP' to '../../src/images/slider/7bab53427bd9ff12cccf4d1bc87ff13f_slider_image.png' in /home3/checkaic/public_html/silver_check/admin/class/operations.php on line 1036

@@ -1,0 +1,248 @@
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: products_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 32
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: todays_orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 52
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 72
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: user_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 92
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[12-Dec-2023 00:16:16 Asia/Kolkata] PHP Notice:  Undefined variable: numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 136
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: products_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 32
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: todays_orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 52
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 72
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: user_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 92
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:10:14 Asia/Kolkata] PHP Notice:  Undefined variable: numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 136
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: products_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 32
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: todays_orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 52
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: orders_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 72
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: user_numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 92
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 41
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 64
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 65
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Warning:  database::sql(): Couldn't fetch mysqli in /home3/checkaic/public_html/silver_check/admin/config/conn.php on line 88
+[14-Dec-2023 15:46:42 Asia/Kolkata] PHP Notice:  Undefined variable: numrows in /home3/checkaic/public_html/silver_check/admin/index.php on line 136
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[15-Dec-2023 20:00:27 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[16-Dec-2023 16:30:17 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[16-Dec-2023 23:33:53 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[20-Dec-2023 13:21:52 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 57
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 60
+[20-Dec-2023 13:26:48 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 74
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:36:40 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 13:40:01 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:07:59 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[20-Dec-2023 14:08:31 Asia/Kolkata] PHP Notice:  Undefined index: products in /home3/checkaic/public_html/silver_check/admin/view_order_details.php on line 67
+[20-Dec-2023 14:08:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home3/checkaic/public_html/silver_check/admin/view_order_details.php on line 71
+[20-Dec-2023 14:08:31 Asia/Kolkata] PHP Warning:  Illegal string offset 'captain_id' in /home3/checkaic/public_html/silver_check/admin/view_order_details.php on line 245
+[20-Dec-2023 14:08:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home3/checkaic/public_html/silver_check/admin/invoice.php on line 75
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[20-Dec-2023 16:10:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[20-Dec-2023 18:14:01 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[20-Dec-2023 20:32:15 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 14:18:03 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 14:23:30 Asia/Kolkata] PHP Notice:  Trying to access array offset on value of type null in /home3/checkaic/public_html/silver_check/admin/manage_orders.php on line 78
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 15:11:16 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 15:11:19 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 15:11:22 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 15:12:11 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 20:24:58 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined index: admin_email in /home3/checkaic/public_html/silver_check/admin/header.php on line 14
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 96
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 97
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 111
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/header.php on line 300
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_useremail in /home3/checkaic/public_html/silver_check/admin/header.php on line 307
+[22-Dec-2023 23:26:25 Asia/Kolkata] PHP Notice:  Undefined variable: login_username in /home3/checkaic/public_html/silver_check/admin/index.php on line 12

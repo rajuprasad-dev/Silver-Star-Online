@@ -1,0 +1,404 @@
+
+
+/* Add custom CSS styles for your background image section */
+.background-section {
+    background-image: url('images/reviews.jpg'); /* Replace 'your-background-image.jpg' with your image path */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+.text-black
+{
+    color:black;
+}
+
+.black-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0; /* Sharp edges */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.white-button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 0; /* Sharp edges */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.black-button:hover {
+  background-color: #333; /* Darker color on hover */
+}
+
+.header-font
+{
+  font-family: 'Alegreya Sans SC', sans-serif;
+font-family: 'Bungee', sans-serif;
+font-family: 'Montserrat', sans-serif;
+}
+a:hover
+{
+  color:black;
+  text-decoration: none;
+}
+a
+{
+  font-size:15px;
+  color:black;
+  text-decoration: none;
+}
+/* Custom CSS for the image grid */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+  /* Adjust this value for outer spacing */
+}
+
+.image-grid .col {
+  flex: 0 0 calc(25% - 20px);
+  /* 25% width with 20px horizontal padding */
+  margin-bottom: 15px;
+  /* Adjust this value for vertical spacing */
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Style for the dropdown container */
+.dropdown-nav-dinnis {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-input
+  {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;;
+  }
+
+/* Style for the dropdown button */
+.dropdown-button-nav-dinnis {
+  background-color: rgba(0, 0, 0, 0);
+  ;
+  color: rgba(0, 0, 0, .5);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content-nav-dinnis {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .dropdown-button-nav-dinnis {
+    padding: 0rem 0rem;
+  }
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 45%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+} 
+
+.carousel-control-prev .carousel-control-prev-icon, .carousel-control-next .carousel-control-next-icon {
+  color: black; /* Set the arrow background color to black */
+  border:none;
+}
+
+/* You may also want to change the border color if it's not black by default */
+.carousel-control-prev, .carousel-control-next {
+  border:none;
+}
+
+/* Style for the dropdown items */
+.dropdown-content-nav-dinnis a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown items on hover */
+.dropdown-content-nav-dinnis a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown content when hovering over the dropdown button */
+.dropdown-nav-dinnis:hover .dropdown-content-nav-dinnis {
+  display: block;
+}
+
+
+.cursive-title {
+  color: #FFFFFF;
+  font-family: "Alex Brush", Sans-serif;
+  font-size: 94px;
+  font-weight: 700;
+  line-height: 0.55em;
+  letter-spacing: 0px;
+}
+
+@media (min-width: 768px) {
+  .col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 20%;
+  }
+}
+
+
+
+
+.row-dinnis {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px;
+}
+
+/* Custom CSS to remove borders */
+.card {
+  border: none;
+}
+.card:hover .change-image {
+  background-image: url('images/elsa.jpg'); /* Set the new background image on hover */
+}
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0;
+}
+
+
+
+.card-image
+{
+  position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.btn-dinnis {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: transparent;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.card:hover .btn-dinnis {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black; /* You can also change the text color on hover if needed */
+
+}
+
+ 
+
+
+.zoom-image {
+  max-width: 100%; /* Ensure the image doesn't exceed the card width */
+  transition: transform 0.3s;
+}
+
+.card-image:hover .zoom-image {
+  transform: scale(1.2); /* Increase the scale to zoom in (adjust as needed) */
+}
+
+
+
+
+
+.square-image {
+  width: 100%;
+  padding-bottom: 25%;
+  object-fit: cover;
+}
+
+.card-text-dinnis {
+  font-family: inherit;
+  font-size: 1.0rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #999;
+  text-transform: none;
+  margin: 0 0 0 0;
+}
+
+.card-text2-dinnis {
+  font-family: inherit;
+  font-size: 1.0rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #333;
+  text-transform: none;
+  margin: 0 0 0 0;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+
+}
+
+.card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-image {
+  height: 200px;
+  /* Adjust the height as needed */
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Custom styles for the link */
+.custom-link {
+  text-decoration: none;
+  position: relative;
+}
+
+/* Create the underline element with initial width of 0 */
+.custom-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  /* Adjust the height of the underline as needed */
+  background-color: black;
+  /* Adjust the color as needed */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s;
+  /* Adjust the transition duration as needed */
+}
+
+
+/* Hover effect to increase the width to 100% */
+.custom-link:hover::before {
+  width: 100%;
+}
+
+
+
+/* Custom styles for the link */
+.custom-link2 {
+  text-decoration: none;
+  position: relative;
+}
+
+/* Create the underline element with initial width of 0 */
+.custom-link2::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  /* Adjust the height of the underline as needed */
+  background-color: white;
+  /* Adjust the color as needed */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s;
+  /* Adjust the transition duration as needed */
+}
+
+.custom-link2:hover::before {
+  width: 100%;
+}
+
+
+.no-border {
+  border: none;
+}
+/* Hover effect to increase the width to 100% */
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.overlay h2 {
+  color: white;
+}
+
+.overlay a {
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+input::placeholder
+{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.navbar {
+  transition: background-color 0.3s;
+  /* Set the initial background color of the navbar */
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.hero {
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
