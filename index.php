@@ -6,94 +6,68 @@ session_start();
 
 <?php include "head.php" ?>
 <style>
-/* Custom CSS for controlling the image size */
-.carousel-control-prev img,
-.carousel-control-next img {
-    width: 8vw;
-    /* Set the desired width */
-    height: auto;
-    /* Automatically adjust the height to maintain the aspect ratio */
-}
-
-button:focus {
-    outline: none;
-}
-
-@media only screen and (max-width: 767px) {
-
-    /* Styles for mobile screens (using only row class) */
-    #categories {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-.image-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: -50px;
-}
-
-@media (min-width: 768px) {
-
-    .icon-width {
+    /* Custom CSS for controlling the image size */
+    .carousel-control-prev img,
+    .carousel-control-next img {
         width: 8vw;
+        /* Set the desired width */
+        height: auto;
+        /* Automatically adjust the height to maintain the aspect ratio */
     }
 
-}
-
-@media (max-width: 767px) {
-
-    .icon-width {
-        width: 10vw;
+    button:focus {
+        outline: none;
     }
 
-}
+    @media only screen and (max-width: 767px) {
 
-.facebook {
-    background: #3B5998;
-    color: white;
-}
+        /* Styles for mobile screens (using only row class) */
+        #categories {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: -50px;
+    }
+
+    @media (min-width: 768px) {
+
+        .icon-width {
+            width: 8vw;
+        }
+
+    }
+
+    @media (max-width: 767px) {
+
+        .icon-width {
+            width: 10vw;
+        }
+
+    }
+
+    .facebook {
+        background: #3B5998;
+        color: white;
+    }
 
 
-.instagram {
-    background: #25D366;
-    color: white;
-}
+    .instagram {
+        background: #25D366;
+        color: white;
+    }
 
 
 
-.youtube {
-    background: #bb0000;
-    color: white;
-}
-
-
-.sticky-buttons-icons {
-    z-index: 999;
-    position: fixed;
-    top: 50%;
-    width: auto;
-    background-color: white;
-    /* Adjust as needed */
-    padding: 0px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    /* Optional: Add a shadow for visual separation */
-}
-
-.sticky-buttons-icons a {
-    display: block;
-    text-align: center;
-    padding: 16px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 15px;
-}
-}
-
-/* Styles for screens up to 768px (Mobile) */
-@media screen and (min-width: 768px) {
+    .youtube {
+        background: #bb0000;
+        color: white;
+    }
 
 
     .sticky-buttons-icons {
@@ -114,9 +88,35 @@ button:focus {
         padding: 16px;
         transition: all 0.3s ease;
         color: white;
-        font-size: 20px;
+        font-size: 15px;
     }
-}
+    }
+
+    /* Styles for screens up to 768px (Mobile) */
+    @media screen and (min-width: 768px) {
+
+
+        .sticky-buttons-icons {
+            z-index: 999;
+            position: fixed;
+            top: 50%;
+            width: auto;
+            background-color: white;
+            /* Adjust as needed */
+            padding: 0px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            /* Optional: Add a shadow for visual separation */
+        }
+
+        .sticky-buttons-icons a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+    }
 </style>
 
 <body>
@@ -156,16 +156,14 @@ button:focus {
         <h1 class="mx-5 my-5">Latest Beauty</h1>
         <div class="row text-center">
             <?php
-      if(isset($_POST['product_name']))
-      {
-        include "backend-of-frontend/fetch-latest-beauty-with-search.php" ;
+            if (isset($_POST['product_name'])) {
+                include "backend-of-frontend/fetch-latest-beauty-with-search.php";
 
-      }else
-      {
+            } else {
 
-        include "backend-of-frontend/fetch-latest-beauty.php" ;
-      }
-      ?>
+                include "backend-of-frontend/fetch-latest-beauty.php";
+            }
+            ?>
 
             <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
         <div class="card" onmouseover="changeImage(this, 'images/earings2.jpg')"
@@ -251,7 +249,7 @@ button:focus {
 
     <div style="margin-bottom:100px;margin-top:100px;" class="text-center">
         <h1>NEW COLLECTION</h1>
-        <div id="myUniqueCarousel2" class="carousel slide" data-ride="carousel">
+        <div id="myUniqueCarousel2" class="carousel slide mt-4" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myUniqueCarousel2" data-slide-to="0" class="active"></li>
@@ -385,101 +383,50 @@ button:focus {
         </div>
     </section>
 
-
-    <div class="mx-5 text-center">
-        <h1 class="mx-3 my-5">instagram</h1>
-        <div class="image-grid mt-5">
-            <!-- Images at the top -->
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-1.jpg"
-                    alt="Image 1" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-2.jpg"
-                    alt="Image 2" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-3.jpg"
-                    alt="Image 3" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-4.jpg"
-                    alt="Image 4" class="img-fluid square-image">
-            </div>
-
-            <!-- Images at the bottom -->
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-5.jpg"
-                    alt="Image 5" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-6.jpg"
-                    alt="Image 6" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-7.jpg"
-                    alt="Image 7" class="img-fluid square-image">
-            </div>
-            <div class="col">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-8.jpg"
-                    alt="Image 8" class="img-fluid square-image">
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="alertModal" data-backdrop="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="modal-title">Notification</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <?php
+    /*
+        <div class="mx-5 text-center">
+            <h1 class="mx-3 my-5">instagram</h1>
+            <div class="image-grid mt-5">
+                <!-- Images at the top -->
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-1.jpg"
+                        alt="Image 1" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-2.jpg"
+                        alt="Image 2" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-3.jpg"
+                        alt="Image 3" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-4.jpg"
+                        alt="Image 4" class="img-fluid square-image">
                 </div>
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Product Added to Cart
+                <!-- Images at the bottom -->
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-5.jpg"
+                        alt="Image 5" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-6.jpg"
+                        alt="Image 6" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-7.jpg"
+                        alt="Image 7" class="img-fluid square-image">
+                </div>
+                <div class="col">
+                    <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/instagram-gallery-img-8.jpg"
+                        alt="Image 8" class="img-fluid square-image">
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="modal" id="loginAlertModal" data-backdrop="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="modal-title">Notification</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Login before adding to cart
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="alreadyAddedAlertModal" data-backdrop="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h5 class="modal-title">Notification</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Product Already Added
-                </div>
-            </div>
-        </div>
-    </div>
+    */
+    ?>
 
     <?php include "footer.php" ?>
 
@@ -488,78 +435,18 @@ button:focus {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-    function changeImage(card, newImageSrc) {
-        const image = card.querySelector('img');
-        image.src = newImageSrc;
-    }
+        function changeImage ( card, newImageSrc ) {
+            const image = card.querySelector( 'img' );
+            image.src = newImageSrc;
+        }
 
-    function restoreImage(card, originalImageSrc) {
-        const image = card.querySelector('img');
-        image.src = originalImageSrc;
-    }
+        function restoreImage ( card, originalImageSrc ) {
+            const image = card.querySelector( 'img' );
+            image.src = originalImageSrc;
+        }
     </script>
 
+    <?php include_once "show-alert.php"; ?>
 </body>
 
 </html>
-
-<script>
-// Function to show the alert
-
-
-function showAlert() {
-    $('#alertModal').modal('show');
-    setTimeout(function() {
-        $('#alertModal').modal('hide');
-    }, 3000);
-}
-
-function showAlert1() {
-    $('#loginAlertModal').modal('show');
-    setTimeout(function() {
-        $('#loginAlertModal').modal('hide');
-    }, 3000);
-}
-
-function showAlert2() {
-    $('#alreadyAddedAlertModal').modal('show');
-    setTimeout(function() {
-        $('#alreadyAddedAlertModal').modal('hide');
-    }, 3000);
-}
-
-<?php
-  if (isset($_SESSION['already_added']) && !empty($_SESSION['already_added'])) {
-    echo 'showAlert2();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['already_added'] = '';
-  }
-  ?>
-// Check if the session variable is set
-<?php
-
-  if (isset($_SESSION['cart_alert']) && !empty($_SESSION['cart_alert'])) {
-    echo 'showAlert();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['cart_alert'] = '';
-  }
-  ?>
-
-<?php
-  if (isset($_SESSION['login_cart_alert']) && !empty($_SESSION['login_cart_alert'])) {
-    echo 'showAlert1();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['login_cart_alert'] = '';
-  }
-  ?>
-
-// Event listener for keypress
-document.addEventListener("keydown", function(event) {
-    if (event.key === "a") {
-        showAlert();
-    }
-});
-
-// Event listener for button click
-document.getElementById("showAlert").addEventListener("click", showAlert);
-</script>

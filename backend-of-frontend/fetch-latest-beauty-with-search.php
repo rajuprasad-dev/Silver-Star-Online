@@ -1,15 +1,6 @@
 <?php
-// Establish a database connection (you should have a database connection script)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-$conn = new mysqli($servername, $username, $password, $dbname);
+include_once "conn.php";
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 // SQL query to fetch the latest beauty products
 $sql = "SELECT p.*, c.name AS category_name, sc.name AS subcategory_name, pi.image
         FROM products p
@@ -32,7 +23,7 @@ if ($result->num_rows > 0) {
             <a href="detailed-product.php?product_id=<?= $row['id'] ?>">
                 <?php
                 $product_id = $row['id'];
-                $queryimage = "SELECT image FROM product_images WHERE product_id = $product_id LIMIT 2";
+                $queryimage = "SELECT `image` FROM `product_images` WHERE `product_id` = $product_id LIMIT 2";
                 $resultimage = $conn->query($queryimage);
                 if ($resultimage) {
                     // Initialize an array to store the images
@@ -40,21 +31,21 @@ if ($result->num_rows > 0) {
 
                     // Fetch the images and store them in the array
                     while ($rowimage = $resultimage->fetch_assoc()) {
-                        $images[] = $rowimage['image'];
+                        $images[] = check_image("src/images/products/thumbnails/" . $rowimage['image']);
 
                     }
-                    if ($images['1'] == "") {
-                        $images["1"] = $images["0"];
+                    if (empty($images[1])) {
+                        $images[1] = $images[0];
                     }
                 }
 
 
                 ?>
-                <div class="card" onmouseover="changeImage(this, '<?= $images['1'] ?>')"
-                    onmouseout="restoreImage(this, '<?= $images['0'] ?>')">
+                <div class="card mb-3" onmouseover="changeImage(this, '<?= $images[1]; ?>')"
+                    onmouseout="restoreImage(this, '<?= $images[0]; ?>')">
                     <div class="card" style="position: relative; overflow: hidden;">
-                        <img src="<?= $row['image'] ?>" alt="<?= $row['name'] ?>"
-                            style="height: 350px; width: 100%; object-fit: cover;">
+                        <img src="<?= check_image("src/images/products/thumbnails/" . $row['image']); ?>"
+                            alt="<?= $row['name'] ?>" style="height: 350px; width: 100%; object-fit: cover;">
                     </div>
                     <div class="card-body text-left">
                         <form method="post" action="backend-of-frontend/add-to-cart-logic.php">
@@ -68,12 +59,12 @@ if ($result->num_rows > 0) {
                             </b></h5>
                         <p class="card-text2-dinnis">
                             <span class="custom-link">
-                                <?= $row['category_name'] . ', ' . $row['subcategory_name'] ?>
+                                <?= $row['category_name']; ?>
                             </span>
                         </p>
                         <p class="card-text2-dinnis mt-3">
                             <span class="custom-link">Rs
-                                <?= $row['selling_price'] ?>
+                                <?= $row['selling_price']; ?>
                             </span>
                         </p>
                     </div>
@@ -86,7 +77,4 @@ if ($result->num_rows > 0) {
 } else {
     echo "No products found.";
 }
-
-// Close the database connection
-$conn->close();
 ?>

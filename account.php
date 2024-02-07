@@ -107,9 +107,12 @@
             }
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            $sqlorder = "SELECT * FROM `orders` WHERE customer_id = $userId";
+            $sqlorder = "SELECT * FROM `orders` WHERE `customer_id` = '$userId'";
 
             $resultorder = $conn->query($sqlorder);
+
+            // echo $sqlorder;
+            // print_r($resultorder);
             ?>
             <!-- Container on the right side -->
 
@@ -119,7 +122,6 @@
                     <div class="row text-center">
                         <table class="table" style="border: none;">
                             <thead>
-
                                 <tr>
                                     <th style="border-top: none;padding-bottom:50px;font-size:14px"><span
                                             class="custom-link">Order
@@ -165,6 +167,12 @@
                                         </tr>
                                         <?php
                                     }
+                                } else {
+                                    echo '<tr>
+                                            <td style="border: none;padding-top:50px;padding-bottom:50px;font-size:14px;" colspan="5">
+                                            No Orders Available
+                                            </td>
+                                        </tr>';
                                 }
 
                                 // Close the database connection
@@ -274,7 +282,7 @@
 
                 ?>
                 <?php
-                if (isset($userDetails)):
+                if (isset($userDetails)) {
                     ?>
                     <div class=" mx-5 my-5 text-center">
                         <div class="row text-left" id="accountDetailsContent" style="display: none;">
@@ -337,7 +345,7 @@
                         </div>
                     </div>
                     <?php
-                endif;
+                }
                 ?>
                 <?php
                 $servername = "localhost";
@@ -345,10 +353,6 @@
                 $password = "";
                 $dbname = "neocart";
 
-                if (isset($_SESSION['userId'])) {
-                    $userId = $_SESSION['userId'];
-                    // You can now use $myVariable in this page.
-                }
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 $sqluserAddress = "SELECT * FROM `customers` WHERE id = $userId";
@@ -358,7 +362,7 @@
                 }
                 ?>
                 <?php
-                if (isset($userAddress)):
+                if (isset($userAddress)) {
                     ?>
                     <div class=" mx-5 my-5 text-left" id="addressContent" style="display: none;">
                         <div class="container my-5">
@@ -430,7 +434,7 @@
                         </div>
                     </div>
                     <?php
-                endif;
+                }
                 ?>
                 <div class=" mx-5 my-5 text-left" id="orderDetailsContent" style="display: none;">
                     <div class="container my-5">
@@ -507,9 +511,6 @@
             const image = card.querySelector( 'img' );
             image.src = originalImageSrc;
         }
-
-
-
     </script>
     <script>
         function showContent ( contentId ) {

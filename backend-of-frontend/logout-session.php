@@ -6,6 +6,6 @@ session_start();
 session_destroy();
 
 // Redirect to index.php
-header("Location: https://silver.checkai.in/");
+header("Location: ../");
 exit();
 ?>

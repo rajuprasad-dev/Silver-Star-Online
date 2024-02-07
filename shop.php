@@ -1,11 +1,13 @@
+<?php
+session_start();
+include_once "backend-of-frontend/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
 <?php include "head.php" ?>
 
 <body>
-
-
     <?php include "navbar.php"; ?>
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
@@ -18,33 +20,12 @@
         <div class="row">
             <!-- Side Navigation without borders or background color -->
             <div class="col-md-3 px-5 py-5 text-center text-md-left">
-                <h3>Categories</h3>
-                <form action="shop.php" method="post">
+                <h2>Categories</h2>
+                <form action="shop.php" method="post" class="my-5">
                     <ul class="list-group">
                         <?php
-                        // Your database connection code goes here
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "silverstaronline";
-
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-
-                        // Check the connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
-
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
                         // Select categories and subcategories
-                        $query = "SELECT c.id as category_id, c.name as category_name, c.icon as category_icon, 
-                         s.id as subcategory_id, s.name as subcategory_name, s.icon as subcategory_icon 
-                  FROM categories c
-                  LEFT JOIN subcategories s ON c.id = s.category";
+                        $query = "SELECT `id` as `category_id`, `name` as `category_name`, `icon` as `category_icon` FROM `categories`";
 
                         $result = $conn->query($query);
 
@@ -58,45 +39,39 @@
                                     $categories[$categoryId] = [
                                         "name" => $row["category_name"],
                                         "icon" => $row["category_icon"],
-                                        "subcategories" => [],
-                                    ];
-                                }
-
-                                // Add subcategories to the corresponding category
-                                if ($row["subcategory_id"] !== null) {
-                                    $categories[$categoryId]["subcategories"][] = [
-                                        "id" => $row["subcategory_id"],
-                                        "name" => $row["subcategory_name"],
-                                        "icon" => $row["subcategory_icon"],
                                     ];
                                 }
                             }
 
                             // Display the categories and subcategories in a dropdown
                             foreach ($categories as $categoryId => $category) {
-                                echo '<li class="list-group-item" style="border: 0px;">';
+                                $category_name = str_replace([' ', "\n", "\r", "\t"], '_', $category["name"]);
+                                $post_category = str_replace([' ', "\n", "\r", "\t"], '_', ($_POST['category'] ?? ""));
+                                $activeClass = $post_category == $category_name ? " border-primary border-top-1 rounded" : " border-0";
+                                // echo $activeClass;
+                        
+                                echo '<li class="list-group-item custom-list mb-2' . $activeClass . '">';
                                 echo '<button type="submit" name="category" value="' . $category["name"] . '" style="background: none; border: none; cursor: pointer;">';
+                                echo "<img src='" . check_image("src/images/categories/thumbnails/" . $category["icon"]) . "' height='40' width='40' style='object-fit: cover; border-radius: 10px; margin-right: 10px;' />";
                                 echo $category["name"];
                                 echo '</button>';
 
-                                // Display subcategories as options in a nested list
-                                if (!empty($category["subcategories"])) {
-                                    echo '<ul style="list-style-type:none;">';
-                                    foreach ($category["subcategories"] as $subcategory) {
-                                        echo '<li>';
-                                        echo '<button type="submit" name="subcategory" value="' . $subcategory["name"] . '" style="background: none; border: none; cursor: pointer;">';
-                                        echo $subcategory["name"];
-                                        echo '</button>';
-                                        echo '</li>';
-                                    }
-                                    echo '</ul>';
-                                }
-
+                                // // Display subcategories as options in a nested list
+                                // if (!empty($category["subcategories"])) {
+                                //     echo '<ul style="list-style-type:none;">';
+                                //     foreach ($category["subcategories"] as $subcategory) {
+                                //         echo '<li>';
+                                //         echo '<button type="submit" name="subcategory" value="' . $subcategory["name"] . '" style="background: none; border: none; cursor: pointer;">';
+                                //         echo $subcategory["name"];
+                                //         echo '</button>';
+                                //         echo '</li>';
+                                //     }
+                                //     echo '</ul>';
+                                // }
+                        
                                 echo '</li>';
                             }
                         }
-
-                        $conn->close();
                         ?>
 
                     </ul>
@@ -128,60 +103,22 @@
 
             <!-- Container on the right side -->
             <div class="col-md-9">
-                <div class=" mx-5 my-5 text-center">
-                    <h1 class="mx-5 my-5">
+                <div class="mx-5 my-5">
+                    <h2 class="my-5">
                         <?php if (isset($_POST['category'])) {
                             echo $_POST['category'];
                         } ?>
-                        <?php if (isset($_POST['subcategory'])) {
-                            echo $_POST['subcategory'];
-                        } ?>
-                    </h1>
+                    </h2>
                     <div class="row text-center">
                         <?php
-                        // Establish a database connection (you should have a database connection script)
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "silverstaronline";
-
-
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-
-                        // Check the connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
                         if (isset($_POST['category'])) {
                             $category = $_POST['category'];
                             // SQL query to fetch the latest beauty products
-                            $sql = "SELECT p.*, c.name AS category_name, sc.name AS subcategory_name, pi.image
-        FROM products p
-        INNER JOIN categories c ON p.category = c.id
-        LEFT JOIN subcategories sc ON p.subcategory = sc.id
-        LEFT JOIN product_images pi ON p.id = pi.product_id
-        WHERE c.name = '$category'
-        LIMIT 0, 4";
+                            $sql = "SELECT p.*, c.name AS `category_name`, pi.image FROM products p INNER JOIN categories c ON p.category = c.id LEFT JOIN product_images pi ON p.id = pi.product_id WHERE c.name = '$category'";
 
                             $result = $conn->query($sql);
-                        } else if (isset($_POST['subcategory'])) {
-                            $subcategory = $_POST['subcategory'];
-                            // SQL query to fetch the latest beauty products
-                            $sql = "SELECT p.*, c.name AS category_name, sc.name AS subcategory_name, pi.image
-                        FROM products p
-                        INNER JOIN categories c ON p.category = c.id
-                        LEFT JOIN subcategories sc ON p.subcategory = sc.id
-                        LEFT JOIN product_images pi ON p.id = pi.product_id
-                        WHERE sc.name = '$subcategory'
-                        LIMIT 0, 4";
                         } else {
-                            $sql = "SELECT p.*, c.name AS category_name, sc.name AS subcategory_name, pi.image
-    FROM products p
-    INNER JOIN categories c ON p.category = c.id
-    LEFT JOIN subcategories sc ON p.subcategory = sc.id
-    LEFT JOIN product_images pi ON p.id = pi.product_id
-    WHERE c.name = 'Latest Beauty'
-    LIMIT 0, 4";
+                            $sql = "SELECT p.*, c.name AS `category_name`, pi.image FROM products p INNER JOIN categories c ON p.category = c.id LEFT JOIN product_images pi ON p.id = pi.product_id WHERE c.name = 'Latest Beauty'";
 
                             $result = $conn->query($sql);
                         }
@@ -190,12 +127,14 @@
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 ?>
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                                     <a href="detailed-product.php?product_id=<?= $row['id'] ?>">
-                                        <div class="card" onmouseover="changeImage(this, '<?= $row['image'] ?>')"
-                                            onmouseout="restoreImage(this, '<?= $row['image'] ?>')">
+                                        <div class="card"
+                                            onmouseover="changeImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')"
+                                            onmouseout="restoreImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')">
                                             <div class="card" style="position: relative; overflow: hidden;">
-                                                <img src="<?= $row['image'] ?>" alt="<?= $row['name'] ?>"
+                                                <img src="<?= check_image("src/images/products/thumbnails/" . $row['image']); ?>"
+                                                    alt="<?= $row['name'] ?>"
                                                     style="height: 350px; width: 100%; object-fit: cover;">
                                             </div>
                                             <div class="card-body text-left">
@@ -212,7 +151,7 @@
                                                     </b></h5>
                                                 <p class="card-text2-dinnis">
                                                     <span class="custom-link">
-                                                        <?= $row['category_name'] . ', ' . $row['subcategory_name'] ?>
+                                                        <?= $row['category_name']; ?>
                                                     </span>
                                                 </p>
                                                 <p class="card-text2-dinnis mt-3">
@@ -230,12 +169,7 @@
                         } else {
                             echo "No products found.";
                         }
-
-                        // Close the database connection
-                        $conn->close();
                         ?>
-
-
                     </div>
                 </div>
             </div>
@@ -256,10 +190,9 @@
             const image = card.querySelector( 'img' );
             image.src = originalImageSrc;
         }
-
-
-
     </script>
+
+    <?php include_once "show-alert.php"; ?>
 </body>
 
 </html>

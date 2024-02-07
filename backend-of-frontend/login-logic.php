@@ -18,7 +18,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $password = $_POST["password"];
 
     // Perform a query to fetch the user with the provided username
-    $sql = "SELECT * FROM customers WHERE name = '$username'";
+    $sql = "SELECT * FROM `customers` WHERE `name` = '$username' OR `email` = '$username'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
@@ -33,7 +33,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $_SESSION['password'] = $password;
             $_SESSION['userId'] = $row['id'];
 
-            header("Location: https://silver.checkai.in/account.php");
+            header("Location: ../account.php");
 
         } else {
 
@@ -42,11 +42,17 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $_SESSION['login_error'] = "Username or password incorrect";
 
             // Redirect using JavaScript after setting the session message
-            echo '<script>window.location.href = "https://silver.checkai.in/login.php";</script>';
+            echo '<script>window.location.href = "../login.php";</script>';
             exit();
         }
 
 
+    } else {
+        $_SESSION['login_error'] = "User doesn't exist, please register";
+
+        // Redirect using JavaScript after setting the session message
+        echo '<script>window.location.href = "../login.php";</script>';
+        exit();
     }
 }
 ?>

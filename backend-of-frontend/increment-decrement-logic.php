@@ -1,17 +1,6 @@
 <?php
-
-// Assuming you have a database connection established
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+session_start();
+include_once "conn.php";
 
 // Get values from $_POST
 $productId = $_POST['product_id'];
@@ -25,7 +14,7 @@ if (isset($increment)) {
 
     // Execute the query
     if ($conn->query($sqlIncrement) === TRUE) {
-        header("Location: http://localhost/rustam%20chauhan/ascella/cart.php");
+        header("location:" . $_SERVER['HTTP_REFERER']);
     } else {
         echo "Error updating record: " . $conn->error;
     }
@@ -40,7 +29,7 @@ if (isset($decrement)) {
         // Decrement quantity by 1
         $sqlDecrement = "UPDATE cart SET quantity = quantity - 1 WHERE product_id = $productId AND customer_id = $customerId";
         if ($conn->query($sqlDecrement) === TRUE) {
-            header("Location: https://silver.checkai.in/cart.php");
+            header("location:" . $_SERVER['HTTP_REFERER']);
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -48,7 +37,7 @@ if (isset($decrement)) {
         // Delete the product from the cart if quantity is 1
         $sqlDelete = "DELETE FROM cart WHERE product_id = $productId AND customer_id = $customerId";
         if ($conn->query($sqlDelete) === TRUE) {
-            header("Location: https://silver.checkai.in/cart.php");
+            header("location:" . $_SERVER['HTTP_REFERER']);
         } else {
             echo "Error deleting record: " . $conn->error;
         }
@@ -68,8 +57,3 @@ function getCurrentQuantity($conn, $productId, $customerId)
         return 0;
     }
 }
-
-// Close the connection
-$conn->close();
-
-?>

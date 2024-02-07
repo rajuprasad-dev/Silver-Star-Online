@@ -4,7 +4,7 @@ if (isset($_POST["product_id"])) {
 
     if (!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_SESSION['userId'])) {
         $_SESSION['login_cart_alert'] = "set";
-        header("Location: https://silver.checkai.in/");
+        header("Location: ../");
     }
 
     // Collect product_id and quantity from the form
@@ -32,7 +32,7 @@ if (isset($_POST["product_id"])) {
     if ($conn->query($insert_sql) === TRUE) {
         // Redirect to cart.php after successful insertion
         $_SESSION['cart_alert'] = "set";
-        header("Location: https://silver.checkai.in/cart.php");
+        header("Location: ../cart.php");
         exit();
     } else {
         echo "Error: " . $insert_sql . "<br>" . $conn->error;

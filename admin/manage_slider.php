@@ -1,5 +1,5 @@
 <?php
-$page="Manage Slider";
+$page = "Manage Slider";
 include("header.php");
 
 $db = new database();
@@ -7,13 +7,10 @@ $db->connect();
 
 $sql = "SELECT * FROM site_slider ORDER BY `sequence` ASC";
 
-if($db->sql($sql))
-{
+if ($db->sql($sql)) {
     $numrows = $db->numrows();
     $result = $db->result();
-}
-else
-{
+} else {
     echo "Server Error !";
 }
 ?>
@@ -24,11 +21,13 @@ else
             <div class="form-group my-4">
                 <div id="product_pic">
                     <div class="product_pic_edit">
-                        <input required="required" type='file' name="slider_images" id="product_upload" accept=".png, .jpg, .jpeg" class="form-control">
+                        <input required="required" type='file' name="slider_images" id="product_upload"
+                            accept=".png, .jpg, .jpeg" class="form-control">
                         <label for="product_upload" id="edit_product_pic_btn"></label>
                     </div>
                     <div class="product_pic_preview add_testimonials_preview">
-                        <div class="slider_images" id="product_pic_preview" style="background-image: url('./assets/images/placeholder.jpg');">
+                        <div class="slider_images" id="product_pic_preview"
+                            style="background-image: url('./assets/images/placeholder.jpg');">
                         </div>
                     </div>
                 </div>
@@ -40,21 +39,19 @@ else
                     <option value="" disabled>Select Image Position</option>
 
                     <?php
-                    if($numrows == 0)
-                    {
+                    if ($numrows == 0) {
                         echo '<option value="1">Default</option>';
-                    }
-                    elseif($numrows > 0)
-                    {
+                    } elseif ($numrows > 0) {
                         $max_seq = end($result);
-                        foreach($result as $key => $row)
-                        {
-                        ?>
-                        <option value="<?php echo $row['sequence']; ?>"><?php echo $row['sequence']; ?></option>
-                        <?php
+                        foreach ($result as $key => $row) {
+                            ?>
+                    <option value="<?php echo $row['sequence']; ?>">
+                        <?php echo $row['sequence']; ?>
+                    </option>
+                    <?php
                         }
                         ?>
-                        <option selected value="<?php echo $max_seq['sequence']+1; ?>">Default</option>
+                    <option selected value="<?php echo $max_seq['sequence'] + 1; ?>">Default</option>
                     <?php
                     }
                     ?>
@@ -63,7 +60,8 @@ else
 
             <div class="form-group mb-3 btn_group_div_main">
                 <input type="hidden" name="add_slider_image" value="1">
-                <input type="submit" name="add_slider_images" class="btn btn-primary submit_btn" value="Add Slider Images">
+                <input type="submit" name="add_slider_images" class="btn btn-primary submit_btn"
+                    value="Add Slider Images">
             </div>
         </form>
     </div>
@@ -82,13 +80,10 @@ else
 
         $sql = "SELECT * FROM site_slider ORDER BY `sequence` ASC";
 
-        if($db->sql($sql))
-        {
+        if ($db->sql($sql)) {
             $numrows = $db->numrows();
             $result = $db->result();
-        }
-        else
-        {
+        } else {
             echo "Server Error !";
         }
         ?>
@@ -104,34 +99,41 @@ else
             </thead>
             <tbody>
                 <?php
-                if($numrows > 0)
-                {
-                    foreach($result as $data)
-                    {
-                ?>
+                if ($numrows > 0) {
+                    foreach ($result as $data) {
+                        ?>
                 <tr>
                     <td>
-                        <a href="javascript:void(0);" class="font-weight-bold">SLID465<?php echo $data['id']; ?></a>
+                        <a href="javascript:void(0);" class="font-weight-bold">SLID465
+                            <?php echo $data['id']; ?>
+                        </a>
+                    </td>
+                    <td>
+                        <span class="font-weight-normal wrap_text_data">
+                            <?php echo $data['date_time']; ?>
+                        </span>
                     </td>
                     <td>
                         <img src="../src/images/slider/<?php echo $data['image']; ?>" class="img-fluid" width="200">
                     </td>
                     <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo $data['sequence']; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo $data['date_time']; ?></span>
+                        <span class="font-weight-normal wrap_text_data">
+                            <?php echo $data['sequence']; ?>
+                        </span>
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-sm">
-                            <span class="fas fa-ellipsis-h icon-dark"></span>
-                            </span>
-                            <span class="sr-only">Toggle Dropdown</span>
+                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="icon icon-sm">
+                                    <span class="fas fa-ellipsis-h icon-dark"></span>
+                                </span>
+                                <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-danger delete_slider_btn" slider-id="<?php echo base64_encode($data['id']); ?>" href="javascript:void(0);"><span class="fas fa-trash-alt mr-2"></span>Delete</a>
+                                <a class="dropdown-item text-danger delete_slider_btn"
+                                    slider-id="<?php echo base64_encode($data['id']); ?>"
+                                    href="javascript:void(0);"><span class="fas fa-trash-alt mr-2"></span>Delete</a>
                             </div>
                         </div>
                     </td>

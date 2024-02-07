@@ -8,4 +8,10 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_S
     header("Location: login.php");
     exit;
 }
+
+
+if (isset($_SESSION['userId'])) {
+    $userId = $_SESSION['userId'];
+    // You can now use $myVariable in this page.
+}
 ?>

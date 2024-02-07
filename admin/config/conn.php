@@ -209,7 +209,7 @@ class database
         // $nheight = 250;
 
         // getting data from params
-        list($width, $height) = getimagesize($tmp_image);
+        list($width, $height, $type) = getimagesize($tmp_image);
 
         $nheight = ceil($height * ($nwidth / $width));
 
@@ -220,13 +220,20 @@ class database
         $img_name = explode('.', strtolower($image_name));
         $image_type = end($img_name);
 
+        // echo $type;
+        // echo $type === IMG_JPEG ? "JPEG" : "";
+        // echo $type === IMG_PNG ? "PNG" : "";
+        // echo $type === IMG_JPG ? "JPG" : "";
+        // echo $type === IMG_GIF ? "GIF" : "";
+        // die($image_type);
+
         // checking image type and executing as per type
-        if ($image_type == 'jpeg' || $image_type == 'jpg') {
+        if ($type === IMG_JPEG || $type === IMG_JPG) {
             $source = imagecreatefromjpeg($tmp_image);
             imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
 
             imagejpeg($newimage, $path . $image_name);
-        } elseif ($image_type == 'png') {
+        } elseif ($type === IMG_PNG) {
             $source = imagecreatefrompng($tmp_image);
 
             imagecolortransparent($newimage, imagecolorallocate($newimage, 0, 0, 0));
@@ -236,7 +243,7 @@ class database
             imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
 
             imagepng($newimage, $path . $image_name);
-        } elseif ($image_type == 'gif') {
+        } elseif ($type === IMG_GIF) {
             $source = imagecreatefromgif($tmp_image);
 
             imagecolortransparent($newimage, imagecolorallocate($newimage, 0, 0, 0));

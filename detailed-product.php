@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once "backend-of-frontend/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,8 +26,6 @@
 </style>
 
 <body>
-
-
     <?php include "navbar.php"; ?>
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
@@ -32,18 +34,6 @@
         </div>
     </div>
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "silverstaronline";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     if (isset($_GET['product_id'])) {
         $produtId = $_GET['product_id'];
         // You can now use $myVariable in this page.
@@ -54,8 +44,6 @@
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
     }
-
-
     ?>
     <?php if (isset($user)): ?>
 
@@ -69,12 +57,12 @@
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row2 = mysqli_fetch_assoc($result2)) {
                                 if ($firstImage === null) {
-                                    $firstImage = $row2['image'];
+                                    $firstImage = check_image('src/images/products/thumbnails/' . $row2['image']);
                                     ;
                                 }
                                 ?>
-                                <img src="<?php echo $row2['image']; ?>" alt="Image" class="img-fluid mb-2 square-image"
-                                    onclick="replaceImage(this)">
+                                <img src="<?php echo check_image('src/images/products/thumbnails/' . $row2['image']); ?>"
+                                    alt="Image" class="img-fluid mb-2 square-image" onclick="replaceImage(this)">
                                 <?php
                             }
                         }
@@ -139,7 +127,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="container mt-5">
@@ -207,10 +194,6 @@
         </div>
     </div>
 
-
-
-
-
     <?php include "footer.php" ?>
     <script>
         function zoomImage ( event ) {
@@ -232,6 +215,7 @@
             const image = document.querySelector( '#zoom-image' );
             image.style.transform = 'scale(1)';
         };
+
         function replaceImage ( clickedImage ) {
             // Get the source of the clicked image
             var newImageSrc = clickedImage.src;
@@ -242,7 +226,6 @@
             // Replace the src of the col-md-4 image with the clicked image's src
             zoomImage.src = newImageSrc;
         }
-
     </script>
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
@@ -271,6 +254,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <?php include_once "show-alert.php"; ?>
 </body>
 
 </html>

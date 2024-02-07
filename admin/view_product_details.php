@@ -66,7 +66,7 @@ else
 
             <div class="form-group mb-4">
                 <label for="product_details">Product Details</label>
-                <div class="form-control"><?php echo ucwords(strtolower($result[0]['details'])); ?></div>
+                <div class="form-control"><?php echo ucwords(strtolower($result[0]['description'])); ?></div>
             </div>
 
             <div class="form-group mb-4">

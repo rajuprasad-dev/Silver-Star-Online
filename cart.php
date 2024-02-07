@@ -1,20 +1,7 @@
 <?php include "auth.php" ?>
 <?php
 session_start();
-
-// Assuming you have a database connection established
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+include_once "./backend-of-frontend/conn.php";
 
 // Check if the coupon form is submitted
 if (isset($_POST['coupon_code'])) {
@@ -34,6 +21,7 @@ if (isset($_POST['coupon_code'])) {
       // Check if the total cart amount is greater than or equal to the minimum value required for the coupon
       if ($_SESSION['totalCartAmount'] >= $couponDetails['min_value']) {
         // Apply the discount to the total cart amount
+        $_SESSION['coupon_code'] = $couponDetails['coupon_code'];
         $_SESSION['discount_amount'] = $couponDetails['discount'];
         $_SESSION['coupon_set'] = "set";
         echo '<script>alert("Coupon Code Added");</script>';
@@ -48,23 +36,13 @@ if (isset($_POST['coupon_code'])) {
       echo '<script>alert("Invalid coupon code.");</script>';
     }
   }
-
 }
-
-// Close the connection
-$conn->close();
 ?>
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "neocart";
-
 if (isset($_SESSION['userId'])) {
   $userId = $_SESSION['userId'];
 }
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 $sqlcart = "SELECT p.* FROM cart c INNER JOIN products p ON c.product_id = p.id WHERE c.customer_id = $userId";
 $resultcart = mysqli_query($conn, $sqlcart);
@@ -86,15 +64,9 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
     </div>
   </div>
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "neocart";
-
   if (isset($_SESSION['userId'])) {
     $userId = $_SESSION['userId'];
   }
-  $conn = new mysqli($servername, $username, $password, $dbname);
   $toalCartAmount = 0;
   $sqlcart = "SELECT p.*, c.quantity AS cart_quantity, p.quantity AS product_quantity, c.product_id AS cart_product_id, c.customer_id AS cart_customer_id
   FROM cart c
@@ -123,11 +95,15 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               </form> -->
               <tr>
                 <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Delete</span></th>
-                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Image</span></th>
-                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Name</span></th>
-                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Price</span></th>
+                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Image</span>
+                </th>
+                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Name</span>
+                </th>
+                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Price</span>
+                </th>
                 <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Quantity</span></th>
-                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Total</span></th>
+                <th style="border-top: none;padding-bottom:50px;"><span class="custom-link">Total</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -135,6 +111,22 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               if ($cartresult->num_rows > 0) {
                 while ($rowcart = $cartresult->fetch_assoc()) {
 
+                  $product_image_sql = "SELECT * FROM `product_images` WHERE `product_id` = '" . $rowcart['id'] . "' LIMIT 1";
+                  $image_result = $conn->query($product_image_sql);
+
+                  // $product_image = $image_result->fetch_assoc();
+                  // echo (json_encode($product_image['image'], JSON_PRETTY_PRINT));
+                  // die;
+              
+                  $product_image = "";
+
+                  if ($image_result->num_rows > 0) {
+                    $product_image = 'src/images/products/thumbnails/' . $image_result->fetch_assoc()['image'];
+                  }
+
+                  // echo $product_image;
+                  // die;
+              
                   $toalCartAmount = $toalCartAmount + $rowcart["selling_price"] * $rowcart["cart_quantity"];
                   ?>
                   <tr>
@@ -146,8 +138,8 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                         </button>
                       </form>
                     </td>
-                    <td style="border: none;padding-top:50px;padding-bottom:50px;"><img src="images/hero.jpg"
-                        style="width:75px;" alt="Product Image"></td>
+                    <td style="border: none;padding-top:50px;padding-bottom:50px;"><img
+                        src="<?php echo check_image($product_image); ?>" style="width:75px;" alt="Product Image"></td>
                     <td style="border: none;padding-top:50px;padding-bottom:50px;"><b>
                         <?= $rowcart['name'] ?>
                       </b></td>
@@ -180,14 +172,13 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                         </span>
                       </div>
                     </td>
-                    <td style="border: none;padding-top:50px;padding-bottom:50px;">399 Rs</td>
+                    <td style="border: none;padding-top:50px;padding-bottom:50px;">Rs
+                      <?php echo $rowcart['selling_price'] * $rowcart['cart_quantity']; ?>
+                    </td>
                   </tr>
                   <?php
                 }
               }
-
-              // Close the database connection
-              $conn->close();
               ?>
               <!-- <tr style="padding-top:50px;padding-bottom:50px;">
                 <td style="border: none;padding-top:50px;padding-bottom:50px;"><img src="images/hero.jpg"
@@ -219,14 +210,14 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
 
         <div class="card px-2 py-2" style="border:1px solid black;border-style:dashed;background-color:#F5F7F8;">
 
-          <div class="card-body px-2 py-2 text-center">
+          <div class="card-body px-2 py-2 text-left">
             <h4>Shipping </h4>
             <hr class="hr hr-blurry" />
             <?php
             if ($cartresult2->num_rows > 0) {
               while ($rowcart2 = $cartresult2->fetch_assoc()) {
                 ?>
-                <div class="card-body row justify-content-around px-2 py-2">
+                <div class="card-body row justify-content-between px-2 py-2">
                   <div>
                     <?php echo $rowcart2['name']; ?>
                   </div>
@@ -238,12 +229,25 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               <?php } ?>
             <?php } ?>
 
-            <!-- <div class="card-body row justify-content-around">
-              <div>Product 2</div>
-              <div>399 Rs </div>
-            </div> -->
+
+            <?php
+            // Calculate the discounted total
+            if (isset($_SESSION['discount_amount'])) {
+              ?>
+              <hr class="hr hr-blurry" />
+              <div class="card-body px-2 py-2  row justify-content-between">
+                <div>Coupon Discount </div>
+                <div>
+                  <?php
+                  // Calculate the discounted total
+                  echo $_SESSION['discount_amount'];
+                  ?>
+                </div>
+              </div>
+            <?php } ?>
+
             <hr class="hr hr-blurry" />
-            <div class="card-body row justify-content-around">
+            <div class="card-body px-2 py-2  row justify-content-between">
               <div>Total </div>
               <div>
                 <?php
@@ -266,22 +270,19 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-8 mb-5 row">
-
+      <div class="col-sm-5 mb-5">
         <form method="post" action="cart.php">
-
           <div class="form-group mr-2">
             <input type="text" class="form-control border-dark rounded-0" style="padding: 21px 25px;"
-              placeholder="enter your coupon code" name="coupon_code">
+              placeholder="Enter your coupon code" name="coupon_code"
+              value="<?php echo !empty($_POST['coupon_code']) ? $_POST['coupon_code'] : ($_SESSION['coupon_code'] ?? ""); ?>">
           </div>
 
           <div class="form-group">
-            <button type="submit" class="black-button">coupon code</button>
+            <button type="submit" class="black-button">Apply coupon code</button>
           </div>
 
         </form>
@@ -290,10 +291,6 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
       </div>
     </div>
   </div>
-
-
-
-
 
   <?php include "footer.php" ?>
   <script>

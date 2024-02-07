@@ -1,30 +1,18 @@
 <?php
 session_start();
+include_once "conn.php";
+
 if (isset($_POST["product_id"])) {
 
     if (!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_SESSION['userId'])) {
         $_SESSION['login_cart_alert'] = "set";
-        header("Location: https://silver.checkai.in/");
+        header("location:" . $_SERVER['HTTP_REFERER']);
     }
 
     // Collect product_id and quantity from the form
+    $customer_id = $_SESSION["userId"];
     $product_id = $_POST["product_id"];
-    $quantity = $_POST["quantity"];
-
-
-    // Start the session
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "silverstaronline";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $quantity = intval($_POST["quantity"]);
 
     // Insert the new record into the cart table
     $date_time = date("Y-m-d H:i:s"); // Current datetime
@@ -33,12 +21,9 @@ if (isset($_POST["product_id"])) {
     if ($conn->query($insert_sql) === TRUE) {
         // Redirect to cart.php after successful insertion
         $_SESSION['cart_alert'] = "set";
-        header("Location: https://silver.checkai.in/");
+        header("location:" . $_SERVER['HTTP_REFERER']);
         exit();
     } else {
         echo "Error: " . $insert_sql . "<br>" . $conn->error;
     }
-    // echo "welcome";
-    $conn->close();
 }
-?>

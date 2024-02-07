@@ -1,57 +1,77 @@
-
-
 /* Add custom CSS styles for your background image section */
-.background-section {
-    background-image: url('images/reviews.jpg'); /* Replace 'your-background-image.jpg' with your image path */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
+*,
+body {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  box-sizing: border-box;
 }
-.text-black
-{
-    color:black;
+
+button {
+  outline: none !important;
+}
+
+.list-group-item+.list-group-item.custom-list {
+  border-top-width: 1px;
+}
+
+.background-section {
+  background-image: url('images/reviews.jpg');
+  /* Replace 'your-background-image.jpg' with your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.text-black {
+  color: black;
 }
 
 .black-button {
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 0; /* Sharp edges */
+  border-radius: 0;
+  /* Sharp edges */
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
+
 .white-button {
   background-color: white;
   color: black;
   border: none;
-  border-radius: 0; /* Sharp edges */
+  border-radius: 0;
+  /* Sharp edges */
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
+
 .black-button:hover {
-  background-color: #333; /* Darker color on hover */
+  background-color: #333;
+  /* Darker color on hover */
 }
 
-.header-font
-{
+.header-font {
   font-family: 'Alegreya Sans SC', sans-serif;
-font-family: 'Bungee', sans-serif;
-font-family: 'Montserrat', sans-serif;
+  font-family: 'Bungee', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-a:hover
-{
-  color:black;
+
+a:hover {
+  color: black;
   text-decoration: none;
 }
-a
-{
-  font-size:15px;
-  color:black;
+
+a {
+  font-size: 15px;
+  color: black;
   text-decoration: none;
 }
+
 /* Custom CSS for the image grid */
 .image-grid {
   display: flex;
@@ -80,14 +100,14 @@ a
   display: inline-block;
 }
 
-.underline-input
-  {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid black;
-    border-radius: 0px;;
-  }
+.underline-input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid black;
+  border-radius: 0px;
+  ;
+}
 
 /* Style for the dropdown button */
 .dropdown-button-nav-dinnis {
@@ -123,16 +143,19 @@ a
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
-} 
+}
 
-.carousel-control-prev .carousel-control-prev-icon, .carousel-control-next .carousel-control-next-icon {
-  color: black; /* Set the arrow background color to black */
-  border:none;
+.carousel-control-prev .carousel-control-prev-icon,
+.carousel-control-next .carousel-control-next-icon {
+  color: black;
+  /* Set the arrow background color to black */
+  border: none;
 }
 
 /* You may also want to change the border color if it's not black by default */
-.carousel-control-prev, .carousel-control-next {
-  border:none;
+.carousel-control-prev,
+.carousel-control-next {
+  border: none;
 }
 
 /* Style for the dropdown items */
@@ -153,7 +176,6 @@ a
   display: block;
 }
 
-
 .cursive-title {
   color: #FFFFFF;
   font-family: "Alex Brush", Sans-serif;
@@ -171,9 +193,6 @@ a
   }
 }
 
-
-
-
 .row-dinnis {
   display: flex;
   flex-wrap: wrap;
@@ -184,9 +203,12 @@ a
 .card {
   border: none;
 }
+
 .card:hover .change-image {
-  background-image: url('images/elsa.jpg'); /* Set the new background image on hover */
+  background-image: url('images/elsa.jpg');
+  /* Set the new background image on hover */
 }
+
 .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -196,20 +218,19 @@ a
 
 
 
-.card-image
-{
+.card-image {
   position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
-    overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 0.25rem;
+  overflow: hidden;
 }
 
 .btn-dinnis {
@@ -222,25 +243,21 @@ a
 
 .card:hover .btn-dinnis {
   background-color: rgba(255, 255, 255, 0.6);
-  color: black; /* You can also change the text color on hover if needed */
+  color: black;
+  /* You can also change the text color on hover if needed */
 
 }
 
- 
-
-
 .zoom-image {
-  max-width: 100%; /* Ensure the image doesn't exceed the card width */
+  max-width: 100%;
+  /* Ensure the image doesn't exceed the card width */
   transition: transform 0.3s;
 }
 
 .card-image:hover .zoom-image {
-  transform: scale(1.2); /* Increase the scale to zoom in (adjust as needed) */
+  transform: scale(1.2);
+  /* Increase the scale to zoom in (adjust as needed) */
 }
-
-
-
-
 
 .square-image {
   width: 100%;
@@ -291,6 +308,7 @@ a
 /* Custom styles for the link */
 .custom-link {
   text-decoration: none;
+  margin: 0px 10px;
   position: relative;
 }
 
@@ -314,8 +332,6 @@ a
 .custom-link:hover::before {
   width: 100%;
 }
-
-
 
 /* Custom styles for the link */
 .custom-link2 {
@@ -346,6 +362,7 @@ a
 .no-border {
   border: none;
 }
+
 /* Hover effect to increase the width to 100% */
 
 .overlay {
@@ -372,22 +389,139 @@ body {
   padding: 0;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-family: 'Montserrat', sans-serif;
-  
+
 }
-input::placeholder
-{
+
+input::placeholder {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-family: 'Montserrat', sans-serif;
-  
+
+}
+
+.main-nav-block {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100%;
+}
+
+.main-nav-block .navbar-toggler {
+  border: none;
+  font-size: 25px;
+  padding: unset;
+  height: 46px;
+  width: 46px;
+}
+
+.search-bar-block {
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-bar-block input {
+  padding: 12px 20px !important;
+  height: auto;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.nav-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
 }
 
 .navbar {
   transition: background-color 0.3s;
   /* Set the initial background color of the navbar */
   background-color: transparent;
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 1000;
+}
+
+.navigation-bar-main {
+  padding: 10px 0;
+}
+
+@media (max-width: 992px) {
+  .navigation-bar-main {
+    padding: 0;
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+  }
+
+  .navbar-collapse.collapse.show~.backdrop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .navbar-toggler {
+    outline: none !important;
+  }
+
+  .navbar-collapse.collapse.show~.backdrop button {
+    z-index: 9999999;
+    background: #fff;
+    position: fixed;
+    top: 7px;
+    right: 20px;
+    color: #000;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    outline: none !important;
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    padding-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: #000;
+    background-color: #f9f9f9;
+    z-index: 999999;
+  }
+
+  .custom-link::before {
+    display: none;
+  }
+
+  .navbar-collapse.collapsing {
+    left: -75%;
+    transition: height 0s ease;
+  }
+
+  .navbar-collapse.show {
+    left: 0;
+    transition: left 300ms ease-in-out;
+  }
+
+  .navbar-toggler.collapsed~.navbar-collapse {
+    transition: left 500ms ease-in-out;
+  }
 }
 
 .hero {

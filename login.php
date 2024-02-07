@@ -13,21 +13,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="mystyle.css">
+    <title>Silver Star | Login</title>
 </head>
 <style>
-    .element {
-        width: 40%;
-        /* Set the default width to 50% */
-    }
+.element {
+    width: 40%;
+    /* Set the default width to 50% */
+}
 
-    /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-    @media screen and (max-width: 768px) {
-        .element {
-            width: 100%;
-            /* Set the width to 100% for mobile screens */
-        }
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media screen and (max-width: 768px) {
+    .element {
+        width: 100%;
+        /* Set the width to 100% for mobile screens */
     }
+}
 </style>
 
 <body>
@@ -37,7 +39,6 @@
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
             <h2 class="display-5" style="padding-top:120px">Login/Sign up</h2>
-            <!-- <p class="lead">Shop</p> -->
         </div>
     </div>
     <section
@@ -68,7 +69,7 @@
                 </form>
                 <!-- <p>Don't have an account? <a href="#" id="toggleSignup">Sign Up</a></p> -->
             </div>
-                        <div id="signupForm" class="px-5 pb-5">
+            <div id="signupForm" class="px-5 pb-5">
                 <form action="signup-logic.php" method="post">
                     <a id="toggleLogin" class="card-text-dinnis my-5">SignUp</a>
                     <div class="form-group mt-3">
@@ -127,41 +128,38 @@
 
 
     <script>
-        const loginForm = document.getElementById('loginForm');
-        const signupForm = document.getElementById('signupForm');
-        const toggleSignup = document.getElementById('toggleSignup');
-        const toggleLogin = document.getElementById('toggleLogin');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const toggleSignup = document.getElementById('toggleSignup');
+    const toggleLogin = document.getElementById('toggleLogin');
 
-        // Initially hide the signup form
+    // Initially hide the signup form
+    signupForm.style.display = 'none';
+
+    toggleSignup.addEventListener('click', () => {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+
+    });
+
+    toggleLogin.addEventListener('click', () => {
+        loginForm.style.display = 'block';
         signupForm.style.display = 'none';
+    });
 
-        toggleSignup.addEventListener('click', () => {
-            loginForm.style.display = 'none';
-            signupForm.style.display = 'block';
+    var showSignUpForm = <?php echo isset($_SESSION['showSignUpForm']) ? $_SESSION['showSignUpForm'] : 'false'; ?>;
 
-        });
-
-        toggleLogin.addEventListener('click', () => {
-            loginForm.style.display = 'block';
-            signupForm.style.display = 'none';
-        });
-
-        var showSignUpForm = <?php echo isset($_SESSION['showSignUpForm']) ? $_SESSION['showSignUpForm'] : 'false'; ?>;
-
-        // Update the display property based on the session value
-        if (showSignUpForm) {
-            loginForm.style.display = 'none';
-            signupForm.style.display = 'block';
-        } else {
-            loginForm.style.display = 'block';
-            signupForm.style.display = 'none';
-        }
+    // Update the display property based on the session value
+    if (showSignUpForm) {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    } else {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+    }
     </script>
 
     <?php include "footer.php" ?>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
