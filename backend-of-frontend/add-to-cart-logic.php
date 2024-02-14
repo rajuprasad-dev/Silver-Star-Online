@@ -6,7 +6,7 @@ if (isset($_POST["product_id"])) {
 
     if (!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_SESSION['userId'])) {
         $_SESSION['login_cart_alert'] = "set";
-        header("Refresh:0");
+        header("location:" . $_SERVER['HTTP_REFERER']);
         exit();
     }
 
