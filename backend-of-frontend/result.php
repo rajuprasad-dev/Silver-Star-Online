@@ -5,7 +5,7 @@ include_once "conn.php";
 $status = $_REQUEST['payment_status'];
 $_SESSION['UID'];
 
-// $temp = $_SESSION['TEMP'];
+$temp = $_SESSION['TEMP']; //this should contain all the cart information including couppon code
 
 if ($status == "Credit") {
    $customer_id = $_SESSION['userId'];
@@ -25,7 +25,7 @@ if ($status == "Credit") {
 
    $date_time = date("Y-m-d H:i:s"); // Current datetime
 
-   $insert_sql = "INSERT INTO `orders`( `customer_id`, `address`, `order_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`, `orderd_products_id`) VALUES ($customer_id, '$address', '$orderID', 100.00, 10.00, 5.00, 'DISCOUNT10', 10.00, 95.00, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 14:30:00', '1')";
+   $insert_sql = "INSERT INTO `orders`( `customer_id`, `address`, `order_id`, `orderd_products_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`) VALUES ($customer_id, '$address', '$orderID', '1', 100.00, 10.00, 5.00, 'DISCOUNT10', 10.00, 95.00, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 14:30:00')";
 
    $cart_to_orders = "INSERT INTO ordered_products (customer_id, product_id, quantity, date_time) SELECT customer_id, product_id, quantity, date_time FROM cart WHERE customer_id = $customer_id";
 
