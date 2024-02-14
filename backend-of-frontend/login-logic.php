@@ -18,6 +18,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             // Password is correct; user is logged in
             // You can set session variables or redirect the user to a dashboard page
             // Example: $_SESSION["user_id"] = $row["id"];
+            $_SESSION['name'] = $row["name"];
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['userId'] = $row['id'];

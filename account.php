@@ -67,10 +67,10 @@ include_once "./backend-of-frontend/conn.php";
     <?php include "navbar.php"; ?>
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
-            <h2 class="display-5" style="padding-top:120px">Account
-                <?php echo $_SESSION['userId']; ?>
+            <h2 class="display-5" style="padding-top:120px">
+                <?php echo $_SESSION['name']; ?>
             </h2>
-            <p class="lead">Shop</p>
+            <p class="lead">Manage Account</p>
         </div>
     </div>
     <div class="container-fluid">
@@ -97,7 +97,7 @@ include_once "./backend-of-frontend/conn.php";
                 </ul>
             </div>
             <?php
-            $sqlorder = "SELECT * FROM `orders` WHERE `customer_id` = '$userId'";
+            $sqlorder = "SELECT * FROM `orders` WHERE `customer_id` = '$userId' ORDER BY `id` DESC";
 
             $resultorder = $conn->query($sqlorder);
 
@@ -264,18 +264,11 @@ include_once "./backend-of-frontend/conn.php";
                                 <h1 class="my-5">User Account Details</h1>
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="firstName" style="font-size:14px;">First Name</label>
-                                                <input type="text" class="form-control underline-input" id="firstName"
-                                                    value="<?= $userDetails['name'] ?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="lastName" style="font-size:14px;">Last Name</label>
-                                                <input type="text" class="form-control underline-input" id="lastName"
-                                                    value="<?= $userDetails['name'] ?>">
+                                                <label for="firstName" style="font-size:14px;">Full Name</label>
+                                                <input readonly type="text" class="form-control underline-input"
+                                                    id="firstName" value="<?= $userDetails['name'] ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -283,15 +276,15 @@ include_once "./backend-of-frontend/conn.php";
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="email" style="font-size:14px;">Email</label>
-                                                <input type="email" class="form-control underline-input" id="email"
+                                                <input readonly type="email" class="form-control underline-input" id="email"
                                                     value="<?= $userDetails['email'] ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="username" style="font-size:14px;">Username</label>
-                                                <input type="text" class="form-control underline-input" id="username"
-                                                    value="<?= $userDetails['name'] ?>">
+                                                <input readonly type="text" class="form-control underline-input"
+                                                    id="username" value="<?= $userDetails['name'] ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -299,20 +292,20 @@ include_once "./backend-of-frontend/conn.php";
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="birthdate" style="font-size:14px;">Phone</label>
-                                                <input type="tel" class="form-control underline-input" id="birthdate"
-                                                    value="<?= $userDetails['phone'] ?>">
+                                                <input readonly type="tel" class="form-control underline-input"
+                                                    id="birthdate" value="<?= $userDetails['phone'] ?>">
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
+                                        <!-- <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="phoneNumber" style="font-size:14px;">Phone Number</label>
                                                 <input type="tel" class="form-control underline-input" id="phoneNumber"
-                                                    value="<?= $userDetails['phone'] ?>">
+                                                    value="<?php // echo $userDetails['phone']; ?>">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <button type="button" class="black-button" id="editButton"
-                                        style="font-size:14px;">Edit</button>
+                                    <!-- <button type="button" class="black-button" id="editButton"
+                                        style="font-size:14px;">Edit</button> -->
                                 </form>
                             </div>
 

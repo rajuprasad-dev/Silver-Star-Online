@@ -1,6 +1,12 @@
 <?php
 include "auth.php";
 include_once "./backend-of-frontend/conn.php";
+
+if (!$_POST['order_id']) {
+    header("location: account.php");
+    exit();
+}
+$orderId = $_POST['order_id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -130,7 +136,7 @@ include_once "./backend-of-frontend/conn.php";
                                     </div>
 
 
-                                    <div class="col-md-6 mt-4">
+                                    <!-- <div class="col-md-6 mt-4">
                                         <div class="card custom-card px-4 py-4">
                                             <div class="card-body">
                                                 <h5 class="card-title"><b>Billing Address</b></h5>
@@ -144,10 +150,10 @@ include_once "./backend-of-frontend/conn.php";
                                                 <p>Phone: (555) 123-4567</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- Shipping Address Card -->
-                                    <div class="col-md-6 mt-4">
+                                    <!-- <div class="col-md-6 mt-4">
                                         <div class="card custom-card px-4 py-4">
                                             <div class="card-body">
                                                 <h5 class="card-title"><b>Shipping Address</b></h5>
@@ -161,7 +167,7 @@ include_once "./backend-of-frontend/conn.php";
                                                 <p>Phone: (555) 987-6543</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
