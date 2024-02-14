@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "./backend-of-frontend/conn.php";
+include_once "conn.php";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
