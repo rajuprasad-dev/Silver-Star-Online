@@ -147,7 +147,7 @@ include_once "./backend-of-frontend/conn.php";
                                                 <?= $userOrders['final_amount'] ?>
                                             </td>
                                             <td style="border: none;padding-top:50px;padding-bottom:50px;font-size:14px;">
-                                                <form method="POST" action="account-order-detail.php">
+                                                <form method="POST" action="account-order-detail">
                                                     <input type="hidden" name="order_id" value="<?= $userOrders['id'] ?>">
                                                     <!-- Replace '123' with the actual order ID -->
                                                     <button class="black-button" type="submit"

@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="d-flex justify-content-center align-items-center flex-column">
-			<a class="navbar-brand align-items-center d-flex mr-0" href="index.php">
+			<a class="navbar-brand align-items-center d-flex mr-0" href="./">
 				<img src="images/silver-star.png" alt="Logo" height="35"><span class="ml-2">SILVER STAR</span>
 			</a>
 
@@ -34,16 +34,16 @@
 				<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link custom-link text-nowrap" href="index.php">Home</a>
+							<a class="nav-link custom-link text-nowrap" href="./">Home</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link text-nowrap" href="shop.php">Shop</a>
+							<a class="nav-link custom-link text-nowrap" href="shop">Shop</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link text-nowrap" href="about-us.php">About Us</a>
+							<a class="nav-link custom-link text-nowrap" href="about-us">About Us</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link text-nowrap" href="contact-us.php">Contact Us</a>
+							<a class="nav-link custom-link text-nowrap" href="contact-us">Contact Us</a>
 						</li>
 					</ul>
 				</div>
@@ -57,12 +57,12 @@
 
 		<div class="nav-action-buttons hide-smal">
 			<div>
-				<a class="navbar-brand " href="account.php">
+				<a class="navbar-brand " href="account">
 					<img src="images/user.png" alt="Cart" height="30">
 				</a>
 			</div>
 			<div>
-				<a class="navbar-brand " href="cart.php">
+				<a class="navbar-brand " href="cart">
 					<img src="images/shopping-cart.png" alt="Cart" height="30">
 				</a>
 			</div>

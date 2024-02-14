@@ -25,7 +25,7 @@ if (
     if ($password != $confirmPassword) {
         $_SESSION['signup_error'] = "Two passwords don't match";
         $_SESSION['showSignUpForm'] = true;
-        header("Location: http://localhost/rustam%20chauhan/ascella/login.php");
+        header("location: ./login");
         exit();
     }
 
@@ -36,7 +36,7 @@ if (
     if ($result->num_rows > 0) {
         $_SESSION['signup_error'] = "Username already in use";
         $_SESSION['showSignUpForm'] = true;
-        header("Location: http://localhost/rustam%20chauhan/ascella/login.php");
+        header("location: ./login");
         exit();
     } else {
         $insert_sql = "INSERT INTO customers (name, phone, email, address, city, state, pincode, landmark, status, otp, otp_time, date_time, password)
@@ -48,8 +48,8 @@ if (
             $_SESSION['password'] = $password;
             $_SESSION['userId'] = $conn->insert_id;
 
-            // Redirect to account.php after successful signup
-            header("Location: account.php");
+            // Redirect to account after successful signup
+            header("location: account");
             exit();
         } else {
             // Handle the case where the INSERT query fails

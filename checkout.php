@@ -43,7 +43,7 @@ include_once "./backend-of-frontend/conn.php";
     <div class="row">
       <div class="col-sm-6 mb-5">
 
-        <form method="post" action="backend-of-frontend/checkout-logic.php">
+        <form method="post" action="backend-of-frontend/checkout-logic">
           <div class="container">
             <h1 class="my-5">Billing Details</h1>
             <div class="form-row">
@@ -145,7 +145,7 @@ include_once "./backend-of-frontend/conn.php";
               </div>
             </div>
             <!-- <div class="text-center">
-              <a class="color:inherit;" href="checkout.php">
+              <a class="color:inherit;" href="checkout">
                 <button class="black-button">Checkout</button>
               </a>
             </div> -->

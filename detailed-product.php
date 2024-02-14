@@ -118,7 +118,7 @@ include_once "backend-of-frontend/conn.php";
 
                     <div class="mb-4">
                         <form id="addToCartForm" method="post"
-                            action="backend-of-frontend/add-to-cart-logic-for-detailed-page.php">
+                            action="backend-of-frontend/add-to-cart-logic-for-detailed-page">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <input type="hidden" name="quantity" id="quantityHiddenInput" value="<?= $user['quantity'] ?>">
                             <button type="submit" class="black-button">

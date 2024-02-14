@@ -23,16 +23,16 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $_SESSION['password'] = $password;
             $_SESSION['userId'] = $row['id'];
 
-            header("Location: ../account.php");
+            header("Location: ../account");
 
         } else {
 
             // echo '<script>alert("username or password incorrect");</script>';
-            // header("Location: http://localhost/rustam%20chauhan/ascella/login.php");
+            // header("Location: ./login");
             $_SESSION['login_error'] = "Username or password incorrect";
 
             // Redirect using JavaScript after setting the session message
-            echo '<script>window.location.href = "../login.php";</script>';
+            echo '<script>window.location.href = "../login";</script>';
             exit();
         }
 
@@ -41,7 +41,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $_SESSION['login_error'] = "User doesn't exist, please register";
 
         // Redirect using JavaScript after setting the session message
-        echo '<script>window.location.href = "../login.php";</script>';
+        echo '<script>window.location.href = "../login";</script>';
         exit();
     }
 }

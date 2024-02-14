@@ -21,7 +21,7 @@ include_once "backend-of-frontend/conn.php";
             <!-- Side Navigation without borders or background color -->
             <div class="col-md-3 px-5 py-5 text-center text-md-left">
                 <h2>Categories</h2>
-                <form action="shop.php" method="post" class="my-5">
+                <form action="shop" method="post" class="my-5">
                     <ul class="list-group">
                         <?php
                         // Select categories and subcategories
@@ -128,7 +128,7 @@ include_once "backend-of-frontend/conn.php";
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                    <a href="detailed-product.php?product_id=<?= $row['id'] ?>">
+                                    <a href="detailed-product?product_id=<?= $row['id'] ?>">
                                         <div class="card"
                                             onmouseover="changeImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')"
                                             onmouseout="restoreImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')">
@@ -138,7 +138,7 @@ include_once "backend-of-frontend/conn.php";
                                                     style="height: 350px; width: 100%; object-fit: cover;">
                                             </div>
                                             <div class="card-body text-left">
-                                                <form method="post" action="backend-of-frontend/add-to-cart-logic.php">
+                                                <form method="post" action="backend-of-frontend/add-to-cart-logic">
                                                     <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
                                                     <button type="submit" class="btn-dinnis px-3 py-3"
                                                         style="position:absolute;top:295px;">

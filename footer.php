@@ -24,10 +24,10 @@
 
         <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0 text-sm-left">
           <nav class="nav flex-column">
-            <a class="mb-2 custom-link" href="privacy-policy.php">Privacy Policy</a>
-            <a class="mb-2 custom-link" href="refund-policy.php">Refund Policy</a>
-            <a class="mb-2 custom-link" href="about-us.php">About Us</a>
-            <a class="mb-2 custom-link" href="terms-and-conditons.php">Terms and Conditions</a>
+            <a class="mb-2 custom-link" href="privacy-policy">Privacy Policy</a>
+            <a class="mb-2 custom-link" href="refund-policy">Refund Policy</a>
+            <a class="mb-2 custom-link" href="about-us">About Us</a>
+            <a class="mb-2 custom-link" href="terms-and-conditons">Terms and Conditions</a>
 
           </nav>
         </div>

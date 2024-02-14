@@ -3,7 +3,7 @@ include "auth.php";
 include_once "./backend-of-frontend/conn.php";
 
 if (!$_POST['order_id']) {
-    header("location: account.php");
+    header("location: account");
     exit();
 }
 $orderId = $_POST['order_id'];

@@ -7,10 +7,10 @@ $phone = $_GET['phone'];
 $email = $_GET['email'];
 $amount = $_GET['amount'];
 $purpose = $_GET['purpose'];
-$temp=$_GET['uid'];
-$temp=$_GET['temp'];
-$_SESSION['TEMP']=$temp;
-$_SESSION['UID']=$uid;
+$temp = $_GET['uid'];
+$temp = $_GET['temp'];
+$_SESSION['TEMP'] = $temp;
+$_SESSION['UID'] = $uid;
 
 
 
@@ -34,7 +34,7 @@ $payload = array(
     'amount' => $amount,
     'phone' => $phone,
     'buyer_name' => $name,
-    'redirect_url' => 'http://localhost/rustam%20chauhan/instamojo%20(1)/result.php',
+    'redirect_url' => './result',
     'send_email' => true,
     'send_sms' => true,
     'email' => $email,
@@ -48,7 +48,7 @@ curl_close($ch);
 $response = json_decode($response);
 echo '<pre>';
 // print_r($response);
-$_SESSION['TID']=$response->payment_request->id;
-header('location:'.$response->payment_request->longurl);
+$_SESSION['TID'] = $response->payment_request->id;
+header('location:' . $response->payment_request->longurl);
 
 ?>

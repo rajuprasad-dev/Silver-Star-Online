@@ -15,7 +15,7 @@ if ($fetchSlider->num_rows > 0) {
             <div class="carousel-item active">
                 <img src="src/images/slider/<?= $row['image'] ?>" class="d-block w-100" alt="Chicago">
                 <div class="carousel-caption text-center">
-                    <a href="shop.php" class="d-block"><button class="black-button">Shop Now</button></a>
+                    <a href="shop" class="d-block"><button class="black-button">Shop Now</button></a>
                 </div>
             </div>
             <?php
@@ -25,7 +25,7 @@ if ($fetchSlider->num_rows > 0) {
             <div class="carousel-item">
                 <img src="src/images/slider/<?= $row['image'] ?>" class="d-block w-100" alt="Chicago">
                 <div class="carousel-caption text-center">
-                    <a href="shop.php"><button class="black-button">Shop Now</button></a>
+                    <a href="shop"><button class="black-button">Shop Now</button></a>
                 </div>
             </div>
             <?php

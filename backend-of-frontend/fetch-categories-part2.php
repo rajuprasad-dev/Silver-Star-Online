@@ -11,7 +11,7 @@ if ($fetchcategories2->num_rows > 0) {
   while ($row = $fetchcategories2->fetch_assoc()) {
     ?>
     <div class="col-md-12 mb-5">
-      <form action="shop.php" method="post">
+      <form action="shop" method="post">
         <input type="hidden" name="category" value="<?= $row['name'] ?>">
         <button type="submit" style="color: black; text-decoration: none; background: none; border: none; cursor: pointer;">
           <img src="<?php echo check_image("src/images/categories/{$row['icon']}"); ?>" class="img-fluid"

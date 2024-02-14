@@ -193,7 +193,7 @@ session_start();
             <div class="col px-5 py-5">
                 <?php include "backend-of-frontend/fetch-categories-part1.php" ?>
                 <!-- <div class="col-md-12 mb-5">
-          <a style="color:black;" href="index.php">
+          <a style="color:black;" href="./">
             <img src="images/section-image3.png" class="img-fluid" alt="Image 3">
           </a>
         </div> -->
@@ -201,7 +201,7 @@ session_start();
             </div>
             <div class="col px-5 py-5">
                 <!-- <div class="col-md-12 mb-5">
-          <a style="color:black;" href="index.php">
+          <a style="color:black;" href="./">
             <img src="images/section-image11.png" class="img-fluid" alt="Image 2">
           </a>
         </div> -->

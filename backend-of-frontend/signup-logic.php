@@ -1,8 +1,7 @@
 <?php
 // Collect user input
 include("conn.php");
-if(isset($_POST["username"])  && isset($_POST["password"]))
-{
+if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     echo $username;
@@ -28,8 +27,8 @@ if(isset($_POST["username"])  && isset($_POST["password"]))
 //         $_SESSION['password'] = $password;
 //         $_SESSION['userId'] = 1; // Assuming 'id' is an auto-increment primary key
 
-//         // Redirect to index.php after successful signup
-//         header("Location: account.php");
+//         // Redirect to index after successful signup
+//         header("Location: account");
 //         exit();
 //     } else {
 //         echo "Error: " . $insert_sql . "<br>" . $conn->error;

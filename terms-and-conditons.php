@@ -61,17 +61,9 @@ if ($result->num_rows > 0) {
         </div>
     </section>..
 <?php    
-}
-?>
+} 
 
-
-
-
-
-
-
-
-    <?php include "footer.php" ?>
+include "footer.php" ?>
 
     <!-- Bootstrap JS and jQuery scripts (include at the end of the body for better performance) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

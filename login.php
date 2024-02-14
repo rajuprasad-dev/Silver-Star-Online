@@ -18,18 +18,18 @@
     <title>Silver Star | Login</title>
 </head>
 <style>
-.element {
-    width: 40%;
-    /* Set the default width to 50% */
-}
-
-/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-@media screen and (max-width: 768px) {
     .element {
-        width: 100%;
-        /* Set the width to 100% for mobile screens */
+        width: 40%;
+        /* Set the default width to 50% */
     }
-}
+
+    /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+    @media screen and (max-width: 768px) {
+        .element {
+            width: 100%;
+            /* Set the width to 100% for mobile screens */
+        }
+    }
 </style>
 
 <body>
@@ -50,7 +50,7 @@
                 <a class="card-text-dinnis custom-link" id="toggleSignup">SignUp</a>
             </div>
             <div id="loginForm" class="px-5 pb-5">
-                <form method="post" action="backend-of-frontend/login-logic.php">
+                <form method="post" action="backend-of-frontend/login-logic">
                     <a id="toggleLogin" class="card-text-dinnis my-5 custom link">Login</a>
                     <div class="form-group mt-3">
                         <input type="text" class="form-control underline-input" placeholder="Username" name="username"
@@ -70,7 +70,7 @@
                 <!-- <p>Don't have an account? <a href="#" id="toggleSignup">Sign Up</a></p> -->
             </div>
             <div id="signupForm" class="px-5 pb-5">
-                <form action="signup-logic.php" method="post">
+                <form action="signup-logic" method="post">
                     <a id="toggleLogin" class="card-text-dinnis my-5">SignUp</a>
                     <div class="form-group mt-3">
                         <input type="text" class="form-control underline-input" name="username" placeholder="Username"
@@ -128,35 +128,35 @@
 
 
     <script>
-    const loginForm = document.getElementById('loginForm');
-    const signupForm = document.getElementById('signupForm');
-    const toggleSignup = document.getElementById('toggleSignup');
-    const toggleLogin = document.getElementById('toggleLogin');
+        const loginForm = document.getElementById( 'loginForm' );
+        const signupForm = document.getElementById( 'signupForm' );
+        const toggleSignup = document.getElementById( 'toggleSignup' );
+        const toggleLogin = document.getElementById( 'toggleLogin' );
 
-    // Initially hide the signup form
-    signupForm.style.display = 'none';
-
-    toggleSignup.addEventListener('click', () => {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-
-    });
-
-    toggleLogin.addEventListener('click', () => {
-        loginForm.style.display = 'block';
+        // Initially hide the signup form
         signupForm.style.display = 'none';
-    });
 
-    var showSignUpForm = <?php echo isset($_SESSION['showSignUpForm']) ? $_SESSION['showSignUpForm'] : 'false'; ?>;
+        toggleSignup.addEventListener( 'click', () => {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
 
-    // Update the display property based on the session value
-    if (showSignUpForm) {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-    } else {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
-    }
+        } );
+
+        toggleLogin.addEventListener( 'click', () => {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        } );
+
+        var showSignUpForm = <?php echo isset($_SESSION['showSignUpForm']) ? $_SESSION['showSignUpForm'] : 'false'; ?>;
+
+        // Update the display property based on the session value
+        if ( showSignUpForm ) {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        } else {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        }
     </script>
 
     <?php include "footer.php" ?>

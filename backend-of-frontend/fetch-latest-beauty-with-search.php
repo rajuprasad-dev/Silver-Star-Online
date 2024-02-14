@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
-            <a href="detailed-product.php?product_id=<?= $row['id'] ?>">
+            <a href="detailed-product?product_id=<?= $row['id'] ?>">
                 <?php
                 $product_id = $row['id'];
                 $queryimage = "SELECT `image` FROM `product_images` WHERE `product_id` = $product_id LIMIT 2";
@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
                             alt="<?= $row['name'] ?>" style="height: 350px; width: 100%; object-fit: cover;">
                     </div>
                     <div class="card-body text-left">
-                        <form method="post" action="backend-of-frontend/add-to-cart-logic.php">
+                        <form method="post" action="backend-of-frontend/add-to-cart-logic">
                             <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
                             <button type="submit" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;">
                                 <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>

@@ -36,7 +36,7 @@ if ($status == "Credit") {
 
 
    if ($conn->query($insert_sql) === TRUE && $conn->query($cart_to_orders) === TRUE && $conn->query($deleteCart) === TRUE) {
-      header("Location: http://localhost/rustam%20chauhan/ascella/index.php");
+      header("Location: /");
       exit();
    } else {
       echo "query problem";

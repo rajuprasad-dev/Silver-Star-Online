@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         ?>
         <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-            <a href="detailed-product.php?product_id=<?= $row['id']; ?>" style="text-decoration: none; color: inherit;">
+            <a href="detailed-product?product_id=<?= $row['id']; ?>" style="text-decoration: none; color: inherit;">
                 <div class="card ">
                     <img src="<?= check_image("src/images/categories/thumbnails/" . $row['image']); ?>" alt="Card 1 Image"
                         style="height:200px;">

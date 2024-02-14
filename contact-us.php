@@ -52,7 +52,7 @@ session_start();
                     <strong>Email:</strong> owner@example.com<br>
                     <strong>Phone:</strong> (123) 456-7890
                 </p>
-                <form action="process_form.php" method="post" id="contactForm">
+                <form action="process_form" method="post" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control underline-input" id="name" name="name" required>

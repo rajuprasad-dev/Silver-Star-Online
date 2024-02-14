@@ -86,7 +86,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
           <table class="table" style="border: none;">
             <thead>
 
-              <!-- <form method="post" action="backend-of-frontend/add-to-cart-logic.php">
+              <!-- <form method="post" action="backend-of-frontend/add-to-cart-logic">
                 <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
                 <button type="submit" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;">
                   <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>
@@ -130,7 +130,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                   ?>
                   <tr>
                     <td style="border: none;padding-top:50px;padding-bottom:50px;">
-                      <form method="post" action="backend-of-frontend/delete-to-cart-logic.php">
+                      <form method="post" action="backend-of-frontend/delete-to-cart-logic">
                         <input type="hidden" name="product_id" value="<?php echo $rowcart['cart_product_id']; ?>">
                         <button class="black-button" type="submit">
                           Delete
@@ -148,7 +148,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                     <td style="border: none;padding-top:50px;padding-bottom:50px;">
                       <div class="input-group" style="width: 50%;">
                         <span class="input-group-btn">
-                          <form id="incrementDecrementForm" action="backend-of-frontend/increment-decrement-logic.php"
+                          <form id="incrementDecrementForm" action="backend-of-frontend/increment-decrement-logic"
                             method="post">
                             <input type="hidden" name="action" value="decrement">
                             <input type="hidden" name="product_id" value="<?= $rowcart['cart_product_id'] ?>">
@@ -160,7 +160,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                         <input type="text" class="form-control text-center" id="currentValueInput" name="current_value"
                           value="<?php echo $rowcart['cart_quantity']; ?>" min="1" max="1">
                         <span class="input-group-btn">
-                          <form id="incrementDecrementForm" action="backend-of-frontend/increment-decrement-logic.php"
+                          <form id="incrementDecrementForm" action="backend-of-frontend/increment-decrement-logic"
                             method="post">
                             <input type="hidden" name="action" value="decrement">
                             <input type="hidden" name="product_id" value="<?= $rowcart['cart_product_id'] ?>">
@@ -263,7 +263,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               </div>
             </div>
             <div class="text-center">
-              <a class="color:inherit;" href="checkout.php">
+              <a class="color:inherit;" href="checkout">
                 <button class="black-button">Checkout</button>
               </a>
             </div>
@@ -273,7 +273,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
     </div>
     <div class="row">
       <div class="col-sm-5 mb-5">
-        <form method="post" action="cart.php">
+        <form method="post" action="cart">
           <div class="form-group mr-2">
             <input type="text" class="form-control border-dark rounded-0" style="padding: 21px 25px;"
               placeholder="Enter your coupon code" name="coupon_code"

@@ -19,7 +19,7 @@ if (isset($_POST["product_id"])) {
     if ($conn->query($insert_sql) === TRUE) {
         // Redirect to cart.php after successful insertion
         $_SESSION['cart_alert'] = "set";
-        header("Location: ../cart.php");
+        header("Location: ../cart");
         exit();
     } else {
         echo "Error: " . $insert_sql . "<br>" . $conn->error;
