@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "./backend-of-frontend/conn.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,20 +41,6 @@ session_start();
 
     <?php include "navbar.php" ?>
 <?php
-// Your database connection details
-  $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Fetch existing "Privacy Policy" content from the database
 $sqlSelect = "SELECT * FROM site_settings WHERE setting_name = 'Terms & Conditions'";
 $result = $conn->query($sqlSelect);

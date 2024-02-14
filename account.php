@@ -1,4 +1,7 @@
-<?php include "auth.php" ?>
+<?php
+include "auth.php";
+include_once "./backend-of-frontend/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -94,19 +97,6 @@
                 </ul>
             </div>
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "silverstaronline";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check the connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
             $sqlorder = "SELECT * FROM `orders` WHERE `customer_id` = '$userId'";
 
             $resultorder = $conn->query($sqlorder);
@@ -174,9 +164,6 @@
                                             </td>
                                         </tr>';
                                 }
-
-                                // Close the database connection
-                                $conn->close();
                                 ?>
                                 <!-- <tr style="padding-top:50px;padding-bottom:50px;font-size:14px;">
                                     <td style="border: none;padding-top:50px;padding-bottom:50px;font-size:14px;">#247
@@ -262,24 +249,11 @@
                     </div>
                 </div>
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "neocart";
-
-                if (isset($_SESSION['userId'])) {
-                    $userId = $_SESSION['userId'];
-                    // You can now use $myVariable in this page.
-                }
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
                 $sqluserDetails = "SELECT * FROM `customers` WHERE id = $userId";
                 $resultuserDetails = mysqli_query($conn, $sqluserDetails);
                 if ($resultuserDetails && mysqli_num_rows($resultuserDetails) > 0) {
                     $userDetails = mysqli_fetch_assoc($resultuserDetails);
                 }
-
-
                 ?>
                 <?php
                 if (isset($userDetails)) {
@@ -348,13 +322,6 @@
                 }
                 ?>
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "neocart";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
                 $sqluserAddress = "SELECT * FROM `customers` WHERE id = $userId";
                 $resultuserAddress = mysqli_query($conn, $sqluserAddress);
                 if ($resultuserAddress && mysqli_num_rows($resultuserAddress) > 0) {

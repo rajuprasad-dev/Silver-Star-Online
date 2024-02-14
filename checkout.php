@@ -1,4 +1,7 @@
-<?php include "auth.php" ?>
+<?php
+include "auth.php";
+include_once "./backend-of-frontend/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,16 +19,6 @@
     }
   </style>
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "silverstaronline";
-
-  if (isset($_SESSION['userId'])) {
-    $userId = $_SESSION['userId'];
-    // You can now use $myVariable in this page.
-  }
-  $conn = new mysqli($servername, $username, $password, $dbname);
   $toalCartAmount = 0;
   $sqlcart2 = "SELECT p.*, c.quantity AS cart_quantity, p.quantity AS product_quantity
   FROM cart c

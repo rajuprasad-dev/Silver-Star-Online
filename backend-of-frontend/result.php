@@ -1,16 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "neocart";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
-}
+include_once "./backend-of-frontend/conn.php";
 
 echo $status = $_REQUEST['payment_status'];
 $_SESSION['UID'];

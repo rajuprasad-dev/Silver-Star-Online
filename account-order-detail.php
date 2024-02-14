@@ -1,4 +1,7 @@
-<?php include "auth.php" ?>
+<?php
+include "auth.php";
+include_once "./backend-of-frontend/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -81,19 +84,6 @@
 
             <!-- Container on the right side -->
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "silverstaronline";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check the connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
             $sqlorderdetails = "SELECT * FROM `orders` WHERE id = $orderId";
 
             $resultorderdetails = $conn->query($sqlorderdetails);
@@ -180,9 +170,6 @@
                     <?php
                 }
             }
-
-            // Close the database connection
-            $conn->close();
             ?>
         </div>
     </div>
@@ -201,9 +188,6 @@
             const image = card.querySelector( 'img' );
             image.src = originalImageSrc;
         }
-
-
-
     </script>
 
 </body>

@@ -1,23 +1,9 @@
 <?php
 // Start the session
 session_start();
+include_once "./backend-of-frontend/conn.php";
 
 if (isset($_POST['firstName'])) {
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "silverstaronline";
-
-
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
     $country = $_POST["country"];
@@ -56,16 +42,11 @@ if (isset($_POST['firstName'])) {
 
 }
 
-
-
 $purpose = 'product-payment';
 $temp = $_GET['uid'];
 $temp = $_GET['temp'];
 $_SESSION['TEMP'] = $temp;
 $_SESSION['UID'] = $uid;
-
-
-
 
 $ch = curl_init();
 
@@ -102,5 +83,3 @@ echo '<pre>';
 // print_r($response);
 $_SESSION['TID'] = $response->payment_request->id;
 header('location:' . $response->payment_request->longurl);
-
-?>

@@ -1,17 +1,6 @@
 <?php
-session_start(); // Start the session
-// Collect user input
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+session_start();
+include_once "./backend-of-frontend/conn.php";
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];

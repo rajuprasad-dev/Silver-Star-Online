@@ -1,6 +1,5 @@
-<?php include "auth.php" ?>
 <?php
-session_start();
+include "auth.php";
 include_once "./backend-of-frontend/conn.php";
 
 // Check if the coupon form is submitted
