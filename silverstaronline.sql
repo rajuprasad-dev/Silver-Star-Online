@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 01:10 PM
+-- Generation Time: Feb 14, 2024 at 02:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -123,15 +123,6 @@ CREATE TABLE `cart` (
   `quantity` int(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `customer_id`, `product_id`, `quantity`, `date_time`) VALUES
-(3, 1, 19, 12, '2024-02-05 04:42:12'),
-(4, 1, 209, 2, '2024-02-05 04:42:29'),
-(5, 1, 77, 5, '2024-02-05 13:01:22');
 
 -- --------------------------------------------------------
 
@@ -307,7 +298,11 @@ INSERT INTO `ordered_products` (`id`, `customer_id`, `product_id`, `quantity`, `
 (9, 19, 50, 1, '2023-11-15 18:46:05'),
 (10, 19, 51, 1, '2023-11-15 18:47:22'),
 (11, 19, 65, 1, '2023-11-15 18:51:00'),
-(15, 1, 50, 1, '2023-11-18 13:37:04');
+(15, 1, 50, 1, '2023-11-18 13:37:04'),
+(16, 1, 19, 11, '2024-02-05 10:12:12'),
+(17, 1, 209, 2, '2024-02-05 10:12:29'),
+(18, 1, 77, 5, '2024-02-05 18:31:22'),
+(19, 1, 19, 1, '2024-02-14 14:17:12');
 
 -- --------------------------------------------------------
 
@@ -320,6 +315,7 @@ CREATE TABLE `orders` (
   `customer_id` int(255) NOT NULL,
   `address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `order_id` varchar(150) NOT NULL,
+  `orderd_products_id` int(100) NOT NULL,
   `cart_amount` double NOT NULL,
   `discount_amt` double NOT NULL,
   `delivery_charges` double NOT NULL,
@@ -330,38 +326,40 @@ CREATE TABLE `orders` (
   `payment_status` enum('Pending','Paid','Failed','COD') NOT NULL,
   `payment_id` varchar(255) NOT NULL,
   `order_status` enum('Pending','Placed','Packed','Shipped','Out','Delivered','Cancelled') NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
-  `orderd_products_id` int(100) NOT NULL
+  `date_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `address`, `order_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`, `orderd_products_id`) VALUES
-(1, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639415655191', 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IX2PL3aHqKHGvX', 'Delivered', '2021-12-13 17:14:15', 0),
-(2, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639491610683', 69, 69, 55, '', 0, 124, 'Razorpay', 'Paid', 'pay_IXNye52g7ZB5M1', 'Cancelled', '2021-12-14 14:20:11', 0),
-(3, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639756895678', 18, 18, 55, '', 0, 73, 'Razorpay', 'Paid', 'pay_IYbJ22bcnty7kg', 'Out', '2021-12-17 16:01:36', 0),
-(5, 6, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8898997827\",\"expected_delivery\":\"Delivery by Today\"}', '1639859610500', 52, 52, 55, '', 0, 107, 'Razorpay', 'Paid', 'pay_IZ4TNexmmGim4m', 'Placed', '2021-12-18 20:33:31', 0),
-(6, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639860170339', 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IZ4dMdFpLmngAy', 'Placed', '2021-12-18 20:42:51', 0),
-(7, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639860211098', 138, 138, 40, '', 0, 178, 'Razorpay', 'Pending', '', 'Delivered', '2021-12-18 20:43:29', 0),
-(8, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639861198821', 172, 172, 55, '', 0, 227, 'COD', 'COD', '', 'Cancelled', '2021-12-18 20:59:59', 0),
-(9, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937039395', 674, 674, 40, '', 0, 714, 'COD', 'COD', '', 'Placed', '2021-12-19 18:03:59', 0),
-(10, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937365580', 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Placed', '2021-12-19 18:09:25', 0),
-(11, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937560762', 85, 85, 40, '', 0, 125, 'COD', 'COD', '', 'Placed', '2021-12-19 18:12:40', 0),
-(12, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937771202', 276, 276, 40, '', 0, 316, 'COD', 'COD', '', 'Placed', '2021-12-19 18:16:11', 0),
-(13, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639938056174', 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Cancelled', '2021-12-19 18:20:56', 0),
-(14, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940454275', 15, 15, 40, '', 0, 55, 'Razorpay', 'Paid', 'pay_IZRQd0NWMaA68y', 'Placed', '2021-12-19 19:00:54', 0),
-(15, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940701068', 52, 52, 40, '', 0, 92, 'Razorpay', 'Pending', '', 'Pending', '2021-12-19 19:05:01', 0),
-(16, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940705961', 52, 52, 40, '', 0, 92, 'Razorpay', 'Paid', 'pay_IZRVHpbfhYnUvb', 'Delivered', '2021-12-19 19:05:05', 0),
-(17, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940958792', 38, 38, 40, '', 0, 78, 'Razorpay', 'Paid', 'pay_IZRZU6IOP5UpMq', 'Out', '2021-12-19 19:09:18', 0),
-(22, 15, 'welocme', '123', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(23, 15, 'welocme', 'ORD202311061135022609', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(24, 15, 'welocme', 'ORD202311061136459475', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(25, 15, 'welocme', 'ORD202311061138447722', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(26, 16, 'welocme', 'ORD202311061141107809', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(27, 19, '', 'ORD202311181144503837', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1),
-(28, 1, 'ranubai shinde chawl kajupada kurla w\nkajupada kurla w', 'ORD202311181416554329', 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00', 1);
+INSERT INTO `orders` (`id`, `customer_id`, `address`, `order_id`, `orderd_products_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`) VALUES
+(1, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639415655191', 0, 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IX2PL3aHqKHGvX', 'Delivered', '2021-12-13 17:14:15'),
+(2, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639491610683', 0, 69, 69, 55, '', 0, 124, 'Razorpay', 'Paid', 'pay_IXNye52g7ZB5M1', 'Cancelled', '2021-12-14 14:20:11'),
+(3, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639756895678', 0, 18, 18, 55, '', 0, 73, 'Razorpay', 'Paid', 'pay_IYbJ22bcnty7kg', 'Out', '2021-12-17 16:01:36'),
+(5, 6, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8898997827\",\"expected_delivery\":\"Delivery by Today\"}', '1639859610500', 0, 52, 52, 55, '', 0, 107, 'Razorpay', 'Paid', 'pay_IZ4TNexmmGim4m', 'Placed', '2021-12-18 20:33:31'),
+(6, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639860170339', 0, 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IZ4dMdFpLmngAy', 'Placed', '2021-12-18 20:42:51'),
+(7, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639860211098', 0, 138, 138, 40, '', 0, 178, 'Razorpay', 'Pending', '', 'Delivered', '2021-12-18 20:43:29'),
+(8, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639861198821', 0, 172, 172, 55, '', 0, 227, 'COD', 'COD', '', 'Cancelled', '2021-12-18 20:59:59'),
+(9, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937039395', 0, 674, 674, 40, '', 0, 714, 'COD', 'COD', '', 'Placed', '2021-12-19 18:03:59'),
+(10, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937365580', 0, 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Placed', '2021-12-19 18:09:25'),
+(11, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937560762', 0, 85, 85, 40, '', 0, 125, 'COD', 'COD', '', 'Placed', '2021-12-19 18:12:40'),
+(12, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937771202', 0, 276, 276, 40, '', 0, 316, 'COD', 'COD', '', 'Placed', '2021-12-19 18:16:11'),
+(13, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639938056174', 0, 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Cancelled', '2021-12-19 18:20:56'),
+(14, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940454275', 0, 15, 15, 40, '', 0, 55, 'Razorpay', 'Paid', 'pay_IZRQd0NWMaA68y', 'Placed', '2021-12-19 19:00:54'),
+(15, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940701068', 0, 52, 52, 40, '', 0, 92, 'Razorpay', 'Pending', '', 'Pending', '2021-12-19 19:05:01'),
+(16, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940705961', 0, 52, 52, 40, '', 0, 92, 'Razorpay', 'Paid', 'pay_IZRVHpbfhYnUvb', 'Delivered', '2021-12-19 19:05:05'),
+(17, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940958792', 0, 38, 38, 40, '', 0, 78, 'Razorpay', 'Paid', 'pay_IZRZU6IOP5UpMq', 'Out', '2021-12-19 19:09:18'),
+(22, 15, 'welocme', '123', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(23, 15, 'welocme', 'ORD202311061135022609', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(24, 15, 'welocme', 'ORD202311061136459475', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(25, 15, 'welocme', 'ORD202311061138447722', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(26, 16, 'welocme', 'ORD202311061141107809', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(27, 19, '', 'ORD202311181144503837', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(28, 1, 'ranubai shinde chawl kajupada kurla w\nkajupada kurla w', 'ORD202311181416554329', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(29, 1, 'Sakinaka', 'ORD202402141410442976', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(30, 1, 'Sakinaka', 'ORD202402141416077168', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
+(31, 1, 'Sakinaka', 'ORD202402141417292128', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00');
 
 -- --------------------------------------------------------
 
@@ -996,7 +994,7 @@ ALTER TABLE `captain_payments`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1032,13 +1030,13 @@ ALTER TABLE `featured_hotdeals`
 -- AUTO_INCREMENT for table `ordered_products`
 --
 ALTER TABLE `ordered_products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `pincode`
