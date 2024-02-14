@@ -41,7 +41,7 @@ if (isset($_POST['firstName'])) {
 }
 
 $purpose = 'product-payment';
-$temp = $_SESSION['userId'];
+$uid = $_SESSION['userId'];
 // $temp = $_GET['temp'];
 // $_SESSION['TEMP'] = $temp;
 $_SESSION['UID'] = $uid;
@@ -65,7 +65,7 @@ $payload = array(
     'amount' => $_SESSION['totalCartAmount'],
     'phone' => $phone,
     'buyer_name' => $firstName,
-    'redirect_url' => '/backend-of-frontend/result',
+    'redirect_url' => $baseURL . 'backend-of-frontend/result',
     'send_email' => true,
     'send_sms' => true,
     'email' => $email,
@@ -76,8 +76,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
 $response = curl_exec($ch);
 curl_close($ch);
 
-$response = json_decode($response);
-echo '<pre>';
-// print_r($response);
-$_SESSION['TID'] = $response->payment_request->id;
-header('location:' . $response->payment_request->longurl);
+if ($response) {
+    $response = json_decode($response);
+    // echo '<pre>';
+    // print_r($response);
+    $_SESSION['TID'] = $response->payment_request->id;
+    header('location:' . $response->payment_request->longurl);
+} else {
+    header('location:' . $_SERVER['HTTP_REFERER']);
+}
