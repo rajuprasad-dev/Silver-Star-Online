@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+include_once "conn.php";
 
 // SQL query to fetch the latest beauty products
 $sqlslider = "SELECT * FROM `site_slider`";
