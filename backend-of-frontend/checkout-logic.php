@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-include_once "./backend-of-frontend/conn.php";
+include_once "conn.php";
 
 if (isset($_POST['firstName'])) {
     $firstName = $_POST["firstName"];
@@ -67,7 +67,7 @@ $payload = array(
     'amount' => $_SESSION['totalCartAmount'],
     'phone' => $phone,
     'buyer_name' => $firstName,
-    'redirect_url' => '../backend-of-frontend/result',
+    'redirect_url' => '/backend-of-frontend/result',
     'send_email' => true,
     'send_sms' => true,
     'email' => $email,
