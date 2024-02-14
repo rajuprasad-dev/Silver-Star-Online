@@ -1,16 +1,5 @@
 <?php
-// Establish a database connection (you should have a database connection script)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "silverstaronline";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include_once "conn.php";
 
 // SQL query to fetch the latest beauty products
 $sql = "SELECT p.*, c.name AS category_name, sc.name AS subcategory_name, pi.image
