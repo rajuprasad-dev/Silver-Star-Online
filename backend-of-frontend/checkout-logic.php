@@ -38,14 +38,12 @@ if (isset($_POST['firstName'])) {
     $_SESSION['companyName'] = $companyName;
     $_SESSION['orderNote'] = $orderNote;
     $_SESSION['orderID'] = $orderID;
-
-
 }
 
 $purpose = 'product-payment';
-$temp = $_POST['uid'];
-$temp = $_POST['temp'];
-$_SESSION['TEMP'] = $temp;
+$temp = $_SESSION['userId'];
+// $temp = $_GET['temp'];
+// $_SESSION['TEMP'] = $temp;
 $_SESSION['UID'] = $uid;
 
 $ch = curl_init();
