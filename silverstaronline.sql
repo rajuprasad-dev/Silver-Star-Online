@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 13, 2024 at 03:53 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Feb 14, 2024 at 01:10 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `date_time` varchar(200) NOT NULL,
   `last_login` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
@@ -76,7 +76,7 @@ CREATE TABLE `captain` (
   `otp` int(20) NOT NULL DEFAULT 0,
   `otp_time` varchar(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `captain`
@@ -100,7 +100,7 @@ CREATE TABLE `captain_payments` (
   `total_amount` int(200) NOT NULL,
   `payment_mode` varchar(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `captain_payments`
@@ -122,7 +122,7 @@ CREATE TABLE `cart` (
   `product_id` int(255) NOT NULL,
   `quantity` int(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cart`
@@ -145,7 +145,7 @@ CREATE TABLE `categories` (
   `icon` varchar(200) NOT NULL,
   `color` varchar(100) NOT NULL,
   `date_time` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -173,7 +173,7 @@ CREATE TABLE `coupons` (
   `discount` int(150) NOT NULL,
   `min_value` int(150) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `coupons`
@@ -205,31 +205,14 @@ CREATE TABLE `customers` (
   `otp_time` varchar(200) DEFAULT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `address`, `city`, `state`, `pincode`, `landmark`, `status`, `otp`, `otp_time`, `date_time`, `password`) VALUES
-(1, 'Raju Prasad', '7021379952', 'rktech50@gmail.com', 'Sakinaka', 'Mumbai', 'Maharashtra', 400070, 'testing', 0, 1204, '1696518399', '2021-11-28 15:17:34', 'r'),
-(2, 'Pratik Bhor', '8898242843', 'pratik.bhor0404@gmail.com', '', '', '', 0, NULL, 0, 0, '1639512230', '2021-12-12 10:00:21', ''),
-(3, 'shivam rai', '8652477976', 'raishivam223@gmail.com', 'Ashok Nagar Powai\r\n', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 0, '1639757150', '2021-12-13 17:00:35', ''),
-(4, 's', '123456789', 'contact@saabmall.com', '', '', '', 0, NULL, 0, 0, '1639473195', '2021-12-14 09:08:15', ''),
-(5, 'Rustabh', '7498847799', 'rustabhchauhan@gmail.com', '', '', '', 0, NULL, 0, 1396, '1696518237', '2021-12-17 14:04:17', ''),
-(6, 'Akash', '8898997827', 'as245055@gmail.com', 'Ashok Nagar Marol Military Road', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 2075, '1639949469', '2021-12-18 15:50:25', ''),
-(7, 'Akash', '8291651762', 'techmist6@gmail.com', 'Ashok Nagar Marol Military Road', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 0, '1639860064', '2021-12-18 20:36:05', ''),
-(8, 'Raju Prasad', '9123456789', 'rk2405200@gmail.com', '', '', '', 0, NULL, 0, 6024, '1639951055', '2021-12-19 21:51:12', ''),
-(9, 'mbn', '132456879', 'mnb@gmail.com', '', '', '', 0, NULL, 0, 8843, '1682670161', '2023-04-28 08:17:42', ''),
-(10, 'Suraj', '9137094730', 'surajyadavssr@gmail.com', '', '', '', 0, NULL, 0, 6233, '1696479755', '2023-10-05 04:16:43', ''),
-(12, 'dinniskuttikkat', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu '),
-(13, 'dinniskuttikkat1', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(14, 'dinniskuttikkat11', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(15, 'shamu11', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(16, 'ramu1', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(17, 'shamu111', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(18, 'ayae', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
-(19, 'dinnisramu', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu');
+(1, 'Raju Prasad', '7021379952', 'rktech50@gmail.com', 'Sakinaka', 'Mumbai', 'Maharashtra', 400070, 'testing', 0, 1204, '1696518399', '2021-11-28 15:17:34', 'r');
 
 -- --------------------------------------------------------
 
@@ -249,7 +232,7 @@ CREATE TABLE `deliveries` (
   `expected_delivery` varchar(100) NOT NULL,
   `delivered_time` varchar(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `deliveries`
@@ -272,7 +255,7 @@ CREATE TABLE `featured_hotdeals` (
   `product_id` int(255) NOT NULL,
   `type` int(10) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `featured_hotdeals`
@@ -307,7 +290,7 @@ CREATE TABLE `ordered_products` (
   `product_id` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `date_time` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ordered_products`
@@ -335,7 +318,7 @@ INSERT INTO `ordered_products` (`id`, `customer_id`, `product_id`, `quantity`, `
 CREATE TABLE `orders` (
   `id` int(255) NOT NULL,
   `customer_id` int(255) NOT NULL,
-  `booking_address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `order_id` varchar(150) NOT NULL,
   `cart_amount` double NOT NULL,
   `discount_amt` double NOT NULL,
@@ -349,13 +332,13 @@ CREATE TABLE `orders` (
   `order_status` enum('Pending','Placed','Packed','Shipped','Out','Delivered','Cancelled') NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `orderd_products_id` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `booking_address`, `order_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`, `orderd_products_id`) VALUES
+INSERT INTO `orders` (`id`, `customer_id`, `address`, `order_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`, `orderd_products_id`) VALUES
 (1, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639415655191', 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IX2PL3aHqKHGvX', 'Delivered', '2021-12-13 17:14:15', 0),
 (2, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639491610683', 69, 69, 55, '', 0, 124, 'Razorpay', 'Paid', 'pay_IXNye52g7ZB5M1', 'Cancelled', '2021-12-14 14:20:11', 0),
 (3, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639756895678', 18, 18, 55, '', 0, 73, 'Razorpay', 'Paid', 'pay_IYbJ22bcnty7kg', 'Out', '2021-12-17 16:01:36', 0),
@@ -392,7 +375,7 @@ CREATE TABLE `pincode` (
   `charges` int(100) NOT NULL,
   `expected_on` varchar(150) NOT NULL,
   `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pincode`
@@ -424,7 +407,7 @@ CREATE TABLE `products` (
   `original_price` int(200) NOT NULL,
   `selling_price` int(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
@@ -595,7 +578,7 @@ CREATE TABLE `product_images` (
   `product_id` int(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_images`
@@ -747,7 +730,7 @@ CREATE TABLE `query` (
   `query` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -760,7 +743,7 @@ CREATE TABLE `site_settings` (
   `setting_name` varchar(100) NOT NULL,
   `setting_data` longtext NOT NULL,
   `date_time` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `site_settings`
@@ -786,7 +769,7 @@ CREATE TABLE `site_slider` (
   `image` varchar(255) NOT NULL,
   `sequence` int(50) NOT NULL,
   `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `site_slider`
@@ -808,7 +791,7 @@ CREATE TABLE `subcategories` (
   `name` varchar(120) NOT NULL,
   `icon` varchar(200) NOT NULL,
   `date_time` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `subcategories`
@@ -849,7 +832,7 @@ CREATE TABLE `wishlist` (
   `customer_id` int(255) NOT NULL,
   `product_id` int(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `wishlist`
