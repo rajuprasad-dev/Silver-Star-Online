@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between px-lg-5 px-3">
 	<div class="main-nav-block">
 		<div class="search-bar-block hide-small">
-			<form class="form-inline" action="" method="post">
+			<form class="form-inline flex-nowrap" action="" method="post">
 				<button class="btn  my-2 my-sm-0" type="submit"><img src="images/search-symbol.png" alt="Cart"
 						height="20"></button>
 				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="product_name"
@@ -34,16 +34,16 @@
 				<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link custom-link" href="index.php">Home</a>
+							<a class="nav-link custom-link text-nowrap" href="index.php">Home</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link" href="shop.php">Shop</a>
+							<a class="nav-link custom-link text-nowrap" href="shop.php">Shop</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link" href="about-us.php">About Us</a>
+							<a class="nav-link custom-link text-nowrap" href="about-us.php">About Us</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link custom-link" href="contact-us.php">Contact Us</a>
+							<a class="nav-link custom-link text-nowrap" href="contact-us.php">Contact Us</a>
 						</li>
 					</ul>
 				</div>
