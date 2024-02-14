@@ -18,8 +18,3 @@ $result = $conn->query($sql);
     }
     ?>
 </ol>
-
-<?php
-// Close the database connection
-$conn->close();
-?>
