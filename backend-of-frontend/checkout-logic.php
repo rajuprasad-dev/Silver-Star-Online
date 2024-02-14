@@ -43,8 +43,8 @@ if (isset($_POST['firstName'])) {
 }
 
 $purpose = 'product-payment';
-$temp = $_GET['uid'];
-$temp = $_GET['temp'];
+$temp = $_POST['uid'];
+$temp = $_POST['temp'];
 $_SESSION['TEMP'] = $temp;
 $_SESSION['UID'] = $uid;
 
