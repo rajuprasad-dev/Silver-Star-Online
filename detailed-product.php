@@ -58,7 +58,7 @@ $user_id = $_SESSION['userId'] ?? 0;
 
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-3">
                     <div class="col col-12">
                         <?php
                         $sql2 = "SELECT image FROM `product_images` WHERE product_id = $produtId";
@@ -84,35 +84,39 @@ $user_id = $_SESSION['userId'] ?? 0;
                             onclick="replaceImage(this)"> -->
                     </div>
                 </div>
-                <div class="col-md-4 d-flex align-items-start">
+                <div class="col-md-4 col-9 d-flex align-items-start">
                     <div class="image-container" onmousemove="zoomImage(event)">
                         <img src="<?php echo $firstImage; ?>" alt="Image" class="img-fluid" id="zoom-image">
                     </div>
                 </div>
-                <div class="col-md-6 d-flex flex-column justify-content-between">
-                    <div>
-                        <h1 style="font-size:2.9rem;">
+                <div class="col-md-6 col-12 d-flex mt-md-0 mt-4 flex-column justify-content-start">
+                    <div class="mb-3">
+                        <h1>
                             <?= $user['name'] ?>
                         </h1>
-                        <h3 class="card-text-dinnis-h2">Price</h3>
-                        <p class="card-text-dinnis">Rs
-                            <?= $user['selling_price'] ?>
-                        </p>
-                        <h3 class="card-text-dinnis-h2 mt-2">Size </h3>
-                        <p class="card-text-dinnis">
-                            <?= $user['size'] ?>
-                        </p>
-                    </div>
-                    <div>
-                        <h2 class="card-text-dinnis-h2">description</h2>
-                        <p class="card-text-dinnis">
-                            <?= $user['description'] ?>
-                        </p>
+                        <?php
+                        if (!empty($user['selling_price'])) {
+                            echo '<h4 class="card-text-dinnis-h2 mt-2">Price : Rs ' . $user['selling_price'] . '</h4>';
+                        }
+                        ?>
+                        <?php
+                        if (!empty($user['size'])) {
+                            echo '<h4 class="card-text-dinnis-h2 mt-2">Size : ' . $user['size'] . '</h4>';
+                        }
+                        ?>
+                        <?php
+                        if (!empty($user['description'])) {
+                            echo '<h4 class="card-text-dinnis-h2 mt-2">Description : </h4>
+                                <div class="card-text-dinnis">
+                                        ' . $user['description'] . '
+                                </div>';
+                        }
+                        ?>
                     </div>
                     <form id="addToCartForm" method="post" action="backend-of-frontend/add-to-cart-logic-for-detailed-page">
                         <div class="mb-4">
-                            <h3>Quantity</h3>
-                            <div class="col-md-6">
+                            <h4>Quantity</h4>
+                            <div class="mt-2">
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-light border" id="decrementBtn">-</button>
@@ -129,7 +133,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                         <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
-                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";         ?>"> -->
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                 ?>"> -->
                             <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
                                 value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
                         </div>
@@ -195,7 +199,7 @@ $user_id = $_SESSION['userId'] ?? 0;
 
     <?php endif; ?>
 
-    <div class=" mx-5 my-5 text-center">
+    <div class="mx-lg-5 my-lg-5 mx-4 my-4 text-center">
         <h1 class="mx-5 my-5">Latest Beauty</h1>
         <div class="row text-center">
             <?php include "backend-of-frontend/fetch-latest-beauty.php" ?>
