@@ -22,7 +22,7 @@ include_once "backend-of-frontend/conn.php";
             <div class="col-md-3 col-sm-2 col-3 px-md-5 py-md-5 pt-5 text-center text-md-left">
                 <div class="position-sticky categories-div-main">
                     <h2 class='d-md-block d-none'>Categories</h2>
-                    <h4 class='d-md-none d-block'>Categories</h4>
+                    <h5 class='d-md-none d-block'>Categories</h5>
                     <form action="shop" method="post" class="my-md-5 my-4">
                         <ul class="list-group">
                             <?php
@@ -112,11 +112,11 @@ include_once "backend-of-frontend/conn.php";
                             echo $_POST['category'];
                         } ?>
                     </h2>
-                    <h4 class="my-5 d-md-none d-block">
+                    <h5 class="my-5 d-md-none d-block">
                         <?php if (isset($_POST['category'])) {
                             echo $_POST['category'];
                         } ?>
-                    </h4>
+                    </h5>
                     <div class="row text-center">
                         <?php
                         if (isset($_POST['category'])) {

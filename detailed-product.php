@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once "backend-of-frontend/conn.php";
+
+$user_id = $_SESSION['userId'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +47,7 @@ include_once "backend-of-frontend/conn.php";
         $user = mysqli_fetch_assoc($result);
     }
 
-    $cart_sql = "SELECT * FROM `cart` WHERE `product_id` = '$produtId' AND `customer_id` = " . $_SESSION['userId'] . " ORDER BY id DESC LIMIT 1";
+    $cart_sql = "SELECT * FROM `cart` WHERE `product_id` = '$produtId' AND `customer_id` = '$user_id' ORDER BY id DESC LIMIT 1";
     $cart_result = mysqli_query($conn, $cart_sql);
     $cart_data = [];
     if ($cart_result && mysqli_num_rows($cart_result) > 0) {
@@ -127,7 +129,7 @@ include_once "backend-of-frontend/conn.php";
                         <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
-                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";        ?>"> -->
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";         ?>"> -->
                             <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
                                 value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
                         </div>
