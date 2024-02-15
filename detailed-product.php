@@ -91,9 +91,9 @@ $user_id = $_SESSION['userId'] ?? 0;
                 </div>
                 <div class="col-md-6 col-12 d-flex mt-md-0 mt-4 flex-column justify-content-start">
                     <div class="mb-3">
-                        <h1>
+                        <h3>
                             <?= $user['name'] ?>
-                        </h1>
+                        </h3>
                         <?php
                         if (!empty($user['selling_price'])) {
                             echo '<h4 class="card-text-dinnis-h2 mt-2">Price : Rs ' . $user['selling_price'] . '</h4>';
@@ -133,7 +133,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                         <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
-                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                 ?>"> -->
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                  ?>"> -->
                             <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
                                 value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
                         </div>
