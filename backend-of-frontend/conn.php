@@ -10,19 +10,19 @@ $is_localhost = in_array($_SERVER['REMOTE_ADDR'], $whitelist);
 
 if ($is_localhost) {
     // localhost
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "silverstaronline";
+    DEFINE("SERVER", "localhost");
+    DEFINE("USERNAME", "root");
+    DEFINE("PASSWORD", "");
+    DEFINE("DB", "silverstaronline");
 } else {
     // server 
-    $servername = "85.10.211.41";
-    $username = "checkaic_silverstar";
-    $password = "Silver@2024";
-    $dbname = "checkaic_silverstar";
+    DEFINE("SERVER", "85.10.211.41");
+    DEFINE("USERNAME", "checkaic_silverstar");
+    DEFINE("PASSWORD", "Silver@2024");
+    DEFINE("DB", "checkaic_silverstar");
 }
 
-$conn = new mysqli($servername, $username, $password, $dbname) or die('Unable to connect to database! Please try again later.');
+$conn = new mysqli(SERVER, USERNAME, PASSWORD, DB) or die('Unable to connect to database! Please try again later.');
 
 function check_image($src = "")
 {

@@ -1099,7 +1099,7 @@ class operations extends database
 
 										if ($this->status == "Shipped") {
 
-											$sms_message = "Order for " . $sms_products . " is shipped will be delivered by " . json_decode($order_data_res[0]['booking_address'], true)['expected_delivery'] . ". By Regards Saab Mall";
+											$sms_message = "Order for " . $sms_products . " is shipped will be delivered by " . json_decode($order_data_res[0]['address'], true)['expected_delivery'] . ". By Regards Saab Mall";
 
 											$title = "Order Shipped Successfully";
 											$template_id = "1707163939417308898";

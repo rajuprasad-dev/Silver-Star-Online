@@ -6,8 +6,28 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-//Defaul time zone
+$whitelist = array(
+    '127.0.0.1',
+    '::1'
+);
 
+$is_localhost = in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+
+if ($is_localhost) {
+    // localhost
+    DEFINE("SERVER", "localhost");
+    DEFINE("USERNAME", "root");
+    DEFINE("PASSWORD", "");
+    DEFINE("DB", "silverstaronline");
+} else {
+    // server 
+    DEFINE("SERVER", "85.10.211.41");
+    DEFINE("USERNAME", "checkaic_silverstar");
+    DEFINE("PASSWORD", "Silver@2024");
+    DEFINE("DB", "checkaic_silverstar");
+}
+
+//Defaul time zone
 date_default_timezone_set("Asia/Kolkata");
 define('DOMAIN', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']);
 //connection
@@ -15,28 +35,16 @@ define('DOMAIN', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME']);
 class database
 {
 
-    // private $conn=false;
-// private $myconn;
-// private $host="localhost";
-// private $username="saabma4m_saabmall";
-// private $password="saabmall@2021";
-// private $db_name="saabma4m_saabmall";
-// private $result=array();
-// private $numrows=0;
-
     private $conn = false;
     private $myconn;
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $db_name = "silverstaronline";
+    private $host = SERVER;
+    private $username = USERNAME;
+    private $password = PASSWORD;
+    private $db_name = DB;
     private $result = array();
     private $numrows = 0;
 
-
-
     //connectiong to database
-
     public function connect()
     {
         if (!$this->conn) {

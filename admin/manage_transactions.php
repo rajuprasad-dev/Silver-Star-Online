@@ -1,5 +1,5 @@
 <?php
-$page="Manage Transactions";
+$page = "Manage Transactions";
 include("header.php");
 
 $db = new database();
@@ -7,13 +7,10 @@ $db->connect();
 
 $sql = "SELECT * FROM orders WHERE `order_status` != 'Pending' OR  `order_status` != 'Cancelled'";
 
-if($db->sql($sql))
-{
+if ($db->sql($sql)) {
     $numrows = $db->numrows();
     $result = $db->result();
-}
-else
-{
+} else {
     echo "Server Error !";
 }
 ?>
@@ -41,37 +38,48 @@ else
             </thead>
             <tbody>
                 <?php
-                if($numrows > 0)
-                {
-                    foreach($result as $data)
-                    {
-                ?>
-                <tr>
-                    <td>
-                        <a href="javascript:void(0);" class="font-weight-bold">
-                            TRANS4565<?php echo $data['id']; ?>
-                        </a>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo $data['order_id']; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo !empty($data['payment_id']) ? $data['payment_id'] : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo !empty($data['booking_address']) ? json_decode($data['booking_address'], true)['name'] : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data">₹<?php echo $data['final_amount']; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo $data['payment_method']; ?></span>
-                    </td>
-                    <td>
-                        <span class="font-weight-normal wrap_text_data"><?php echo date("d M Y h:i:s a", strtotime($data['date_time'])); ?></span>
-                    </td>
-                </tr>
-                <?php
+                if ($numrows > 0) {
+                    foreach ($result as $data) {
+                        ?>
+                        <tr>
+                            <td>
+                                <a href="javascript:void(0);" class="font-weight-bold">
+                                    TRANS4565
+                                    <?php echo $data['id']; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">
+                                    <?php echo $data['order_id']; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">
+                                    <?php echo !empty($data['payment_id']) ? $data['payment_id'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">
+                                    <?php echo !empty($data['address']) ? json_decode($data['address'], true)['name'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">₹
+                                    <?php echo $data['final_amount']; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">
+                                    <?php echo $data['payment_method']; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-weight-normal wrap_text_data">
+                                    <?php echo date("d M Y h:i:s a", strtotime($data['date_time'])); ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <?php
                     }
                 }
                 ?>
@@ -91,7 +99,8 @@ else
     </div>
 </div>
 
-<div class="modal fade" id="update_stocks_data" tabindex="-1" aria-labelledby="update_stocks_dataLabel" aria-hidden="true">
+<div class="modal fade" id="update_stocks_data" tabindex="-1" aria-labelledby="update_stocks_dataLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <form id="update_stocks_module">
             <div class="modal-content">
@@ -108,7 +117,8 @@ else
 
                     <div class="form-group mb-4">
                         <label for="stock_quantity_unit" class="form-label">Select Quantity Unit</label>
-                        <select name="stock_quantity_unit" class="form-control" id="stock_quantity_unit" name="unit" required="">
+                        <select name="stock_quantity_unit" class="form-control" id="stock_quantity_unit" name="unit"
+                            required="">
                             <option value="" disabled="" selected="">Select Unit</option>
                             <option value="item">item</option>
                             <option value="ml">ml</option>

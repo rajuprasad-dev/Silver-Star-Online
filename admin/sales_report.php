@@ -1,5 +1,5 @@
 <?php
-$page="Sales Report";
+$page = "Sales Report";
 include("header.php");
 
 $db = new database();
@@ -7,13 +7,10 @@ $db->connect();
 
 $sql = "SELECT * FROM `orders` WHERE `order_status` != 'Cancelled' ORDER BY id DESC";
 
-if($db->sql($sql))
-{
+if ($db->sql($sql)) {
     $numrows = $db->numrows();
     $result = $db->result();
-}
-else
-{
+} else {
     echo "Server Error !";
 }
 ?>
@@ -30,13 +27,15 @@ else
         <div class="row g-2">
             <div class="col-sm-6">
                 <div class="form-floating mb-2">
-                    <input class="form-control" type="text" name="min_date" id="min" placeholder="Select From" id="from_date">
+                    <input class="form-control" type="text" name="min_date" id="min" placeholder="Select From"
+                        id="from_date">
                     <label for="from_date" class="form-control-label">From Date</label>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-floating mb-2">
-                    <input class="form-control" type="text" name="max_date" id="max" placeholder="Select To" id="to_date">
+                    <input class="form-control" type="text" name="max_date" id="max" placeholder="Select To"
+                        id="to_date">
                     <label for="to_date" class="form-control-label">To Date</label>
                 </div>
             </div>
@@ -56,36 +55,48 @@ else
             <tbody>
                 <?php
                 $total_earning = 0;
-                if($numrows > 0)
-                {
-                    foreach($result as $data)
-                    {
+                if ($numrows > 0) {
+                    foreach ($result as $data) {
                         $total_earning += $data['final_amount'];
-                ?>
-                <tr>
-                    <td>
-                        <a href="javascript:void(0);" class="font-weight-bold">REPO000<?php echo $data['id']; ?></a>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data"><?php echo !empty($data['post_date']) ? date("d F Y g:i:s a", strtotime($data['post_date'])) : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data"><?php echo !empty($data['order_id']) ? $data['order_id'] : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data">₹<?php echo !empty($data['final_amount']) ? $data['final_amount'] : "0"; ?></span>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data"><?php echo !empty($data['payment_method']) ? $data['payment_method'] : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data"><?php echo !empty($data['booking_address']) ? json_decode($data['booking_address'], true)['address'] : "Not Available"; ?></span>
-                    </td>
-                    <td>
-                        <span class="wrap_text_data"><?php echo !empty($data['date_time']) ? $data['date_time'] : "Not Available"; ?></span>
-                    </td>
-                </tr>
-                <?php
+                        ?>
+                        <tr>
+                            <td>
+                                <a href="javascript:void(0);" class="font-weight-bold">REPO000
+                                    <?php echo $data['id']; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">
+                                    <?php echo !empty($data['post_date']) ? date("d F Y g:i:s a", strtotime($data['post_date'])) : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">
+                                    <?php echo !empty($data['order_id']) ? $data['order_id'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">₹
+                                    <?php echo !empty($data['final_amount']) ? $data['final_amount'] : "0"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">
+                                    <?php echo !empty($data['payment_method']) ? $data['payment_method'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">
+                                    <?php echo !empty($data['address']) ? json_decode($data['address'], true)['address'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="wrap_text_data">
+                                    <?php echo !empty($data['date_time']) ? $data['date_time'] : "Not Available"; ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <?php
                     }
                 }
                 ?>
@@ -102,8 +113,12 @@ else
                 </tr>
             </tfoot>
         </table>
-        <p class="total_sales mt-4 mb-0 font-weight-bold">Total Sales : <?php echo $numrows; ?></p>
-        <p class="total_sales font-weight-bold">Total Earning : ₹<?php echo $total_earning; ?></p>
+        <p class="total_sales mt-4 mb-0 font-weight-bold">Total Sales :
+            <?php echo $numrows; ?>
+        </p>
+        <p class="total_sales font-weight-bold">Total Earning : ₹
+            <?php echo $total_earning; ?>
+        </p>
     </div>
 </div>
 
