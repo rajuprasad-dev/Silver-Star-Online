@@ -96,17 +96,17 @@ $user_id = $_SESSION['userId'] ?? 0;
                         </h3>
                         <?php
                         if (!empty($user['selling_price'])) {
-                            echo '<h4 class="card-text-dinnis-h2 mt-2">Price : Rs ' . $user['selling_price'] . '</h4>';
+                            echo '<h5 class="card-text-dinnis-h2 mt-2">Price : ₹ ' . $user['selling_price'] . '</h5>';
                         }
                         ?>
                         <?php
                         if (!empty($user['size'])) {
-                            echo '<h4 class="card-text-dinnis-h2 mt-2">Size : ' . $user['size'] . '</h4>';
+                            echo '<h5 class="card-text-dinnis-h2 mt-2">Size : ' . $user['size'] . '</h5>';
                         }
                         ?>
                         <?php
                         if (!empty($user['description'])) {
-                            echo '<h4 class="card-text-dinnis-h2 mt-2">Description : </h4>
+                            echo '<h5 class="card-text-dinnis-h2 mt-2">Description : </h5>
                                 <div class="card-text-dinnis">
                                         ' . $user['description'] . '
                                 </div>';
@@ -115,7 +115,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                     </div>
                     <form id="addToCartForm" method="post" action="backend-of-frontend/add-to-cart-logic-for-detailed-page">
                         <div class="mb-4">
-                            <h4>Quantity</h4>
+                            <h5>Quantity</h5>
                             <div class="mt-2">
                                 <div class="input-group">
                                     <span class="input-group-btn">
@@ -133,7 +133,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                         <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
-                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                  ?>"> -->
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                      ?>"> -->
                             <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
                                 value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
                         </div>
