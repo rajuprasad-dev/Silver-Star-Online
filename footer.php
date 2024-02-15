@@ -56,3 +56,15 @@
     </div>
   </div>
 </footer>
+
+<script type="text/javascript">
+  function changeImage ( card, newImageSrc ) {
+    const image = card.querySelector( 'img' );
+    image.src = newImageSrc;
+  }
+
+  function restoreImage ( card, originalImageSrc ) {
+    const image = card.querySelector( 'img' );
+    image.src = originalImageSrc;
+  }
+</script>

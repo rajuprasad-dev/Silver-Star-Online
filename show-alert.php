@@ -16,6 +16,24 @@
     </div>
 </div>
 
+<div class="modal" id="alertUpdateModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Notification</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Product quantity updated in Cart
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal" id="loginAlertModal" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -74,30 +92,38 @@ function showAlert2() {
     }, 3000);
 }
 
-<?php
-  if (isset($_SESSION['already_added']) && !empty($_SESSION['already_added'])) {
-    echo 'showAlert2();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['already_added'] = '';
-  }
-  ?>
-// Check if the session variable is set
-<?php
-
-  if (isset($_SESSION['cart_alert']) && !empty($_SESSION['cart_alert'])) {
-    echo 'showAlert();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['cart_alert'] = '';
-  }
-  ?>
+function showAlert3() {
+    $('#alertUpdateModal').modal('show');
+    setTimeout(function() {
+        $('#alertUpdateModal').modal('hide');
+    }, 3000);
+}
 
 <?php
-  if (isset($_SESSION['login_cart_alert']) && !empty($_SESSION['login_cart_alert'])) {
-    echo 'showAlert1();';
-    // Clear the session variable to prevent the alert from showing again on page refresh
-    $_SESSION['login_cart_alert'] = '';
-  }
-  ?>
+    if (isset($_SESSION['already_added']) && !empty($_SESSION['already_added'])) {
+        echo 'showAlert2();';
+        // Clear the session variable to prevent the alert from showing again on page refresh
+        $_SESSION['already_added'] = '';
+    }
+
+    if (isset($_SESSION['cart_alert']) && !empty($_SESSION['cart_alert'])) {
+        echo 'showAlert();';
+        // Clear the session variable to prevent the alert from showing again on page refresh
+        $_SESSION['cart_alert'] = '';
+    }
+
+    if (isset($_SESSION['cart_update_alert']) && !empty($_SESSION['cart_update_alert'])) {
+        echo 'showAlert3();';
+        // Clear the session variable to prevent the alert from showing again on page refresh
+        $_SESSION['cart_update_alert'] = '';
+    }
+
+    if (isset($_SESSION['login_cart_alert']) && !empty($_SESSION['login_cart_alert'])) {
+        echo 'showAlert1();';
+        // Clear the session variable to prevent the alert from showing again on page refresh
+        $_SESSION['login_cart_alert'] = '';
+    }
+?>
 
 // Event listener for keypress
 document.addEventListener("keydown", function(event) {

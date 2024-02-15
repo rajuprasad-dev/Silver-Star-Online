@@ -1,19 +1,3 @@
-<style>
-	@media (max-width: 768px) {
-		.hide-small {
-			display: none;
-		}
-
-	}
-
-	@media (min-width: 768px) {
-		.hide-large {
-			display: none;
-		}
-
-	}
-</style>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between px-lg-5 px-3">
 	<div class="main-nav-block">
 		<div class="search-bar-block hide-small">
@@ -25,7 +9,7 @@
 			</form>
 		</div>
 
-		<div class="d-flex justify-content-center align-items-center flex-column">
+		<div class="d-flex justify-content-center align-items-md-center align-items-start flex-column">
 			<a class="navbar-brand align-items-center d-flex mr-0" href="./">
 				<img src="images/silver-star.png" alt="Logo" height="35"><span class="ml-2">SILVER STAR</span>
 			</a>
@@ -75,13 +59,13 @@
 	</div>
 </nav>
 <div class="sticky-buttons-icons icon-width">
-	<center>
+	<div class="text-center">
 		<a href="https://www.instagram.com/skinks.tattoo/" class="instagram" style="color:inherit;"><i
 				class="fa fa-whatsapp" style="color:white;"></i></a>
 		<!-- <a href="https://www.facebook.com/getinkstattoostudio/" class="facebook" style="color:inherit;"><i
 		  class="fa fa-facebook" style="color:white;"></i></a> -->
 		<!-- <a href="https://www.youtube.com/channel/UCCAwfef58ZEjiUA_nEHLeRA" class="youtube" style="color:inherit;"><i
 		  class="fa fa-youtube" style="color:white;"></i></a> -->
-	</center>
+	</div>
 
 </div>

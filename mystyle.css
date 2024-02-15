@@ -394,6 +394,12 @@ input::placeholder {
 	width: 100%;
 }
 
+@media (max-width: 768px) {
+	.main-nav-block {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
 .main-nav-block .navbar-toggler {
 	border: none;
 	font-size: 25px;
@@ -524,4 +530,26 @@ input::placeholder {
 	text-align: center;
 	color: white;
 	font-size: 24px;
+}
+
+.categories-div-main {
+	top: 140px;
+}
+
+@media (max-width: 992px) {
+	.categories-div-main {
+		top: 80px;
+	}
+}
+
+@media (max-width: 768px) {
+	.hide-small {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.hide-large {
+		display: none;
+	}
 }

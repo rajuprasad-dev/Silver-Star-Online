@@ -39,10 +39,17 @@ include_once "backend-of-frontend/conn.php";
         // You can now use $myVariable in this page.
     }
 
-    $sql = "SELECT * FROM `products` WHERE id = $produtId";
+    $sql = "SELECT * FROM `products` WHERE id = '$produtId'";
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
+    }
+
+    $cart_sql = "SELECT * FROM `cart` WHERE `product_id` = '$produtId' AND `customer_id` = " . $_SESSION['userId'] . " ORDER BY id DESC LIMIT 1";
+    $cart_result = mysqli_query($conn, $cart_sql);
+    $cart_data = [];
+    if ($cart_result && mysqli_num_rows($cart_result) > 0) {
+        $cart_data = mysqli_fetch_assoc($cart_result);
     }
     ?>
     <?php if (isset($user)): ?>
@@ -56,7 +63,7 @@ include_once "backend-of-frontend/conn.php";
                         $result2 = mysqli_query($conn, $sql2);
                         if (mysqli_num_rows($result2) > 0) {
                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                if ($firstImage === null) {
+                                if (empty($firstImage)) {
                                     $firstImage = check_image('src/images/products/thumbnails/' . $row2['image']);
                                     ;
                                 }
@@ -100,32 +107,31 @@ include_once "backend-of-frontend/conn.php";
                             <?= $user['description'] ?>
                         </p>
                     </div>
-                    <div class="mb-4">
-                        <h3>Quantity</h3>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-light border" id="decrementBtn">-</button>
-                                </span>
-                                <input type="text" class="form-control text-center" id="quantityInput"
-                                    value="<?= $user['quantity'] ?>" min="1" max="100">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-light border" id="incrementBtn">+</button>
-                                </span>
+                    <form id="addToCartForm" method="post" action="backend-of-frontend/add-to-cart-logic-for-detailed-page">
+                        <div class="mb-4">
+                            <h3>Quantity</h3>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-light border" id="decrementBtn">-</button>
+                                    </span>
+                                    <input type="text" class="form-control text-center" name="quantity" id="quantityInput"
+                                        value="<?= !empty($cart_data) ? $cart_data['quantity'] : "1"; ?>" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-light border" id="incrementBtn">+</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="mb-4">
-                        <form id="addToCartForm" method="post"
-                            action="backend-of-frontend/add-to-cart-logic-for-detailed-page">
+                        <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
-                            <input type="hidden" name="quantity" id="quantityHiddenInput" value="<?= $user['quantity'] ?>">
-                            <button type="submit" class="black-button">
-                                <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>
-                            </button>
-                        </form>
-                    </div>
+                            <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";        ?>"> -->
+                            <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
+                                value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -230,7 +236,7 @@ include_once "backend-of-frontend/conn.php";
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
             var quantityInput = document.getElementById( 'quantityInput' );
-            var quantityHiddenInput = document.getElementById( 'quantityHiddenInput' );
+            // var quantityHiddenInput = document.getElementById( 'quantityHiddenInput' );
             var decrementButton = document.getElementById( 'decrementBtn' );
             var incrementButton = document.getElementById( 'incrementBtn' );
 
@@ -238,14 +244,14 @@ include_once "backend-of-frontend/conn.php";
                 var currentValue = parseInt( quantityInput.value, 10 );
                 if ( currentValue > 1 ) {
                     quantityInput.value = currentValue - 1;
-                    quantityHiddenInput.value = currentValue - 1;
+                    // quantityHiddenInput.value = currentValue - 1;
                 }
             } );
 
             incrementButton.addEventListener( 'click', function () {
                 var currentValue = parseInt( quantityInput.value, 10 );
                 quantityInput.value = currentValue + 1;
-                quantityHiddenInput.value = currentValue + 1;
+                // quantityHiddenInput.value = currentValue + 1;
             } );
         } );
     </script>
