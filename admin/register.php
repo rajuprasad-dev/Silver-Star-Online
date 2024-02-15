@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 <meta name="title" content="Saabmall">
 <meta name="description" content="">
-<meta name="author" content="Raju Prasad">
+<meta name="author" content="Incinc Media">
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex">
 <meta name="googlebot-news" content="nosnippet">
@@ -85,7 +85,7 @@
 
 <footer class="footer bg-white fixed-bottom py-2 w-100">
     <div class="text-center w-100">
-        <p class="mb-0 w-100">Copyright © 2021-<span class="current-year"><?php echo date("Y"); ?></span> | Powered By <a class="text-primary font-weight-normal" href="" target="_blank">Raju Prasad</a></p>
+        <p class="mb-0 w-100">Copyright © 2021-<span class="current-year"><?php echo date("Y"); ?></span> | Powered By <a class="text-primary font-weight-normal" href="https://www.incincmedia.com" target="_blank">Incinc Media</a></p>
     </div>
 </footer>
 

@@ -12,7 +12,7 @@
 
     <div class="col-12 col-sm-6">
       <div class="row align-items-top text-center">
-        <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0  text-sm-left">
+        <div class="col-6 col-md-4 mt-5 mt-sm-0  text-sm-left">
           <nav class="nav flex-column">
             <a class="mb-2"><span class="custom-link active">Home</span></a>
             <a class="mb-2"><span class="custom-link">Features</span></a>
@@ -22,24 +22,22 @@
           </nav>
         </div>
 
-        <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0 text-sm-left">
+        <div class="col-6 col-md-4 mt-5 mt-sm-0 text-sm-left">
           <nav class="nav flex-column">
             <a class="mb-2 custom-link" href="privacy-policy">Privacy Policy</a>
             <a class="mb-2 custom-link" href="refund-policy">Refund Policy</a>
             <a class="mb-2 custom-link" href="about-us">About Us</a>
-            <a class="mb-2 custom-link" href="terms-and-conditons">Terms and Conditions</a>
-
+            <a class="mb-2 custom-link" href="terms-and-conditons">Terms & Conditions</a>
           </nav>
         </div>
 
-        <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0 text-sm-left">
+        <!-- <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0 text-sm-left">
           <nav class="nav flex-column">
             <a class="mb-2"><span class="custom-link">Privacy Policy</span></a>
             <a class="mb-2"><span class="custom-link">Terms</span></a>
-            <a class="mb-2"><span class="custom-link">visaQ</span></a>
             <a class="mb-2"><span class="custom-link">Support</span></a>
           </nav>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
