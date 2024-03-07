@@ -24,7 +24,7 @@ if ($is_localhost) {
     DEFINE("DB", "silverstaronline");
 } else {
     // server 
-    DEFINE("SERVER", "205.254.166.78");
+    DEFINE("SERVER", "162.214.80.124");
     DEFINE("USERNAME", "incincme_rustabh");
     DEFINE("PASSWORD", "Rustabh@198");
     DEFINE("DB", "incincme_silverstar");
