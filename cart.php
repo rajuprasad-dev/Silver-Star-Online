@@ -87,7 +87,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
             <thead>
 
               <!-- <form method="post" action="backend-of-frontend/add-to-cart-logic">
-                <input type="hidden" name="product_id" value="<?php // echo $row['id'];                        ?>">
+                <input type="hidden" name="product_id" value="<?php // echo $row['id'];                         ?>">
                 <button type="submit" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;">
                   <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>
                 </button>
@@ -244,7 +244,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               <div>Subtotal</div>
               <div>
                 <?php
-                echo "₹" . $_SESSION['subtotalCartAmount'] = $subtotalCartAmount;
+                echo "₹" . $_SESSION['subtotalCartAmount'] = $subtotalCartAmount ?? 0;
                 ?>
               </div>
             </div>
@@ -254,7 +254,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               <div>Discount</div>
               <div>
                 <?php
-                echo "- ₹" . $_SESSION['cart_discount'] = $subtotalCartAmount - $totalCartAmount;
+                echo "- ₹" . $_SESSION['cart_discount'] = ($subtotalCartAmount ?? 0) - $totalCartAmount;
                 ?>
               </div>
             </div>
