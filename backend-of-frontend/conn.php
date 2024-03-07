@@ -24,10 +24,10 @@ if ($is_localhost) {
     DEFINE("DB", "silverstaronline");
 } else {
     // server 
-    DEFINE("SERVER", "85.10.211.41");
-    DEFINE("USERNAME", "checkaic_silverstar");
-    DEFINE("PASSWORD", "Silver@2024");
-    DEFINE("DB", "checkaic_silverstar");
+    DEFINE("SERVER", "205.254.166.78");
+    DEFINE("USERNAME", "incincme_rustabh");
+    DEFINE("PASSWORD", "Rustabh@198");
+    DEFINE("DB", "incincme_silverstar");
 }
 
 $conn = new mysqli(SERVER, USERNAME, PASSWORD, DB) or die('Unable to connect to database! Please try again later.');
