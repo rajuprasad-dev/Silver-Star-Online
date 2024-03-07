@@ -78,29 +78,6 @@ include_once "backend-of-frontend/conn.php";
 
                         </ul>
                     </form>
-                    <!-- <h3>Gender</h3>
-                                    <ul class="list-group">
-                                        <div class="radio-group">
-                                            <li class="list-group-item" style="border: 0px;">
-                                                <label>
-                                                    <input type="radio" name="gender" value="Men"> Men
-                                                </label>
-                                            </li>
-                                            <li class="list-group-item" style="border: 0px;">
-                                                <label>
-                                                    <input type="radio" name="gender" value="Women"> Women
-                                                </label>
-                                            </li>
-                                    </ul>
-                                    <h3>Price range</h3>
-                                    <ul class="list-group">
-                                        <li class="list-group-item underline-input">
-                                            <input type="number" id="minPrice" name="minPrice" placeholder="Enter minimum price">
-                                        </li>
-                                        <li class="list-group-item underline-input">
-                                            <input type="number" id="maxPrice" name="maxPrice" placeholder="Enter maximum price">
-                                        </li>
-                                    </ul> -->
                 </div>
             </div>
 
@@ -122,11 +99,11 @@ include_once "backend-of-frontend/conn.php";
                         if (isset($_POST['category'])) {
                             $category = $_POST['category'];
                             // SQL query to fetch the latest beauty products
-                            $sql = "SELECT p.*, c.name AS `category_name`, pi.image FROM products p INNER JOIN categories c ON p.category = c.id LEFT JOIN product_images pi ON p.id = pi.product_id WHERE c.name = '$category'";
+                            $sql = "SELECT p.*, c.name AS `category_name`, (SELECT pi.image FROM product_images pi WHERE pi.product_id = p.id LIMIT 1) as `image` FROM products p INNER JOIN categories c ON p.category = c.id WHERE c.name = '$category' ORDER BY `p`.`id` DESC";
 
                             $result = $conn->query($sql);
                         } else {
-                            $sql = "SELECT p.*, c.name AS `category_name`, pi.image FROM products p INNER JOIN categories c ON p.category = c.id LEFT JOIN product_images pi ON p.id = pi.product_id WHERE c.name = 'Latest Beauty'";
+                            $sql = "SELECT `p`.*, c.name AS `category_name`, (SELECT pi.image FROM product_images pi WHERE pi.product_id = p.id LIMIT 1) as `image` FROM products p INNER JOIN categories c ON p.category = c.id ORDER BY `p`.`id` DESC";
 
                             $result = $conn->query($sql);
                         }
@@ -142,12 +119,12 @@ include_once "backend-of-frontend/conn.php";
                                             onmouseout="restoreImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')">
                                             <div class="card" style="position: relative; overflow: hidden;">
                                                 <img src="<?= check_image("src/images/products/thumbnails/" . $row['image']); ?>"
-                                                    alt="<?= $row['name'] ?>"
-                                                    style="height: 350px; width: 100%; object-fit: cover;">
+                                                    alt="<?= $row['name']; ?>"
+                                                    style="height: 350px; width: 100%; object-fit: cover; border: 1px solid #dfdfdf;">
                                             </div>
                                             <div class="card-body text-left">
                                                 <form method="post" action="backend-of-frontend/add-to-cart-logic">
-                                                    <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+                                                    <input type="hidden" name="product_id" value="<?= $row['id']; ?>">
                                                     <input type="submit" class="btn-dinnis px-3 py-3"
                                                         style="position:absolute;top:295px;" value="Add To Cart" />
                                                 </form>

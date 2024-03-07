@@ -1052,99 +1052,78 @@ class operations extends database
 			$numrows = parent::numrows();
 			$res = parent::result();
 
-			if ($this->status == "Cancelled" || $this->status == "Delivered") {
-				$check_sql = "SELECT * FROM deliveries WHERE order_id = '$this->order_id'";
+			$order_data = "SELECT * FROM `orders` WHERE id = '$this->order_id'";
 
-				if (parent::sql($check_sql)) {
-					$check_res = parent::result();
-					$check_num = parent::numrows();
+			if (parent::sql($order_data)) {
+				$order_data_res = parent::result();
+				$order_data_num = parent::numrows();
 
-					if ($check_num > 0) {
-						$update_sql = "UPDATE `deliveries` SET `status` = '$this->status' WHERE `order_id` = '$this->order_id'";
+				if ($order_data_num > 0) {
+					$order_products = json_decode($order_data_res[0]['products'], true);
+					$products_id_list = is_array($order_products) ? $order_products[0] : $order_products;
 
-						if (parent::sql($update_sql)) {
-							parent::numrows();
-							parent::result();
-						}
-					}
-				}
-			}
+					$prods = "SELECT * FROM products WHERE id = '" . (!empty($products_id_list) ? $products_id_list : 0) . "'";
 
-			if ($this->status == "Shipped" || $this->status == "Out" || $this->status == "Delivered" || $this->status == "Cancelled") {
-				$order_data = "SELECT * FROM `orders` WHERE id = '$this->order_id'";
-				if (parent::sql($order_data)) {
-					$order_data_res = parent::result();
-					$order_data_num = parent::numrows();
+					if (parent::sql($prods)) {
+						$prod_res = parent::result();
+						$prod_num = parent::numrows();
 
-					if ($order_data_num > 0) {
-						$order_products = json_decode($order_data_res[0]['products'], true);
+						if ($prod_num > 0) {
+							$customer_id = $order_data_res[0]['customer_id'];
 
-						$prods = "SELECT * FROM products WHERE id = '" . $order_products[0]['product_id'] . "'";
+							$cust = "SELECT * FROM customers WHERE id = '$customer_id'";
+							if (parent::sql($cust)) {
+								$cust_res = parent::result()[0];
+								$cust_num = parent::numrows();
 
-						if (parent::sql($prods)) {
-							$prod_res = parent::result();
-							$prod_num = parent::numrows();
+								if ($cust_num > 0) {
 
-							if ($prod_num > 0) {
-								$customer_id = $order_data_res[0]['customer_id'];
+									$sms_products = count($order_products) > 1 ? $prod_res[0]['name'] . " + " . count($order_products) . " More" : $prod_res[0]['name'];
 
-								$cust = "SELECT * FROM customers WHERE id = '$customer_id'";
-								if (parent::sql($cust)) {
-									$cust_res = parent::result()[0];
-									$cust_num = parent::numrows();
+									if ($this->status == "Shipped") {
 
-									if ($cust_num > 0) {
+										$message = "Order for " . $this->order_id . " is shipped will be delivered to your address : " . $order_data_res[0]['address'] . ". By Regards Silver Star";
 
-										$sms_products = count($order_products) > 1 ? $prod_res[0]['name'] . " + " . count($order_products) . " More" : $prod_res[0]['name'];
-
-										if ($this->status == "Shipped") {
-
-											$sms_message = "Order for " . $sms_products . " is shipped will be delivered by " . json_decode($order_data_res[0]['address'], true)['expected_delivery'] . ". By Regards Saab Mall";
-
-											$title = "Order Shipped Successfully";
-											$template_id = "1707163939417308898";
-										}
-
-										if ($this->status == "Out") {
-
-											$sms_message = "Order for " . $sms_products . " is out for delivery it will be delivered by 9 pm today you can contact the captain on 9123456789. By Regards Saab Mall";
-
-											$title = "Order Out For Delivery";
-											$template_id = "1707163939420987991";
-										}
-
-										if ($this->status == "Delivered") {
-
-											$sms_message = "Order for " . $sms_products . " is delivered successfully on " . date("d M Y h:i:s a") . ". By Regards Saab Mall";
-
-											$title = "Order Delivered Successfully";
-											$template_id = "1707163939429057666";
-										}
-
-										if ($this->status == "Cancelled") {
-
-											$sms_message = "Order for {#var#} is Cancelled successfully if paid already it will be refunded within 5-7 working days, Thank you. By Regards Saab Mall";
-
-											$title = "Order Cancelled Successfully";
-											$template_id = "1707163939410086907";
-										}
-
-										// send placed email
-										parent::send_order_notifications($cust_res['phone'], $cust_res['email'], $title, $sms_message, $sms_products, $template_id);
-
+										$title = "Order Shipped Successfully";
 									}
-								} else {
-									return 'Server Error';
+
+									if ($this->status == "Out For Delivery") {
+
+										$message = "Order for " . $this->order_id . " is out for delivery it will be delivered by 9 pm today you can contact the captain on 9123456789. By Regards Silver Star";
+
+										$title = "Order Out For Delivery";
+									}
+
+									if ($this->status == "Delivered") {
+
+										$message = "Order for " . $this->order_id . " is delivered successfully on " . date("d M Y h:i:s a") . ". By Regards Silver Star";
+
+										$title = "Order Delivered Successfully";
+									}
+
+									if ($this->status == "Cancelled") {
+
+										$message = "Order for " . $this->order_id . " is Cancelled successfully if already paid it will be refunded within 5-7 working days, Thank you. By Regards Silver Star";
+
+										$title = "Order Cancelled Successfully";
+									}
+
+									// send placed email
+									parent::send_order_notifications($cust_res['phone'], $cust_res['email'], $title, $message, $prod_res);
 								}
+							} else {
+								return 'Server Error';
 							}
-						} else {
-							return 'Server Error';
 						}
+					} else {
+						return 'Server Error';
 					}
 				}
-			}
 
-			return "success";
+				return "success";
+			} else {
+				return "failed";
+			}
 		} else {
 			return "failed";
 		}

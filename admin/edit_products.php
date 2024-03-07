@@ -37,7 +37,8 @@ if ($db->sql($sql)) {
                         <div class="col-lg-2 col-md-3 col-sm-4 col-6 main_form_col">
                             <div class="form-group my-4">
                                 <div class="view_product_pic">
-                                    <img src="../src/images/products/<?php echo $row['image']; ?>" alt="" class="img-fluid">
+                                    <img src="../src/images/products/<?php echo $row['image']; ?>" alt="" class="img-fluid"
+                                        style="aspect-ratio: 4/3; object-fit: contain; object-position: top;">
                                     <button data-id="<?php echo base64_encode($row['image_id']); ?>" type="button"
                                         class="btn btn-danger mt-3 w-100 py-1 px-3 delete_product_image_btn">Delete</button>
                                 </div>
@@ -48,14 +49,14 @@ if ($db->sql($sql)) {
                     ?>
                     <div class="col-lg-12 col-12 main_form_col">
                         <div class="form-group my-4">
-                            <div id="profile_pic">
-                                <div class="profile_pic_edit">
-                                    <input multiple="multiple" type='file' name="product_image[]" id="profile_upload"
+                            <div id="product_pic">
+                                <div class="product_pic_edit">
+                                    <input multiple="multiple" type='file' name="product_image[]" id="product_upload"
                                         accept=".png, .jpg, .jpeg" class="form-control">
-                                    <label for="profile_upload" id="profile_pic_btn"></label>
+                                    <label for="product_upload" id="product_pic_btn"></label>
                                 </div>
-                                <div class="profile_pic_preview">
-                                    <div id="profile_pic_preview"
+                                <div class="product_pic_preview">
+                                    <div id="product_pic_preview"
                                         style="background-image: url('./assets/images/placeholder.jpg');">
                                     </div>
                                     <span class="more_image_span"></span>
@@ -93,33 +94,33 @@ if ($db->sql($sql)) {
                     </select>
                 </div>
 
-                <div class="form-group mb-4">
+                <!-- <div class="form-group mb-4">
                     <label for="product_select_subcategory_name">Select Sub-Category</label>
                     <select required="required" type="text" class="form-control" id="product_select_subcategory_name"
                         name="subcategory_name" placeholder="Select Sub-Category">
                         <option value="" selected disabled>Select Sub-Category</option>
                         <?php
-                        $sub_categ_sql = "SELECT * FROM subcategories WHERE category = '" . $result[0]['category'] . "'";
-
-                        if ($db->sql($sub_categ_sql)) {
-                            $sub_categ_res = $db->result();
-                            $sub_categ_num = $db->numrows();
-                        }
-                        if ($sub_categ_num > 0) {
-                            foreach ($sub_categ_res as $key => $subcategory) {
-                                ?>
-                                <option <?php echo $subcategory['name'] == $result[0]['subcategory_name'] ? 'selected' : ''; ?>
-                                    value="<?php echo base64_encode($subcategory['id']); ?>">
-                                    <?php echo $subcategory['name']; ?>
-                                </option>
-                                <?php
-                            }
-                        } else {
-                            echo '<option value="" selected disabled>No Sub-Category Available</option>';
-                        }
+                        // $sub_categ_sql = "SELECT * FROM subcategories WHERE category = '" . $result[0]['category'] . "'";
+                        
+                        // if ($db->sql($sub_categ_sql)) {
+                        //     $sub_categ_res = $db->result();
+                        //     $sub_categ_num = $db->numrows();
+                        // }
+                        // if ($sub_categ_num > 0) {
+                        //     foreach ($sub_categ_res as $key => $subcategory) {
+                        //          ?>
+                        //         <option <?php // echo $subcategory['name'] == $result[0]['subcategory_name'] ? 'selected' : '';  ?>
+                        //             value="<?php // echo base64_encode($subcategory['id']);  ?>">
+                        //             <?php  // echo $subcategory['name'];  ?>
+                        //         </option>
+                        //         <?php
+                        //     }
+                        // } else {
+                        //     echo '<option value="" selected disabled>No Sub-Category Available</option>';
+                        // }
                         ?>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="form-group mb-4">
                     <label for="product_name">Enter Product Name</label>
@@ -135,14 +136,14 @@ if ($db->sql($sql)) {
 
                 <div class="form-group mb-4">
                     <label for="product_stock_quantity">Enter Instock Quantity</label>
-                    <input required="required" type="text" class="form-control" id="product_stock_quantity"
+                    <input required="required" type="number" class="form-control" id="product_stock_quantity"
                         name="product_stock_quantity" placeholder="Enter Instock Quantity"
                         value="<?php echo $result[0]['stock']; ?>">
                 </div>
 
                 <div class="form-group mb-4">
                     <label for="product_quantity">Enter Product Quantity</label>
-                    <input required="required" type="text" class="form-control" id="product_quantity"
+                    <input required="required" type="number" class="form-control" id="product_quantity"
                         name="product_quantity" placeholder="Enter Instock Quantity"
                         value="<?php echo $result[0]['quantity']; ?>">
                 </div>

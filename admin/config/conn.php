@@ -235,33 +235,72 @@ class database
         // echo $type === IMG_GIF ? "GIF" : "";
         // die($image_type);
 
-        // checking image type and executing as per type
-        if ($type === IMG_JPEG || $type === IMG_JPG) {
-            $source = imagecreatefromjpeg($tmp_image);
-            imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+        // echo image_type_to_mime_type($type) . "<br/>";
+        // echo $type . "<br/>";
+        // print_r(
+        //     [
+        //         IMG_PNG,
+        //         IMG_JPEG,
+        //         IMG_JPG,
+        //         IMG_GIF,
+        //         IMG_AVIF,
+        //         IMG_WEBP,
+        //         IMG_BMP,
+        //         IMG_WBMP,
+        //         IMG_WEBP_LOSSLESS
+        //     ]
+        // );
+        // echo "<br/>";
+        // echo $source . "<br/>";
+        // die;
 
-            imagejpeg($newimage, $path . $image_name);
-        } elseif ($type === IMG_PNG) {
+        $image_mime_type = image_type_to_mime_type($type);
+
+        // checking image type and executing as per type
+        if ($image_mime_type = "image/jpg" || $image_mime_type = "image/jpeg") {
+
+            $firstBytes = bin2hex(file_get_contents($tmp_image, false, null, 0, 2));
+            if ($firstBytes == 8950) {
+                $source = imagecreatefrompng($tmp_image);
+
+                imagecolortransparent($newimage, imagecolorallocate($newimage, 0, 0, 0));
+                imagealphablending($newimage, false);
+                imagesavealpha($newimage, true);
+
+                imagecopyresampled($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+
+                imagepng($newimage, $path . $image_name);
+            } else {
+                $source = imagecreatefromjpeg($tmp_image);
+
+                // echo $tmp_image;
+                // print_r($source);
+                // die;
+
+                imagecopyresampled($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+                imagejpeg($newimage, $path . $image_name);
+            }
+        } elseif ($image_mime_type = "image/png") {
             $source = imagecreatefrompng($tmp_image);
 
             imagecolortransparent($newimage, imagecolorallocate($newimage, 0, 0, 0));
             imagealphablending($newimage, false);
             imagesavealpha($newimage, true);
 
-            imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+            imagecopyresampled($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
 
             imagepng($newimage, $path . $image_name);
-        } elseif ($type === IMG_GIF) {
+        } elseif ($image_mime_type = "image/gif") {
             $source = imagecreatefromgif($tmp_image);
 
             imagecolortransparent($newimage, imagecolorallocate($newimage, 0, 0, 0));
 
-            imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+            imagecopyresampled($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
 
             imagegif($newimage, $path . $image_name);
         } else {
             $source = imagecreatefromjpeg($tmp_image);
-            imagecopyresized($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
+            imagecopyresampled($newimage, $source, 0, 0, 0, 0, $nwidth, $nheight, $width, $height);
 
             imagejpeg($newimage, $path . $image_name);
         }
@@ -300,7 +339,7 @@ class database
         }
     }
 
-    public function send_email($email, $body)
+    public function send_email($email, $subject, $body)
     {
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -308,20 +347,20 @@ class database
         try {
             // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
             $mail->isSMTP();
-            $mail->Host = 'mail.santoshsir.com';
+            $mail->Host = 'mail.silverstaronline.in';
             $mail->SMTPAuth = true;
-            $mail->Username = 'support@santoshsir.com';
-            $mail->Password = 'santosh@2021';
+            $mail->Username = 'no-reply@silverstaronline.in';
+            $mail->Password = 'Silver@2024';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             //Recipients
-            $mail->setFrom('no-reply@santoshsir.com', 'Santosh Sir');
+            $mail->setFrom('no-reply@silverstaronline.in', 'Silver Star');
             $mail->addAddress($email);
-            $mail->addReplyTo('no-reply@santoshsir.com', 'No-Reply');
+            $mail->addReplyTo('no-reply@silverstaronline.in', 'Silver Star');
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Notification From Santosh Sir';
+            $mail->Subject = $subject;
             $mail->Body = $body;
 
             if ($mail->send()) {
@@ -335,28 +374,10 @@ class database
     }
 
     // Send SMS & EMAIL NOTIFICATIONS
-    public function send_order_notifications($phone_num = '', $email = '', $type = '', $message = '', $product = '', $template_id = '')
+    public function send_order_notifications($phone_num = '', $email = '', $type = '', $message = '', $product = '')
     {
         $data = array();
         $output = array();
-
-        if (!empty($phone_num)) {
-            $api_key = '561B348230F2B7';
-            $from = 'SABMLL';
-            $sms_text = urlencode($message);
-
-            //Submit to server
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, "http://sms.saabmall.com/app/smsapi/index.php");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "key=" . $api_key . "&campaign=1&routeid=46&type=text&contacts=" . $phone_num . "&senderid=" . $from . "&msg=" . $sms_text . "&template_id=" . $template_id);
-            $response = curl_exec($ch);
-            curl_close($ch);
-
-            $data['phone'] = 'success';
-        }
 
         if (!empty($email)) {
             // storing data in array
@@ -380,23 +401,11 @@ class database
             $body = $email_layout;
 
             if ($this->send_email($to, $subject, $body)) {
-                $data['email'] = "success";
+                return true;
             } else {
-                $data['email'] = 'failed';
+                return false;
             }
         }
-
-        if ($data['phone'] = 'success' && $data['email'] == 'success') {
-            $output = ["message" => "success"];
-        } elseif ($data['phone'] = 'success' && $data['email'] == 'failed') {
-            $output = ["message" => "sms success but email failed"];
-        } elseif ($data['phone'] = 'failed' && $data['email'] == 'success') {
-            $output = ["message" => "email success but sms failed"];
-        } elseif ($data['phone'] = 'failed' && $data['email'] == 'failed') {
-            $output = ["message" => "failed"];
-        }
-
-        return $output;
     }
 
     // disconnect to database 

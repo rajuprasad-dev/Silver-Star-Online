@@ -14,6 +14,8 @@ $user_id = $_SESSION['userId'] ?? 0;
         width: 400px;
         /* Adjust the width and height as needed */
         height: 400px;
+        border: 1px solid #dfdfdf !important;
+        border-radius: 10px;
         overflow: hidden;
     }
 
@@ -21,6 +23,7 @@ $user_id = $_SESSION['userId'] ?? 0;
         width: 100%;
         height: 100%;
         transition: transform 0.3s;
+        object-fit: contain;
         /* Smooth transition for zoom effect */
         transform-origin: top left;
         /* Set the transform origin to the top left corner */
@@ -71,7 +74,8 @@ $user_id = $_SESSION['userId'] ?? 0;
                                 }
                                 ?>
                                 <img src="<?php echo check_image('src/images/products/thumbnails/' . $row2['image']); ?>"
-                                    alt="Image" class="img-fluid mb-2 square-image" onclick="replaceImage(this)">
+                                    alt="Image" class="img-fluid mb-2 square-image" onclick="replaceImage(this)"
+                                    style="cursor: pointer;">
                                 <?php
                             }
                         }
@@ -117,7 +121,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                         <div class="mb-4">
                             <h5>Quantity</h5>
                             <div class="mt-2">
-                                <div class="input-group">
+                                <div class="input-group" style="max-width: 200px;">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-light border" id="decrementBtn">-</button>
                                     </span>
@@ -133,7 +137,7 @@ $user_id = $_SESSION['userId'] ?? 0;
                         <div class="mb-4">
                             <input type="hidden" name="product_id" value="<?= $user['id'] ?>">
                             <!-- <input type="hidden" name="quantity" id="quantityHiddenInput"
-                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                      ?>"> -->
+                                value="<?php //echo !empty($cart_data) ? $cart_data['quantity'] : "1";                                                ?>"> -->
                             <input type="submit" class="black-button text-white" style="color:inherit;text-decoration:none;"
                                 value="<?= !empty($cart_data) ? "Update Cart" : "Add To Cart"; ?>" />
                         </div>
@@ -147,20 +151,34 @@ $user_id = $_SESSION['userId'] ?? 0;
                     <a class="nav-link active" style="color: inherit;font-size: 20px;" id="reviews-tab" data-toggle="tab"
                         href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Description</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="size-tab" data-toggle="tab" href="#size"
-                        role="tab" aria-controls="size" aria-selected="false">Size</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="shipping-returns-tab" data-toggle="tab"
-                        href="#shipping-returns" role="tab" aria-controls="shipping-returns" aria-selected="false">Shipping
-                        and Returns</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: inherit;font-size: 20px;" id="more-products-tab" data-toggle="tab"
-                        href="#more-products" role="tab" aria-controls="more-products" aria-selected="false">Additional
-                        Information</a>
-                </li>
+                <?php
+                if (!empty($user['size'])) {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: inherit;font-size: 20px;" id="size-tab" data-toggle="tab" href="#size"
+                            role="tab" aria-controls="size" aria-selected="false">Size</a>
+                    </li>
+                    <?php
+                }
+                if (!empty($user['shipping_and_return'])) {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: inherit;font-size: 20px;" id="shipping-returns-tab" data-toggle="tab"
+                            href="#shipping-returns" role="tab" aria-controls="shipping-returns" aria-selected="false">Shipping
+                            and Returns</a>
+                    </li>
+                    <?php
+                }
+                if (!empty($user['additional_information'])) {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: inherit;font-size: 20px;" id="more-products-tab" data-toggle="tab"
+                            href="#more-products" role="tab" aria-controls="more-products" aria-selected="false">Additional
+                            Information</a>
+                    </li>
+                    <?php
+                }
+                ?>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active border-bottom border-left border-right px-5 py-5" id="reviews"
@@ -168,32 +186,46 @@ $user_id = $_SESSION['userId'] ?? 0;
                     <!-- Reviews content goes here -->
                     <h3>What the product has to say</h3>
                     <p class="card-text-dinnis">
-                        <?= $user['description'] ?>
+                        <?= $user['description']; ?>
                     </p>
                 </div>
-                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="size" role="tabpanel"
-                    aria-labelledby="size-tab">
-                    <!-- Size information goes here -->
-                    <p class="card-text-dinnis">
-                        <?= $user['size'] ?>
-                    </p>
-                </div>
-                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="shipping-returns"
-                    role="tabpanel" aria-labelledby="shipping-returns-tab">
-                    <!-- Shipping and Returns information goes here -->
-                    <h3>Our Policies</h3>
-                    <p class="card-text-dinnis">
-                        <?= $user['shipping_and_return'] ?>
-                    </p>
-                </div>
-                <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="more-products"
-                    role="tabpanel" aria-labelledby="more-products-tab">
-                    <!-- More Products content goes here -->
+                <?php
+                if (!empty($user['size'])) {
+                    ?>
+                    <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="size" role="tabpanel"
+                        aria-labelledby="size-tab">
+                        <!-- Size information goes here -->
+                        <p class="card-text-dinnis">
+                            <?= $user['size']; ?>
+                        </p>
+                    </div>
+                    <?php
+                }
+                if (!empty($user['shipping_and_return'])) {
+                    ?>
+                    <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="shipping-returns"
+                        role="tabpanel" aria-labelledby="shipping-returns-tab">
+                        <!-- Shipping and Returns information goes here -->
+                        <h3>Our Policies</h3>
+                        <p class="card-text-dinnis">
+                            <?= $user['shipping_and_return']; ?>
+                        </p>
+                    </div>
+                    <?php
+                }
+                if (!empty($user['additional_information'])) {
+                    ?>
+                    <div class="tab-pane fade border-bottom border-left border-right px-5 py-5" id="more-products"
+                        role="tabpanel" aria-labelledby="more-products-tab">
+                        <!-- More Products content goes here -->
 
-                    <p class="card-text-dinnis">
-                        <?= $user['additional_information'] ?>
-                    </p>
-                </div>
+                        <p class="card-text-dinnis">
+                            <?= $user['additional_information']; ?>
+                        </p>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 

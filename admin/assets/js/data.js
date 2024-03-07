@@ -1175,10 +1175,7 @@ $(document).on("click", ".delete_enquiry_message", function () {
 });
 
 // UPDATE ORDER STATUS
-$(document).on("click", "#update_order_status", function () {
-	var order_id = $(this).attr("data-id");
-	var status = $(".order_status_dropdown").val();
-
+const updateStatus = (order_id, status) => {
 	$.ajax({
 		url: "././class/processor.php",
 		type: "POST",
@@ -1217,6 +1214,20 @@ $(document).on("click", "#update_order_status", function () {
 			}
 		},
 	});
+};
+
+$(document).on("change", "#update_order_status_select", function () {
+	var order_id = $(this).attr("data-id");
+	var status = $(this).val();
+
+	updateStatus(order_id, status);
+});
+
+$(document).on("click", "#update_order_status", function () {
+	var order_id = $(this).attr("data-id");
+	var status = $(".order_status_dropdown").val();
+
+	updateStatus(order_id, status);
 });
 
 // ASSIGN ORDER TO CAPTAIN

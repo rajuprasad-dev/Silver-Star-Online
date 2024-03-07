@@ -1,7 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['admin_login']))
-{
+if (!isset($_SESSION['admin_login'])) {
     header('location:login');
 }
 include("./config/conn.php");
@@ -11,15 +10,14 @@ $login->connect();
 
 // $_SESSION['admin_email'] = "rk24052000@gmail.com";
 
-$login_sql = "SELECT * FROM admin WHERE email = '".$_SESSION['admin_email']."' LIMIT 1";
+$login_sql = "SELECT * FROM admin WHERE email = '" . $_SESSION['admin_email'] . "' LIMIT 1";
 
 $login->sql($login_sql);
 
 $login_user_data = $login->result();
 
-if($login->numrows() > 0)
-{
-    $login_userpic = "./assets/images/profile_pic/".$login_user_data[0]['photo'];
+if ($login->numrows() > 0) {
+    $login_userpic = "./assets/images/profile_pic/" . $login_user_data[0]['photo'];
     $login_userunique_id = $login_user_data[0]['unique_id'];
     $login_username = $login_user_data[0]['name'];
     $login_useremail = $login_user_data[0]['email'];
@@ -33,7 +31,9 @@ if($login->numrows() > 0)
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title><?php echo $page; ?></title>
+    <title>
+        <?php echo $page; ?>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <meta name="title" content="">
     <meta name="description" content="">
@@ -99,7 +99,9 @@ if($login->numrows() > 0)
                                         class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                                 </div>
                                 <div class="d-block">
-                                    <h2 class="h6">Hi, <?php echo $login_username; ?></h2>
+                                    <h2 class="h6">Hi,
+                                        <?php echo $login_username; ?>
+                                    </h2>
                                     <a href="javascript:void(0);"
                                         class="btn btn-secondary text-dark btn-xs logout_user_btn"
                                         logout-id="<?php echo base64_encode($login_useremail); ?>"><span
@@ -120,7 +122,9 @@ if($login->numrows() > 0)
                                             class="card-img-top rounded-circle border-white">
                                     </div>
                                     <div class="d-block">
-                                        <h2 class="h6">Hi, <?php echo $login_username; ?></h2>
+                                        <h2 class="h6">Hi,
+                                            <?php echo $login_username; ?>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -198,26 +202,6 @@ if($login->numrows() > 0)
                                     <ul class="flex-column nav">
                                         <li class="nav-item"><a class="nav-link" href="./manage_coupons"><span>Manage
                                                     Coupons</span></a></li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                                    data-toggle="collapse" data-target="#delivery_nav">
-                                    <span>
-                                        <span class="sidebar-icon"><i class="fas fa-user-alt"></i></span>
-                                        Delivery Boy
-                                    </span>
-                                    <span class="link-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </span>
-                                <div class="multi-level collapse " role="list" id="delivery_nav" aria-expanded="false">
-                                    <ul class="flex-column nav">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="./manage_delivery_boys"><span>Manage Delivery Boy</span></a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="./delivery_boy_earnings"><span>Delivery Boy Earning</span></a>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -303,18 +287,6 @@ if($login->numrows() > 0)
                                         <li class="nav-item"><a class="nav-link"
                                                 href="manage_terms_and_conditions"><span>Terms & Conditions</span></a>
                                         </li>
-
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="manage_payment_methods"><span>Payment Methods</span></a></li>
-
-                                        <li class="nav-item"><a class="nav-link" href="manage_app_version"><span>App
-                                                    Version</span></a></li>
-
-                                        <li class="nav-item"><a class="nav-link" href="manage_store_status"><span>Store
-                                                    Status</span></a></li>
-
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="manage_delivery_pincodes"><span>Delivery Pincodes</span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -344,8 +316,9 @@ if($login->numrows() > 0)
                                                     src="<?php echo !empty($login_userpic) ? $login_userpic : '../assets/images/favicon.png'; ?>">
                                                 <div
                                                     class="media-body ml-2 text-dark align-items-center d-none d-lg-block">
-                                                    <span
-                                                        class="mb-0 font-small font-weight-bold"><?php echo $login_username; ?></span>
+                                                    <span class="mb-0 font-small font-weight-bold">
+                                                        <?php echo $login_username; ?>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </a>

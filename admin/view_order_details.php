@@ -7,17 +7,17 @@ $db->connect();
 
 $id = base64_decode($db->clean($_GET['id']));
 
-$sql = "SELECT * FROM orders WHERE id = '$id'";
+$sql = "SELECT `orders`.*, `customers`.`name` as `c_name`, `customers`.`phone` as `c_phone` FROM `orders` JOIN `customers` ON `orders`.`customer_id` = `customers`.`id` WHERE `orders`.`id` = '$id' ORDER BY `orders`.`id` DESC";
 
 if ($db->sql($sql)) {
     $numrows = $db->numrows();
-    $result = $db->result()[0];
-    $billing_details = json_decode($result['address'], true);
-
     if ($numrows == 0) {
         echo "<script>window.location.href='manage_orders';</script>";
         exit();
     }
+
+    $result = $db->result()[0];
+    // $billing_details = json_decode($result['address'], true);
 } else {
     echo "Server Error !";
     exit();
@@ -29,10 +29,10 @@ if ($db->sql($sql)) {
     <div class="d-flex mt-4 justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div class="d-block mb-4 mb-md-0">
             <h2 class="h4">
-                <?php echo $billing_details['name']; ?>
+                <?php echo $result['c_name']; ?>
             </h2>
             <p class="mb-0">
-                <?php echo $billing_details['address']; ?>
+                <?php echo $result['booking_address']; ?>
             </p>
         </div>
         <p class="btn mb-0 btn-success text-left px-4 btn-sm" onclick="window.history.go(-1);"><i
@@ -62,50 +62,58 @@ if ($db->sql($sql)) {
                 <tr>
                     <th>Name</th>
                     <td>
-                        <?php echo $billing_details['name']; ?>
+                        <?php echo $result['c_name']; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Phone No</th>
                     <td>
-                        <?php echo $billing_details['phone']; ?>
+                        <?php echo $result['c_phone']; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Products</th>
                     <td>
                         <?php
-                        $products_data = json_decode($result['products'], true);
+                        if (!empty($result['products'])) {
+                            $products_data = json_decode($result['products'], true);
 
-                        $products_array = array();
+                            $products_array = array();
 
-                        foreach ($products_data as $p => $product) {
-                            array_push($products_array, "'" . $product['product_id'] . "'");
-                        }
+                            if (!empty($products_data)) {
+                                if (is_array($products_data)) {
+                                    foreach ($products_data as $p => $product) {
+                                        array_push($products_array, "'{$product}'");
+                                    }
+                                } else {
+                                    array_push($products_array, "'{$products_data}'");
+                                }
 
-                        $products = implode(', ', $products_array);
+                                $products = implode(', ', $products_array);
 
-                        $prod_sql = "SELECT * FROM products WHERE id IN ($products)";
+                                $prod_sql = "SELECT * FROM `products` WHERE `id` IN ($products)";
 
-                        $produ_res = array();
-                        if ($db->sql($prod_sql)) {
-                            $produ_res = $db->result();
-                            $produ_num = $db->numrows();
+                                $produ_res = array();
+                                if ($db->sql($prod_sql)) {
+                                    $produ_num = $db->numrows();
 
-                            if ($produ_num > 0) {
-                                foreach ($produ_res as $pk => $prod) {
-                                    echo '<p class="mb-0"><a target="blank" href="../product_details?data=' . base64_encode($prod['name']) . '&id=' . base64_encode($prod['id']) . '">' . $prod['name'] . '</a><span class="ml-2 text-success">(1 ' . $prod['quantity_unit'] . ')</span><span class="ml-2 text-tertiary">(x' . $products_data[$pk]['quantity'] . ')</span><span class="ml-2 text-info"> -> ₹' . ($prod['selling_price'] * $products_data[$pk]['quantity']) . '</span></p>';
+                                    if ($produ_num > 0) {
+                                        $produ_res = $db->result();
+
+                                        foreach ($produ_res as $pk => $prod) {
+                                            echo '<p class="mb-0"><a target="blank" href="../product_details?data=' . base64_encode($prod['name']) . '&id=' . base64_encode($prod['id']) . '">' . $prod['name'] . '</a><span class="ml-2 text-success">(1 ' . $prod['quantity_unit'] . ')</span><span class="ml-2 text-tertiary">(x' . $products_data[$pk]['quantity'] . ')</span><span class="ml-2 text-info"> -> ₹' . ($prod['selling_price'] * $products_data[$pk]['quantity']) . '</span></p>';
+                                        }
+                                    }
                                 }
                             }
                         }
-
                         ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Delivery Address</th>
                     <td>
-                        <?php echo $billing_details['address']; ?>
+                        <?php echo $result['booking_address']; ?>
                     </td>
                 </tr>
                 <tr>
@@ -116,14 +124,14 @@ if ($db->sql($sql)) {
                 </tr>
                 <tr>
                     <th>Discount</th>
-                    <td>₹
-                        <?php echo $result['cart_amount'] - $result['discount_amt']; ?>
+                    <td>
+                        <?php echo "₹" . $result['cart_amount'] - $result['discount_amt']; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Delivery Charges</th>
-                    <td>₹
-                        <?php echo $result['delivery_charges'] == 0 ? "Free" : $result['delivery_charges']; ?>
+                    <td>
+                        <?php echo "₹" . $result['delivery_charges'] == 0 ? "Free" : $result['delivery_charges']; ?>
                     </td>
                 </tr>
                 <tr>
@@ -166,58 +174,23 @@ if ($db->sql($sql)) {
                     <th>Action</th>
                     <td>
                         <div class="btns_action d-flex">
-                            <?php
-                            if (($result['order_status'] != "Cancelled") and ($result['order_status'] != "Delivered")) {
-                                ?>
-                                <div class="input-group mr-3 w-75 btn_group_div_main">
-                                    <select class="form-select order_status_dropdown">
-
-                                        <?php
-                                        if (($result['order_status'] == "Pending")) {
-                                            ?>
-                                            <option value="Pending" <?php echo $result['order_status'] == "Pending" ? "selected" : ''; ?>>Pending</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending")) {
-                                            ?>
-                                            <option value="Placed" <?php echo $result['order_status'] == "Placed" ? "selected" : ''; ?>>Placed</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending") || ($result['order_status'] == "Placed")) {
-                                            ?>
-                                            <option value="Packed" <?php echo $result['order_status'] == "Packed" ? "selected" : ''; ?>>Packed</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending") || ($result['order_status'] == "Placed") || ($result['order_status'] == "Packed")) {
-                                            ?>
-                                            <option value="Shipped" <?php echo $result['order_status'] == "Shipped" ? "selected" : ''; ?>>Shipped</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending") || ($result['order_status'] == "Placed") || ($result['order_status'] == "Packed") || ($result['order_status'] == "Shipped")) {
-                                            ?>
-                                            <option value="Out" <?php echo $result['order_status'] == "Out" ? "selected" : ''; ?>>
-                                                Out For Delivery</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending") || ($result['order_status'] == "Placed") || ($result['order_status'] == "Packed") || ($result['order_status'] == "Shipped") || ($result['order_status'] == "Out") || ($result['order_status'] == "Delivered")) {
-                                            ?>
-                                            <option value="Delivered" <?php echo $result['order_status'] == "Delivered" ? "selected" : ''; ?>>Delivered</option>
-                                            <?php
-                                        }
-                                        if (($result['order_status'] == "Pending") || ($result['order_status'] == "Placed") || ($result['order_status'] == "Packed") || ($result['order_status'] == "Shipped") || ($result['order_status'] == "Out") || ($result['order_status'] == "Delivered") || ($result['order_status'] == "Cancelled")) {
-                                            ?>
-                                            <option value="Cancelled" <?php echo $result['order_status'] == "Cancelled" ? "selected" : ''; ?>>Cancelled</option>
-                                            <?php
-                                        }
+                            <div class="input-group mr-3 w-75 btn_group_div_main">
+                                <select class="form-select order_status_dropdown">
+                                    <?php
+                                    $order_status = array('Pending', 'Placed', 'Packed', 'Shipped', 'Out For Delivery', 'Delivered', 'Cancelled');
+                                    foreach ($order_status as $key => $status) {
                                         ?>
-                                    </select>
-                                    <button data-id="<?php echo base64_encode($result['id']); ?>"
-                                        class="btn btn-tertiary submit_btn" type="button"
-                                        id="update_order_status">Update</button>
-                                </div>
-                                <?php
-                            }
-                            ?>
+                                        <option value='<?php echo $status; ?>' <?php echo $status == $result['order_status'] ? 'selected' : ''; ?>>
+                                            <?php echo $status; ?>
+                                        </option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <button data-id="<?php echo base64_encode($result['id']); ?>"
+                                    class="btn btn-primary submit_btn" type="button"
+                                    id="update_order_status">Update</button>
+                            </div>
                             <button class="generate_invoice print_btn btn btn-primary w-25">Print Invoice</button>
                         </div>
 

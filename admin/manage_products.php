@@ -26,14 +26,14 @@ if ($db->sql($sql)) {
                 <div class="row main_row_form">
                     <div class="col-lg-12 col-12 main_form_col">
                         <div class="form-group my-4">
-                            <div id="profile_pic">
-                                <div class="profile_pic_edit">
+                            <div id="product_pic">
+                                <div class="product_pic_edit">
                                     <input multiple="multiple" required="required" type='file' name="product_image[]"
-                                        id="profile_upload" accept=".png, .jpg, .jpeg" class="form-control">
-                                    <label for="profile_upload" id="profile_pic_btn"></label>
+                                        id="product_upload" accept=".png, .jpg, .jpeg" class="form-control">
+                                    <label for="product_upload" id="product_pic_btn"></label>
                                 </div>
-                                <div class="profile_pic_preview">
-                                    <div id="profile_pic_preview"
+                                <div class="product_pic_preview">
+                                    <div id="product_pic_preview"
                                         style="background-image: url('./assets/images/placeholder.jpg');">
                                     </div>
                                     <span class="more_image_span"></span>
@@ -187,58 +187,55 @@ if ($db->sql($sql)) {
                             }
                         }
                         ?>
-                <tr>
-                    <td>
-                        <a href="javascript:void(0);" class="font-weight-bold">
-                            PROD000
-                            <?php echo $data['id']; ?>
-                        </a>
-                    </td>
-                    <td>
-                        <img class="img-fluid category_img_listed"
-                            src="<?php echo !empty($prod_img) ? '../src/images/products/thumbnails/' . $prod_img : "./assets/images/placeholder.png"; ?>" />
-                    </td>
-                    <td>
-                        <?php echo !empty($data['category_name']) ? $data['category_name'] : "Not Available"; ?>
-                    </td>
-                    <!-- <td>
+                        <tr>
+                            <td>
+                                <a href="javascript:void(0);" class="font-weight-bold">
+                                    <?php echo "PROD000" . $data['id']; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <img class="img-fluid category_img_listed"
+                                    src="<?php echo !empty($prod_img) ? is_file('../src/images/products/thumbnails/' . $prod_img) && file_exists('../src/images/products/thumbnails/' . $prod_img) ? '../src/images/products/thumbnails/' . $prod_img : "./assets/images/placeholder.png" : "./assets/images/placeholder.png"; ?>" />
+                            </td>
+                            <td>
+                                <?php echo !empty($data['category_name']) ? $data['category_name'] : "Not Available"; ?>
+                            </td>
+                            <!-- <td>
                         <span
-                            class="font-weight-normal wrap_text_data"><?php //echo !empty($data['subcategory_name']) ? $data['subcategory_name'] : "Not Available"; ?></span>
+                            class="font-weight-normal wrap_text_data"><?php //echo !empty($data['subcategory_name']) ? $data['subcategory_name'] : "Not Available";     ?></span>
                     </td> -->
-                    <td>
-                        <span class="font-weight-normal wrap_text_data">
-                            <?php echo !empty($data['name']) ? trim($data['name']) : "Not Available"; ?>
-                        </span>
-                    </td>
-                    <td>
-                        <?php echo !empty($data['date_time']) ? date('d M Y h:i:s a', strtotime($data['date_time'])) : "Not Available"; ?>
-                    </td>
-                    <td>
-                        <div class="btn-group">
-                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="icon icon-sm">
-                                    <span class="fas fa-ellipsis-h icon-dark"></span>
-                                </span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item text-dark view_product_btn"
-                                    href="view_product_details?data=<?php echo base64_encode($data['name']) . '&id=' . base64_encode($data['id']); ?>"><span
-                                        class="far fa-eye mr-2"></span>View</a>
+                            <td>
+                                <?php echo !empty($data['name']) ? trim($data['name']) : "Not Available"; ?>
+                            </td>
+                            <td>
+                                <?php echo !empty($data['date_time']) ? date('d M Y h:i:s a', strtotime($data['date_time'])) : "Not Available"; ?>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="icon icon-sm">
+                                            <span class="fas fa-ellipsis-h icon-dark"></span>
+                                        </span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item text-dark view_product_btn"
+                                            href="view_product_details?data=<?php echo base64_encode($data['name']) . '&id=' . base64_encode($data['id']); ?>"><span
+                                                class="far fa-eye mr-2"></span>View</a>
 
-                                <a class="dropdown-item text-dark edit_product_btn"
-                                    href="edit_products?data=<?php echo base64_encode($data['name']) . '&id=' . base64_encode($data['id']); ?>"><span
-                                        class="fas fa-edit mr-2"></span>Edit</a>
+                                        <a class="dropdown-item text-dark edit_product_btn"
+                                            href="edit_products?data=<?php echo base64_encode($data['name']) . '&id=' . base64_encode($data['id']); ?>"><span
+                                                class="fas fa-edit mr-2"></span>Edit</a>
 
-                                <a class="dropdown-item text-danger delete_product_btn" href="javascript:void(0);"
-                                    product-id="<?php echo base64_encode($data['id']); ?>"><span
-                                        class="fas fa-trash-alt mr-2"></span>Delete</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <?php
+                                        <a class="dropdown-item text-danger delete_product_btn" href="javascript:void(0);"
+                                            product-id="<?php echo base64_encode($data['id']); ?>"><span
+                                                class="fas fa-trash-alt mr-2"></span>Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
                     }
                 }
                 ?>
