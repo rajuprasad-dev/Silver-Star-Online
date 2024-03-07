@@ -75,29 +75,20 @@ if ($db->sql($sql)) {
                         <tr>
                             <td>
                                 <a href="javascript:void(0);" class="font-weight-bold">
-                                    COUP4565
-                                    <?php echo $data['id']; ?>
+                                    <?php echo "COUP4565" . $data['id']; ?>
                                 </a>
                             </td>
                             <td>
-                                <span class="font-weight-normal wrap_text_data">
-                                    <?php echo !empty($data['coupon']) ? $data['coupon'] : "No Details Available"; ?>
-                                </span>
+                                <?php echo !empty($data['coupon']) ? $data['coupon'] : "No Details Available"; ?>
                             </td>
                             <td>
-                                <span class="font-weight-normal wrap_text_data">
-                                    <?php echo !empty($data['discount']) ? $data['discount'] : "No Details Available"; ?>
-                                </span>
+                                <?php echo !empty($data['discount']) ? $data['discount'] : "No Details Available"; ?>
                             </td>
                             <td>
-                                <span class="font-weight-normal wrap_text_data">
-                                    <?php echo !empty($data['min_value']) ? $data['min_value'] : "No Details Available"; ?>
-                                </span>
+                                <?php echo !empty($data['min_value']) ? $data['min_value'] : "No Details Available"; ?>
                             </td>
                             <td>
-                                <span class="font-weight-normal wrap_text_data">
-                                    <?php echo $data['date_time']; ?>
-                                </span>
+                                <?php echo $data['date_time']; ?>
                             </td>
                             <td>
                                 <div class="btn-group">

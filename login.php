@@ -38,12 +38,12 @@
     <?php include "navbar.php"; ?>
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
-            <h2 class="display-5" style="padding-top:120px">Login/Sign up</h2>
+            <h2 class="display-5">Login/Sign up</h2>
         </div>
     </div>
     <section
         style="display:flex;justify-content:center;background-image:url('images/account.jpg');backgroud-position:center;background-repeat:no-repeat;"
-        class="text-center px-4 py-4">
+        class="text-center px-4 py-5">
         <div id="container-account" class="element" style="background-color:white;border:1px solid black;">
             <div class="justify-content-around row px-5 py-5" style="list-style: none;">
                 <a id="toggleLogin" class="card-text-dinnis custom-link">Login</a>

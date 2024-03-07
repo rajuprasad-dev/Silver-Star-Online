@@ -67,7 +67,7 @@ include_once "./backend-of-frontend/conn.php";
     <?php include "navbar.php"; ?>
     <div class="container-account">
         <div class="jumbotron text-center" style="background-color:#f6f4f2;">
-            <h2 class="display-5" style="padding-top:120px">
+            <h2 class="display-5">
                 <?php echo $_SESSION['name']; ?>
             </h2>
             <p class="lead">Manage Account</p>
@@ -76,22 +76,22 @@ include_once "./backend-of-frontend/conn.php";
     <div class="container-fluid">
         <div class="row">
             <!-- Side Navigation without borders or background color -->
-            <div class="col-md-3 px-5 py-5 text-center text-md-left">
+            <div class="col-md-3 px-5 py-5 text-center text-md-left border-right">
                 <!-- <h3>Categories</h3> -->
                 <ul class="list-group">
-                    <li class="list-group-item" style="border: 0px; cursor: pointer;font-size:14px;"
-                        onclick="showContent('orders')">
+                    <li class="list-group-item accounts-tab-main active"
+                        style="border: 0px; cursor: pointer;font-size:14px;" onclick="showContent(this, 'orders')">
                         Orders</li>
-                    <!-- <li class="list-group-item" style="border: 0px; cursor: pointer;"
-                        onclick="showContent('downloads')">Downloads</li> -->
-                    <li class="list-group-item" style="border: 0px; cursor: pointer;font-size:14px;"
-                        onclick="showContent('address')">
+                    <!-- <li class="list-group-item accounts-tab-main" style="border: 0px; cursor: pointer;"
+                        onclick="showContent(this, 'downloads')">Downloads</li> -->
+                    <li class="list-group-item accounts-tab-main" style="border: 0px; cursor: pointer;font-size:14px;"
+                        onclick="showContent(this, 'address')">
                         Address</li>
-                    <li class="list-group-item" style="border: 0px; cursor: pointer;font-size:14px;"
-                        onclick="showContent('accountDetails')">Account Details</li>
-                    <!-- <li class="list-group-item" style="border: 0px; cursor: pointer;font-size:14px;"
-                        onclick="showContent('orderDetails')">Order Detail</li> -->
-                    <li class="list-group-item" style="border: 0px; cursor: pointer;font-size:14px;">
+                    <li class="list-group-item accounts-tab-main" style="border: 0px; cursor: pointer;font-size:14px;"
+                        onclick="showContent(this, 'accountDetails')">Account Details</li>
+                    <!-- <li class="list-group-item accounts-tab-main" style="border: 0px; cursor: pointer;font-size:14px;"
+                        onclick="showContent(this, 'orderDetails')">Order Detail</li> -->
+                    <li class="list-group-item accounts-tab-main" style="border: 0px; cursor: pointer;font-size:14px;">
                         <a href="backend-of-frontend/logout-session.php">Logout</a>
                     </li>
                 </ul>
@@ -107,10 +107,10 @@ include_once "./backend-of-frontend/conn.php";
             <!-- Container on the right side -->
 
             <div class="col-md-9">
-                <div class=" mx-5 my-5 text-center" id="ordersContent" style="display: block;">
-                    <h1 class="mx-5 my-5">Orders</h1>
-                    <div class="row text-center">
-                        <table class="table" style="border: none;">
+                <div class="mx-lg-5 my-5 text-center" id="ordersContent" style="display: block;">
+                    <h1 class="mx-lg-5 my-5">Orders</h1>
+                    <div class="table table-responsive">
+                        <table class="text-center table" style="border: none;">
                             <thead>
                                 <tr>
                                     <th style="border-top: none;padding-bottom:50px;font-size:14px"><span
@@ -151,7 +151,7 @@ include_once "./backend-of-frontend/conn.php";
                                                     <input type="hidden" name="order_id" value="<?= $userOrders['id'] ?>">
                                                     <!-- Replace '123' with the actual order ID -->
                                                     <button class="black-button" type="submit"
-                                                        onclick="showContent('orderDetails')">View</button>
+                                                        onclick="showContent(this, 'orderDetails')">View</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -183,8 +183,8 @@ include_once "./backend-of-frontend/conn.php";
                         </table>
                     </div>
                 </div>
-                <div class=" mx-5 my-5 text-center" id="downloadsContent" style="display: none;">
-                    <h1 class="mx-5 my-5">downloads</h1>
+                <div class="mx-lg-5 mx-3 text-center" id="downloadsContent" style="display: none;">
+                    <h1 class="mx-lg-5 mx-3 my-lg-5 my-4">downloads</h1>
                     <div class="row text-center">
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
                             <div class="card" onmouseover="changeImage(this, 'images/earings.jpg')"
@@ -258,7 +258,7 @@ include_once "./backend-of-frontend/conn.php";
                 <?php
                 if (isset($userDetails)) {
                     ?>
-                    <div class=" mx-5 my-5 text-center">
+                    <div class="mx-lg-5 mx-3 my-5 text-center">
                         <div class="row text-left" id="accountDetailsContent" style="display: none;">
                             <div class="container">
                                 <h1 class="my-5">User Account Details</h1>
@@ -300,7 +300,7 @@ include_once "./backend-of-frontend/conn.php";
                                             <div class="form-group">
                                                 <label for="phoneNumber" style="font-size:14px;">Phone Number</label>
                                                 <input type="tel" class="form-control underline-input" id="phoneNumber"
-                                                    value="<?php // echo $userDetails['phone']; ?>">
+                                                    value="<?php // echo $userDetails['phone'];                      ?>">
                                             </div>
                                         </div> -->
                                     </div>
@@ -324,16 +324,13 @@ include_once "./backend-of-frontend/conn.php";
                 <?php
                 if (isset($userAddress)) {
                     ?>
-                    <div class=" mx-5 my-5 text-left" id="addressContent" style="display: none;">
+                    <div class="mx-lg-5 mx-3 my-5 text-left" id="addressContent" style="display: none;">
                         <div class="container my-5">
-                            <div class="row justify-content-center">
-
-
-
+                            <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <div class="card custom-card px-4 py-4">
                                         <div class="card-body">
-                                            <h5 class="card-title"><b>Billing Address</b></h5>
+                                            <h5 class="card-title"><b>Address</b></h5>
                                             <p>Name:
                                                 <?= $userDetails['name'] ?>
                                             </p>
@@ -361,98 +358,41 @@ include_once "./backend-of-frontend/conn.php";
                                 </div>
 
                                 <!-- Shipping Address Card -->
-                                <div class="col-md-6 mt-4">
-                                    <div class="card custom-card px-4 py-4">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><b>Shipping Address</b></h5>
-                                            <p>Name:
-                                                <?= $userDetails['name'] ?>
-                                            </p>
-                                            <p>Address:
-                                                <?= $userDetails['address'] ?>
-                                            </p>
-                                            <p>City:
-                                                <?= $userDetails['city'] ?>
-                                            </p>
-                                            <p>State:
-                                                <?= $userDetails['state'] ?>
-                                            </p>
-                                            <p>Zip Code:
-                                                <?= $userDetails['pincode'] ?>
-                                            </p>
-                                            <p>Country: India</p>
-                                            <p>Email:
-                                                <?= $userDetails['email'] ?>
-                                            </p>
-                                            <p>Phone:
-                                                <?= $userDetails['phone'] ?>
-                                            </p>
-                                        </div>
+                                <!-- <div class="col-md-6 mt-4">
+                                <div class="card custom-card px-4 py-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><b>Shipping Address</b></h5>
+                                        <p>Name:
+                                            <?php // echo $userDetails['name']     ?>
+                                        </p>
+                                        <p>Address:
+                                            <?php // echo $userDetails['address']     ?>
+                                        </p>
+                                        <p>City:
+                                            <?php // echo $userDetails['city']     ?>
+                                        </p>
+                                        <p>State:
+                                            <?php // echo $userDetails['state']     ?>
+                                        </p>
+                                        <p>Zip Code:
+                                            <?php // echo $userDetails['pincode']     ?>
+                                        </p>
+                                        <p>Country: India</p>
+                                        <p>Email:
+                                            <?php // echo $userDetails['email']     ?>
+                                        </p>
+                                        <p>Phone:
+                                            <?php // echo $userDetails['phone']     ?>
+                                        </p>
                                     </div>
                                 </div>
+                            </div> -->
                             </div>
                         </div>
                     </div>
                     <?php
                 }
                 ?>
-                <div class=" mx-5 my-5 text-left" id="orderDetailsContent" style="display: none;">
-                    <div class="container my-5">
-                        <div class="row justify-content-center">
-                            <!-- Billing Address Card -->
-                            <div class="col-md-12">
-                                <div class="card custom-card px-4 py-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Order Details</b></h5>
-                                        <p>Order Number: 12345</p>
-                                        <p>Date: October 30, 2023</p>
-                                        <p>Shipping Address: 456 Elm Avenue, Anothercity, NY 54321, United States</p>
-                                        <p>Email: jane.smith@email.com</p>
-                                        <p>Phone: (555) 987-6543</p>
-                                        <p>Payment Method: Credit Card</p>
-                                        <p>Total Amount: $100.00</p>
-                                        <!-- You can add more order details here as needed -->
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6 mt-4">
-                                <div class="card custom-card px-4 py-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Billing Address</b></h5>
-                                        <p>Name: John Doe</p>
-                                        <p>Address: 123 Main Street</p>
-                                        <p>City: Anytown</p>
-                                        <p>State: CA</p>
-                                        <p>Zip Code: 12345</p>
-                                        <p>Country: United States</p>
-                                        <p>Email: john.doe@email.com</p>
-                                        <p>Phone: (555) 123-4567</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Shipping Address Card -->
-                            <div class="col-md-6 mt-4">
-                                <div class="card custom-card px-4 py-4">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><b>Shipping Address</b></h5>
-                                        <p>Name: Jane Smith</p>
-                                        <p>Address: 456 Elm Avenue</p>
-                                        <p>City: Anothercity</p>
-                                        <p>State: NY</p>
-                                        <p>Zip Code: 54321</p>
-                                        <p>Country: United States</p>
-                                        <p>Email: jane.smith@email.com</p>
-                                        <p>Phone: (555) 987-6543</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -473,12 +413,22 @@ include_once "./backend-of-frontend/conn.php";
         }
     </script>
     <script>
-        function showContent ( contentId ) {
+        function showContent ( elem, contentId ) {
             // Hide all content sections
             const contentSections = document.querySelectorAll( '[id$="Content"]' );
             contentSections.forEach( function ( section ) {
                 section.style.display = 'none';
             } );
+
+            // add active tab class 
+            const accountsTabs = document.querySelectorAll( '.accounts-tab-main' );
+            accountsTabs.forEach( function ( tabs ) {
+                tabs.classList.remove( "active" );
+            } );
+
+            // console.log( elem );
+
+            elem.classList.add( "active" );
 
             // Show the selected content section
             const selectedContent = document.getElementById( contentId + 'Content' );

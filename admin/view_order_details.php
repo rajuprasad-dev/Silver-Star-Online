@@ -43,14 +43,14 @@ if ($db->sql($sql)) {
             <tbody>
                 <tr>
                     <th>#ID</th>
-                    <td>ORDR
-                        <?php echo 9999 + $result['id']; ?>
+                    <td>
+                        <?php echo "ORDR" . (9999 + $result['id']); ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Booking ID</th>
-                    <td>#
-                        <?php echo $result['order_id']; ?>
+                    <td>
+                        <?php echo "#" . $result['order_id']; ?>
                     </td>
                 </tr>
                 <tr>
@@ -75,36 +75,18 @@ if ($db->sql($sql)) {
                     <th>Products</th>
                     <td>
                         <?php
+                        $products_data_list = array();
                         if (!empty($result['products'])) {
                             $products_data = json_decode($result['products'], true);
 
-                            $products_array = array();
+                            if (!empty($products_data) && is_array($products_data)) {
+                                $products_data_list = $products_data;
 
-                            if (!empty($products_data)) {
-                                if (is_array($products_data)) {
-                                    foreach ($products_data as $p => $product) {
-                                        array_push($products_array, "'{$product}'");
-                                    }
-                                } else {
-                                    array_push($products_array, "'{$products_data}'");
+                                foreach ($products_data as $pk => $prod) {
+                                    echo '<p class="mb-0"><a target="blank" href="../product_details?data=' . base64_encode($prod['name']) . '&id=' . base64_encode($prod['id']) . '">' . $prod['name'] . '</a><span class="ml-2 text-success">(1 ' . $prod['quantity_unit'] . ')</span><span class="ml-2 text-tertiary">(x' . $prod['cart_quantity'] . ')</span><span class="ml-2 text-info"></span></p>';
                                 }
-
-                                $products = implode(', ', $products_array);
-
-                                $prod_sql = "SELECT * FROM `products` WHERE `id` IN ($products)";
-
-                                $produ_res = array();
-                                if ($db->sql($prod_sql)) {
-                                    $produ_num = $db->numrows();
-
-                                    if ($produ_num > 0) {
-                                        $produ_res = $db->result();
-
-                                        foreach ($produ_res as $pk => $prod) {
-                                            echo '<p class="mb-0"><a target="blank" href="../product_details?data=' . base64_encode($prod['name']) . '&id=' . base64_encode($prod['id']) . '">' . $prod['name'] . '</a><span class="ml-2 text-success">(1 ' . $prod['quantity_unit'] . ')</span><span class="ml-2 text-tertiary">(x' . $products_data[$pk]['quantity'] . ')</span><span class="ml-2 text-info"> -> ₹' . ($prod['selling_price'] * $products_data[$pk]['quantity']) . '</span></p>';
-                                        }
-                                    }
-                                }
+                            } else {
+                                echo "Not Available";
                             }
                         }
                         ?>
@@ -125,7 +107,7 @@ if ($db->sql($sql)) {
                 <tr>
                     <th>Discount</th>
                     <td>
-                        <?php echo "₹" . $result['cart_amount'] - $result['discount_amt']; ?>
+                        <?php echo "₹" . $result['discount_amt']; ?>
                     </td>
                 </tr>
                 <tr>

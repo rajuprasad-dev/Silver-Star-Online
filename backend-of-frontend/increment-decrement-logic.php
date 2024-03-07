@@ -5,11 +5,11 @@ include_once "conn.php";
 // Get values from $_POST
 $productId = $_POST['product_id'];
 $customerId = $_POST['customer_id'];
-$increment = $_POST['increment'];
-$decrement = $_POST['decrement'];
 
 // Increment quantity by 1
-if (isset($increment)) {
+if (isset($_POST['increment'])) {
+    $increment = $_POST['increment'];
+
     $sqlIncrement = "UPDATE cart SET quantity = quantity + 1 WHERE product_id = $productId AND customer_id = $customerId";
 
     // Execute the query
@@ -21,7 +21,9 @@ if (isset($increment)) {
 }
 
 // Decrement quantity by 1 or delete if quantity is 1
-if (isset($decrement)) {
+if (isset($_POST['decrement'])) {
+    $decrement = $_POST['decrement'];
+
     // Check if the current quantity is 1
     $currentQuantity = getCurrentQuantity($conn, $productId, $customerId);
 

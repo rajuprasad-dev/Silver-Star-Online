@@ -20,7 +20,7 @@ if (isset($_POST['coupon_code'])) {
       // Check if the total cart amount is greater than or equal to the minimum value required for the coupon
       if ($_SESSION['totalCartAmount'] >= $couponDetails['min_value']) {
         // Apply the discount to the total cart amount
-        $_SESSION['coupon_code'] = $couponDetails['coupon_code'];
+        $_SESSION['coupon_code'] = $couponDetails['coupon'];
         $_SESSION['discount_amount'] = $couponDetails['discount'];
         $_SESSION['coupon_set'] = "set";
         echo '<script>alert("Coupon Code Added");</script>';
@@ -66,7 +66,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
   if (isset($_SESSION['userId'])) {
     $userId = $_SESSION['userId'];
   }
-  $toalCartAmount = 0;
+  $totalCartAmount = 0;
   $sqlcart = "SELECT p.*, c.quantity AS cart_quantity, p.quantity AS product_quantity, c.product_id AS cart_product_id, c.customer_id AS cart_customer_id
   FROM cart c
   INNER JOIN products p ON c.product_id = p.id
@@ -87,7 +87,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
             <thead>
 
               <!-- <form method="post" action="backend-of-frontend/add-to-cart-logic">
-                <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+                <input type="hidden" name="product_id" value="<?php // echo $row['id'];                        ?>">
                 <button type="submit" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;">
                   <a style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a>
                 </button>
@@ -108,7 +108,10 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
             <tbody>
               <?php
               if ($cartresult->num_rows > 0) {
+                $cart_products_all = array();
+
                 while ($rowcart = $cartresult->fetch_assoc()) {
+                  array_push($cart_products_all, $rowcart);
 
                   $product_image_sql = "SELECT * FROM `product_images` WHERE `product_id` = '" . $rowcart['id'] . "' LIMIT 1";
                   $image_result = $conn->query($product_image_sql);
@@ -126,7 +129,8 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                   // echo $product_image;
                   // die;
               
-                  $toalCartAmount = $toalCartAmount + $rowcart["selling_price"] * $rowcart["cart_quantity"];
+                  $subtotalCartAmount = ($subtotalCartAmount ?? 0) + $rowcart["original_price"] * $rowcart["cart_quantity"];
+                  $totalCartAmount = ($totalCartAmount ?? 0) + $rowcart["selling_price"] * $rowcart["cart_quantity"];
                   ?>
                   <tr>
                     <td style="border: none;padding-top:50px;padding-bottom:50px;">
@@ -171,19 +175,24 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                         </span>
                       </div>
                     </td>
-                    <td style="border: none;padding-top:50px;padding-bottom:50px;">Rs
+                    <td style="border: none;padding-top:50px;padding-bottom:50px;">₹
                       <?php echo $rowcart['selling_price'] * $rowcart['cart_quantity']; ?>
                     </td>
                   </tr>
                   <?php
                 }
+
+                // echo "<pre>";
+                // print_r($cart_products_all);
+                // echo "</pre>";
+                $_SESSION['cart_products'] = $cart_products_all;
               }
               ?>
               <!-- <tr style="padding-top:50px;padding-bottom:50px;">
                 <td style="border: none;padding-top:50px;padding-bottom:50px;"><img src="images/hero.jpg"
                     style="width:75px;" alt="Product Image"></td>
                 <td style="border: none;padding-top:50px;padding-bottom:50px;"><b>Product 1</b></td>
-                <td style="border: none;padding-top:50px;padding-bottom:50px;">399 Rs</td>
+                <td style="border: none;padding-top:50px;padding-bottom:50px;">399 ₹</td>
                 <td style="border: none;padding-top:50px;padding-bottom:50px;">
                   <div class="input-group" style="width: 50%;">
                     <span class="input-group-btn">
@@ -195,14 +204,13 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                     </span>
                   </div>
                 </td>
-                <td style="border: none;padding-top:40px;padding-bottom:40px;">399 Rs</td>
+                <td style="border: none;padding-top:40px;padding-bottom:40px;">399 ₹</td>
               </tr> -->
             </tbody>
           </table>
 
         </div>
       </div>
-
 
       <div class="col-sm-4">
         <!-- <h1 class="my-5">Total In Cart</h1> -->
@@ -221,6 +229,9 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                     <?php echo $rowcart2['name']; ?>
                   </div>
                   <div>
+                    <del style="color: grey;">
+                      <?php echo $rowcart2['original_price']; ?>
+                    </del>
                     <?php echo $rowcart2['selling_price']; ?> X
                     <?php echo $rowcart2['cart_quantity']; ?>
                   </div>
@@ -228,6 +239,25 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
               <?php } ?>
             <?php } ?>
 
+            <hr class="hr hr-blurry" />
+            <div class="card-body px-2 py-2  row justify-content-between">
+              <div>Subtotal</div>
+              <div>
+                <?php
+                echo "₹" . $_SESSION['subtotalCartAmount'] = $subtotalCartAmount;
+                ?>
+              </div>
+            </div>
+
+            <hr class="hr hr-blurry" />
+            <div class="card-body px-2 py-2  row justify-content-between">
+              <div>Discount</div>
+              <div>
+                <?php
+                echo "- ₹" . $_SESSION['cart_discount'] = $subtotalCartAmount - $totalCartAmount;
+                ?>
+              </div>
+            </div>
 
             <?php
             // Calculate the discounted total
@@ -239,7 +269,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                 <div>
                   <?php
                   // Calculate the discounted total
-                  echo $_SESSION['discount_amount'];
+                  echo "- ₹" . $_SESSION['discount_amount'];
                   ?>
                 </div>
               </div>
@@ -252,12 +282,12 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
                 <?php
                 // Calculate the discounted total
                 if (isset($_SESSION['discount_amount'])) {
-                  $discountedTotal = $toalCartAmount - $_SESSION['discount_amount'];
+                  $discountedTotal = $totalCartAmount - $_SESSION['discount_amount'];
                   $_SESSION['totalCartAmount'] = $discountedTotal;
-                  echo $discountedTotal;
+                  echo "₹" . $discountedTotal;
                 } else {
-                  $_SESSION['totalCartAmount'] = $toalCartAmount;
-                  echo $toalCartAmount;
+                  $_SESSION['totalCartAmount'] = $totalCartAmount;
+                  echo "₹" . $totalCartAmount;
                 }
                 ?>
               </div>
@@ -277,7 +307,7 @@ if ($resultcart && mysqli_num_rows($resultcart) > 0) {
           <div class="form-group mr-2">
             <input type="text" class="form-control border-dark rounded-0" style="padding: 21px 25px;"
               placeholder="Enter your coupon code" name="coupon_code"
-              value="<?php echo !empty($_POST['coupon_code']) ? $_POST['coupon_code'] : ($_SESSION['coupon_code'] ?? ""); ?>">
+              value="<?php echo !empty($_SESSION['coupon_code']) ? $_SESSION['coupon_code'] : ($_POST['coupon_code'] ?? ""); ?>">
           </div>
 
           <div class="form-group">

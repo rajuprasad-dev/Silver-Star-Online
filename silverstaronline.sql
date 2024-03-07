@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 02:23 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Mar 07, 2024 at 07:31 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `date_time` varchar(200) NOT NULL,
   `last_login` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
@@ -51,68 +51,6 @@ INSERT INTO `admin` (`id`, `unique_id`, `photo`, `name`, `email`, `phone`, `pass
 -- --------------------------------------------------------
 
 --
--- Table structure for table `captain`
---
-
-CREATE TABLE `captain` (
-  `id` int(255) NOT NULL,
-  `unique_id` bigint(20) NOT NULL,
-  `photo` varchar(200) NOT NULL,
-  `name` varchar(150) NOT NULL,
-  `gender` varchar(100) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `phone` varchar(200) NOT NULL,
-  `dob` varchar(150) NOT NULL,
-  `doj` varchar(150) NOT NULL,
-  `aadhar` varchar(200) NOT NULL,
-  `pancard` varchar(200) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(180) NOT NULL,
-  `state` varchar(180) NOT NULL,
-  `pincode` int(150) NOT NULL,
-  `vaccination` varchar(100) NOT NULL,
-  `status` int(10) NOT NULL DEFAULT 1,
-  `active` int(11) NOT NULL DEFAULT 0,
-  `otp` int(20) NOT NULL DEFAULT 0,
-  `otp_time` varchar(200) NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `captain`
---
-
-INSERT INTO `captain` (`id`, `unique_id`, `photo`, `name`, `gender`, `email`, `phone`, `dob`, `doj`, `aadhar`, `pancard`, `address`, `city`, `state`, `pincode`, `vaccination`, `status`, `active`, `otp`, `otp_time`, `date_time`) VALUES
-(1, 7021379952, '5aff0742aaa4e6e340c3bb07293b4831_profile_photo.png', 'Raju Prasad', 'Male', 'rktech50@gmail.com', '7021379952', '2021-12-02', '2021-12-02', '12345678912', 'abc123ab12', 'Sakinaka', 'Mumbai', 'Maharashtra', 400070, 'Fully Vaccinated', 1, 0, 0, '', '2021-12-02 07:28:18'),
-(2, 1234567890, '', 'Saabmall Captain', 'Male', 'saabmall2021@gmail.com', '9123456789', '2021-12-13', '2021-12-13', '9892565787', 'Hello ', '', 'Mumbai', 'Maharashtra', 400072, 'Non-Vaccinated', 1, 0, 0, '1639674677', '2021-12-13 14:53:54');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `captain_payments`
---
-
-CREATE TABLE `captain_payments` (
-  `id` int(255) NOT NULL,
-  `captain_id` int(200) NOT NULL,
-  `month` varchar(150) NOT NULL,
-  `total_delivery` int(100) NOT NULL,
-  `total_amount` int(200) NOT NULL,
-  `payment_mode` varchar(200) NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `captain_payments`
---
-
-INSERT INTO `captain_payments` (`id`, `captain_id`, `month`, `total_delivery`, `total_amount`, `payment_mode`, `date_time`) VALUES
-(1, 1, 'Dec 2021', 8, 190, 'Paid Through Online', '2021-12-05 16:46:48'),
-(2, 1, 'Nov 2021', 1, 20, 'Paid Through Cheque', '2021-12-05 16:51:30');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cart`
 --
 
@@ -122,7 +60,7 @@ CREATE TABLE `cart` (
   `product_id` int(255) NOT NULL,
   `quantity` int(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -136,7 +74,7 @@ CREATE TABLE `categories` (
   `icon` varchar(200) NOT NULL,
   `color` varchar(100) NOT NULL,
   `date_time` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
@@ -164,14 +102,14 @@ CREATE TABLE `coupons` (
   `discount` int(150) NOT NULL,
   `min_value` int(150) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `coupons`
 --
 
 INSERT INTO `coupons` (`id`, `coupon`, `discount`, `min_value`, `date_time`) VALUES
-(2, 'Aklu20off', 323, 300, '2023-11-15 15:18:14'),
+(2, 'test', 30, 300, '2024-03-07 13:20:17'),
 (3, 'saabmall', 150, 3000, '2021-11-14 18:26:08'),
 (4, 'abcd', 1000, 2000, '2023-12-20 08:37:36');
 
@@ -196,78 +134,31 @@ CREATE TABLE `customers` (
   `otp_time` varchar(200) DEFAULT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `address`, `city`, `state`, `pincode`, `landmark`, `status`, `otp`, `otp_time`, `date_time`, `password`) VALUES
-(1, 'Raju Prasad', '7021379952', 'rktech50@gmail.com', 'Sakinaka', 'Mumbai', 'Maharashtra', 400070, 'testing', 0, 1204, '1696518399', '2021-11-28 15:17:34', 'r');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `deliveries`
---
-
-CREATE TABLE `deliveries` (
-  `id` int(255) NOT NULL,
-  `customer_id` int(255) NOT NULL,
-  `order_id` int(255) NOT NULL,
-  `captain_id` int(255) NOT NULL,
-  `position` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `charges` int(100) NOT NULL,
-  `status` enum('Pending','Started','Cancelled','Delivered') NOT NULL DEFAULT 'Pending',
-  `pickup_time` varchar(200) NOT NULL,
-  `expected_delivery` varchar(100) NOT NULL,
-  `delivered_time` varchar(200) NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `deliveries`
---
-
-INSERT INTO `deliveries` (`id`, `customer_id`, `order_id`, `captain_id`, `position`, `charges`, `status`, `pickup_time`, `expected_delivery`, `delivered_time`, `date_time`) VALUES
-(1, 3, 1, 2, '', 55, 'Delivered', '', '', '', '2021-12-14 16:54:45'),
-(2, 3, 2, 2, '', 55, 'Cancelled', '', '', '', '2021-12-14 16:54:49'),
-(3, 3, 3, 2, '', 55, 'Pending', '', '', '', '2021-12-17 16:02:46'),
-(4, 1, 17, 1, '', 40, 'Pending', '', '', '', '2021-12-19 20:05:49');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `featured_hotdeals`
---
-
-CREATE TABLE `featured_hotdeals` (
-  `id` int(255) NOT NULL,
-  `product_id` int(255) NOT NULL,
-  `type` int(10) NOT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `featured_hotdeals`
---
-
-INSERT INTO `featured_hotdeals` (`id`, `product_id`, `type`, `date_time`) VALUES
-(8, 99, 1, '2021-12-12 09:06:03'),
-(9, 50, 1, '2021-12-12 09:06:03'),
-(10, 98, 1, '2021-12-12 09:06:34'),
-(11, 95, 2, '2021-12-12 09:07:42'),
-(12, 89, 2, '2021-12-12 09:07:42'),
-(13, 65, 2, '2021-12-12 09:07:42'),
-(14, 64, 2, '2021-12-12 09:07:42'),
-(15, 63, 2, '2021-12-12 09:07:42'),
-(16, 96, 1, '2021-12-12 09:11:17'),
-(17, 94, 1, '2021-12-12 09:11:17'),
-(18, 93, 1, '2021-12-12 09:11:17'),
-(19, 88, 1, '2021-12-12 09:11:17'),
-(20, 90, 2, '2021-12-12 09:11:42'),
-(21, 87, 2, '2021-12-12 09:11:42'),
-(22, 74, 2, '2021-12-12 09:11:42');
+(1, 'Raju Prasad', '7021379952', 'rktech50@gmail.com', 'Sakinaka', 'Mumbai', 'Maharashtra', 400070, 'testing', 0, 1204, '1696518399', '2021-11-28 15:17:34', 'r'),
+(2, 'Pratik Bhor', '8898242843', 'pratik.bhor0404@gmail.com', '', '', '', 0, NULL, 0, 0, '1639512230', '2021-12-12 10:00:21', ''),
+(3, 'shivam rai', '8652477976', 'raishivam223@gmail.com', 'Ashok Nagar Powai\r\n', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 0, '1639757150', '2021-12-13 17:00:35', ''),
+(4, 's', '123456789', 'contact@saabmall.com', '', '', '', 0, NULL, 0, 0, '1639473195', '2021-12-14 09:08:15', ''),
+(5, 'Rustabh', '7498847799', 'rustabhchauhan@gmail.com', '', '', '', 0, NULL, 0, 1396, '1696518237', '2021-12-17 14:04:17', ''),
+(6, 'Akash', '8898997827', 'as245055@gmail.com', 'Ashok Nagar Marol Military Road', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 2075, '1639949469', '2021-12-18 15:50:25', ''),
+(7, 'Akash', '8291651762', 'techmist6@gmail.com', 'Ashok Nagar Marol Military Road', 'Mumbai', 'Maharashtra', 400072, NULL, 0, 0, '1639860064', '2021-12-18 20:36:05', ''),
+(8, 'Raju Prasad', '9123456789', 'rk2405200@gmail.com', '', '', '', 0, NULL, 0, 6024, '1639951055', '2021-12-19 21:51:12', ''),
+(9, 'mbn', '132456879', 'mnb@gmail.com', '', '', '', 0, NULL, 0, 8843, '1682670161', '2023-04-28 08:17:42', ''),
+(10, 'Suraj', '9137094730', 'surajyadavssr@gmail.com', '', '', '', 0, NULL, 0, 6233, '1696479755', '2023-10-05 04:16:43', ''),
+(12, 'dinniskuttikkat', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu '),
+(13, 'dinniskuttikkat1', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(14, 'dinniskuttikkat11', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(15, 'shamu11', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(16, 'ramu1', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(17, 'shamu111', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(18, 'ayae', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu'),
+(19, 'dinnisramu', '123-456-7890', 'johndoe@example.com', '123 Main St', 'Anytown', 'CA', 12345, 'Park', 0, 123456, '2023-11-05 14:30:00', '2023-11-05 09:00:00', 'dinu');
 
 -- --------------------------------------------------------
 
@@ -281,7 +172,7 @@ CREATE TABLE `ordered_products` (
   `product_id` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `date_time` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ordered_products`
@@ -298,11 +189,7 @@ INSERT INTO `ordered_products` (`id`, `customer_id`, `product_id`, `quantity`, `
 (9, 19, 50, 1, '2023-11-15 18:46:05'),
 (10, 19, 51, 1, '2023-11-15 18:47:22'),
 (11, 19, 65, 1, '2023-11-15 18:51:00'),
-(15, 1, 50, 1, '2023-11-18 13:37:04'),
-(16, 1, 19, 11, '2024-02-05 10:12:12'),
-(17, 1, 209, 2, '2024-02-05 10:12:29'),
-(18, 1, 77, 5, '2024-02-05 18:31:22'),
-(19, 1, 19, 1, '2024-02-14 14:17:12');
+(15, 1, 50, 1, '2023-11-18 13:37:04');
 
 -- --------------------------------------------------------
 
@@ -313,76 +200,31 @@ INSERT INTO `ordered_products` (`id`, `customer_id`, `product_id`, `quantity`, `
 CREATE TABLE `orders` (
   `id` int(255) NOT NULL,
   `customer_id` int(255) NOT NULL,
-  `address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `booking_address` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `order_id` varchar(150) NOT NULL,
-  `orderd_products_id` int(100) NOT NULL,
+  `order_note` text DEFAULT NULL,
+  `products` text DEFAULT NULL,
   `cart_amount` double NOT NULL,
   `discount_amt` double NOT NULL,
   `delivery_charges` double NOT NULL,
   `coupon_code` varchar(200) DEFAULT NULL,
   `coupon_discount` double DEFAULT NULL,
   `final_amount` double NOT NULL,
-  `payment_method` enum('COD','Razorpay') NOT NULL,
+  `payment_method` enum('COD','Online') NOT NULL,
   `payment_status` enum('Pending','Paid','Failed','COD') NOT NULL,
   `payment_id` varchar(255) NOT NULL,
-  `order_status` enum('Pending','Placed','Packed','Shipped','Out','Delivered','Cancelled') NOT NULL,
+  `order_status` enum('Pending','Placed','Packed','Shipped','Out For Delivery','Delivered','Cancelled') NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `address`, `order_id`, `orderd_products_id`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`) VALUES
-(1, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639415655191', 0, 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IX2PL3aHqKHGvX', 'Delivered', '2021-12-13 17:14:15'),
-(2, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639491610683', 0, 69, 69, 55, '', 0, 124, 'Razorpay', 'Paid', 'pay_IXNye52g7ZB5M1', 'Cancelled', '2021-12-14 14:20:11'),
-(3, 3, '{\"name\":\"shivam rai\",\"address\":\"Ashok Nagar Powai\\n, Mumbai, Maharashtra - 400072\",\"phone\":\"8652477976\",\"expected_delivery\":\"Delivery by Today\"}', '1639756895678', 0, 18, 18, 55, '', 0, 73, 'Razorpay', 'Paid', 'pay_IYbJ22bcnty7kg', 'Out', '2021-12-17 16:01:36'),
-(5, 6, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8898997827\",\"expected_delivery\":\"Delivery by Today\"}', '1639859610500', 0, 52, 52, 55, '', 0, 107, 'Razorpay', 'Paid', 'pay_IZ4TNexmmGim4m', 'Placed', '2021-12-18 20:33:31'),
-(6, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639860170339', 0, 154, 154, 55, '', 0, 209, 'Razorpay', 'Paid', 'pay_IZ4dMdFpLmngAy', 'Placed', '2021-12-18 20:42:51'),
-(7, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639860211098', 0, 138, 138, 40, '', 0, 178, 'Razorpay', 'Pending', '', 'Delivered', '2021-12-18 20:43:29'),
-(8, 7, '{\"name\":\"Akash\",\"address\":\"Ashok Nagar Marol Military Road, Mumbai, Maharashtra - 400072\",\"phone\":\"8291651762\",\"expected_delivery\":\"Delivery by Today\"}', '1639861198821', 0, 172, 172, 55, '', 0, 227, 'COD', 'COD', '', 'Cancelled', '2021-12-18 20:59:59'),
-(9, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937039395', 0, 674, 674, 40, '', 0, 714, 'COD', 'COD', '', 'Placed', '2021-12-19 18:03:59'),
-(10, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937365580', 0, 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Placed', '2021-12-19 18:09:25'),
-(11, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937560762', 0, 85, 85, 40, '', 0, 125, 'COD', 'COD', '', 'Placed', '2021-12-19 18:12:40'),
-(12, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639937771202', 0, 276, 276, 40, '', 0, 316, 'COD', 'COD', '', 'Placed', '2021-12-19 18:16:11'),
-(13, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639938056174', 0, 15, 15, 40, '', 0, 55, 'COD', 'COD', '', 'Cancelled', '2021-12-19 18:20:56'),
-(14, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940454275', 0, 15, 15, 40, '', 0, 55, 'Razorpay', 'Paid', 'pay_IZRQd0NWMaA68y', 'Placed', '2021-12-19 19:00:54'),
-(15, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940701068', 0, 52, 52, 40, '', 0, 92, 'Razorpay', 'Pending', '', 'Pending', '2021-12-19 19:05:01'),
-(16, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940705961', 0, 52, 52, 40, '', 0, 92, 'Razorpay', 'Paid', 'pay_IZRVHpbfhYnUvb', 'Delivered', '2021-12-19 19:05:05'),
-(17, 1, '{\"name\":\"Raju Prasad\",\"address\":\"Sakinaka, Mumbai, Maharashtra - 400070\",\"phone\":\"7021379952\",\"expected_delivery\":\"Delivery by Today\"}', '1639940958792', 0, 38, 38, 40, '', 0, 78, 'Razorpay', 'Paid', 'pay_IZRZU6IOP5UpMq', 'Out', '2021-12-19 19:09:18'),
-(22, 15, 'welocme', '123', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(23, 15, 'welocme', 'ORD202311061135022609', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(24, 15, 'welocme', 'ORD202311061136459475', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(25, 15, 'welocme', 'ORD202311061138447722', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(26, 16, 'welocme', 'ORD202311061141107809', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(27, 19, '', 'ORD202311181144503837', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(28, 1, 'ranubai shinde chawl kajupada kurla w\nkajupada kurla w', 'ORD202311181416554329', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(29, 1, 'Sakinaka', 'ORD202402141410442976', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(30, 1, 'Sakinaka', 'ORD202402141416077168', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00'),
-(31, 1, 'Sakinaka', 'ORD202402141417292128', 1, 100, 10, 5, 'DISCOUNT10', 10, 95, 'Razorpay', 'Paid', 'PAY123', 'Delivered', '2023-11-06 09:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pincode`
---
-
-CREATE TABLE `pincode` (
-  `id` int(255) NOT NULL,
-  `pincode` int(100) NOT NULL,
-  `charges` int(100) NOT NULL,
-  `expected_on` varchar(150) NOT NULL,
-  `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pincode`
---
-
-INSERT INTO `pincode` (`id`, `pincode`, `charges`, `expected_on`, `date_time`) VALUES
-(3, 400070, 40, 'Delivery by Today', '10-11-2021 09:40:05 pm'),
-(4, 400072, 55, 'Delivery by Today', '10-11-2021 09:40:12 pm'),
-(5, 400076, 100, 'Delivery by Today', '10-11-2021 09:40:28 pm');
+INSERT INTO `orders` (`id`, `customer_id`, `booking_address`, `order_id`, `order_note`, `products`, `cart_amount`, `discount_amt`, `delivery_charges`, `coupon_code`, `coupon_discount`, `final_amount`, `payment_method`, `payment_status`, `payment_id`, `order_status`, `date_time`) VALUES
+(1, 1, 'Sakinaka', 'ORD202403071544178267', 'tested', '[{\"id\":\"245\",\"category\":\"17\",\"subcategory\":\"0\",\"name\":\"Testing product\",\"size\":null,\"description\":\"<p>gggdrgrgre</p>\",\"additional_information\":null,\"shipping_and_return\":null,\"stock\":\"80\",\"quantity\":\"1\",\"quantity_unit\":\"item\",\"original_price\":\"100\",\"selling_price\":\"80\",\"date_time\":\"2024-03-07 17:01:41\",\"cart_quantity\":\"5\",\"product_quantity\":\"1\",\"cart_product_id\":\"245\",\"cart_customer_id\":\"1\"},{\"id\":\"245\",\"category\":\"17\",\"subcategory\":\"0\",\"name\":\"Testing product\",\"size\":null,\"description\":\"<p>gggdrgrgre</p>\",\"additional_information\":null,\"shipping_and_return\":null,\"stock\":\"80\",\"quantity\":\"1\",\"quantity_unit\":\"item\",\"original_price\":\"100\",\"selling_price\":\"80\",\"date_time\":\"2024-03-07 17:01:41\",\"cart_quantity\":\"5\",\"product_quantity\":\"1\",\"cart_product_id\":\"245\",\"cart_customer_id\":\"1\"}]', 500, 100, 0, 'test', 30, 370, 'Online', 'Paid', 'MOJO4307305A91979933', 'Pending', '2024-03-07 14:45:45'),
+(2, 1, 'Sakinaka', 'ORD202403071619446313', 'test', '[{\"id\":\"245\",\"category\":\"17\",\"subcategory\":\"0\",\"name\":\"Testing product\",\"size\":null,\"description\":\"<p>gggdrgrgre</p>\",\"additional_information\":null,\"shipping_and_return\":null,\"stock\":\"80\",\"quantity\":\"1\",\"quantity_unit\":\"item\",\"original_price\":\"100\",\"selling_price\":\"80\",\"date_time\":\"2024-03-07 17:01:41\",\"cart_quantity\":\"3\",\"product_quantity\":\"1\",\"cart_product_id\":\"245\",\"cart_customer_id\":\"1\"},{\"id\":\"209\",\"category\":\"17\",\"subcategory\":\"0\",\"name\":\"TRY123\",\"size\":null,\"description\":\"<p>msdklsklsd</p>\",\"additional_information\":null,\"shipping_and_return\":null,\"stock\":\"80\",\"quantity\":\"1\",\"quantity_unit\":\"gm\",\"original_price\":\"100\",\"selling_price\":\"80\",\"date_time\":\"2024-02-05 13:39:22\",\"cart_quantity\":\"2\",\"product_quantity\":\"1\",\"cart_product_id\":\"209\",\"cart_customer_id\":\"1\"}]', 500, 100, 0, 'test', 30, 370, 'Online', 'Paid', 'MOJO4307R05A91979936', 'Pending', '2024-03-07 15:20:12'),
+(3, 1, 'Sakinaka, Mumbai, Maharashtra, India, 400070', 'ORD202403071759103050', 'test', '[{\"id\":\"245\",\"category\":\"17\",\"subcategory\":\"0\",\"name\":\"Testing product\",\"size\":null,\"description\":\"<p>gggdrgrgre</p>\",\"additional_information\":null,\"shipping_and_return\":null,\"stock\":\"80\",\"quantity\":\"1\",\"quantity_unit\":\"item\",\"original_price\":\"100\",\"selling_price\":\"80\",\"date_time\":\"2024-03-07 17:01:41\",\"cart_quantity\":\"1\",\"product_quantity\":\"1\",\"cart_product_id\":\"245\",\"cart_customer_id\":\"1\"},{\"id\":\"208\",\"category\":\"22\",\"subcategory\":\"51\",\"name\":\" Chicken Breast Boneless \",\"size\":\"\",\"description\":\"\",\"additional_information\":\"\",\"shipping_and_return\":\"\",\"stock\":\"1\",\"quantity\":\"450\",\"quantity_unit\":\"gm\",\"original_price\":\"260\",\"selling_price\":\"260\",\"date_time\":\"2021-12-16 15:54:19\",\"cart_quantity\":\"1\",\"product_quantity\":\"450\",\"cart_product_id\":\"208\",\"cart_customer_id\":\"1\"},{\"id\":\"207\",\"category\":\"22\",\"subcategory\":\"51\",\"name\":\"Chicken Skinless Curry Cut (Small Pieces) \",\"size\":\"\",\"description\":\"\",\"additional_information\":\"\",\"shipping_and_return\":\"\",\"stock\":\"1\",\"quantity\":\"500\",\"quantity_unit\":\"gm\",\"original_price\":\"175\",\"selling_price\":\"175\",\"date_time\":\"2021-12-16 15:53:39\",\"cart_quantity\":\"1\",\"product_quantity\":\"500\",\"cart_product_id\":\"207\",\"cart_customer_id\":\"1\"}]', 535, 20, 0, '', 0, 515, 'Online', 'Paid', 'MOJO4307B05A91979944', 'Pending', '2024-03-07 17:04:11');
 
 -- --------------------------------------------------------
 
@@ -405,7 +247,7 @@ CREATE TABLE `products` (
   `original_price` int(200) NOT NULL,
   `selling_price` int(200) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -563,7 +405,8 @@ INSERT INTO `products` (`id`, `category`, `subcategory`, `name`, `size`, `descri
 (206, '21', '50', 'Britannia Treat Jim Jam Cream Biscuits ', '', '', '', '', 1, 150, 'gm', 35, 35, '2021-12-16 10:22:48'),
 (207, '22', '51', 'Chicken Skinless Curry Cut (Small Pieces) ', '', '', '', '', 1, 500, 'gm', 175, 175, '2021-12-16 10:23:39'),
 (208, '22', '51', ' Chicken Breast Boneless ', '', '', '', '', 1, 450, 'gm', 260, 260, '2021-12-16 10:24:19'),
-(209, '17', '0', 'TRY123', NULL, '<p>msdklsklsd</p>', NULL, NULL, 80, 1, 'gm', 100, 80, '2024-02-05 08:09:22');
+(209, '17', '0', 'TRY123', NULL, '<p>msdklsklsd</p>', NULL, NULL, 80, 1, 'gm', 100, 80, '2024-02-05 08:09:22'),
+(245, '17', '0', 'Testing product', NULL, '<p>gggdrgrgre</p>', NULL, NULL, 80, 1, 'item', 100, 80, '2024-03-07 11:31:41');
 
 -- --------------------------------------------------------
 
@@ -576,7 +419,7 @@ CREATE TABLE `product_images` (
   `product_id` int(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product_images`
@@ -711,7 +554,79 @@ INSERT INTO `product_images` (`id`, `product_id`, `image`, `date_time`) VALUES
 (229, 208, '1d6f833201d4e9c3718e4a04a7635fea_product_image.jpg', '2021-12-16 10:24:19'),
 (230, 19, 'https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-2.jpg', '2023-11-08 11:12:10'),
 (231, 19, 'https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-6.jpg', '2023-11-16 07:43:46'),
-(232, 209, '7cd50e43304a84a087cd2988d1713db7_product_image.png', '2024-02-05 08:09:22');
+(232, 209, '7cd50e43304a84a087cd2988d1713db7_product_image.png', '2024-02-05 08:09:22'),
+(233, 210, 'e0b8a61fb231d6e14b83dc1ec6b2d9f6_product_image.jpg', '2024-03-07 10:10:35'),
+(234, 210, '92dceaac15dcbcc8060f9d6b15dfc1fd_product_image.png', '2024-03-07 10:10:35'),
+(235, 210, 'cfb178b4c3e508d08ff8a930b0bcf733_product_image.jpg', '2024-03-07 10:10:46'),
+(236, 210, 'fa0b6a384f5ed7ef52364c5eb576495e_product_image.png', '2024-03-07 10:10:46'),
+(237, 210, '2daf1c22e1edfe9356fc7b6b60c549f6_product_image.jpg', '2024-03-07 10:13:37'),
+(238, 210, '32246b243a2bc9ea51f57dbf864a7620_product_image.png', '2024-03-07 10:13:37'),
+(239, 210, 'f53d54bb0df670a2bed3424a834a4ae4_product_image.jpg', '2024-03-07 10:15:42'),
+(240, 210, '34ae3bce2b7cc3cb0a31d25d481f6775_product_image.png', '2024-03-07 10:15:42'),
+(241, 210, '8dcbf50298e93257b4b29bba157d61c1_product_image.jpg', '2024-03-07 10:16:57'),
+(242, 210, 'be44575b50a4f725c69d0f136a03b050_product_image.png', '2024-03-07 10:16:57'),
+(243, 210, '308985d4ceeff1a325367ec962cbfc5d_product_image.jpg', '2024-03-07 10:17:10'),
+(244, 210, 'cb6985cfb0ccb4fa3640716093b91d69_product_image.png', '2024-03-07 10:17:10'),
+(245, 210, 'fbb3e06f9b0b81b3b6948276865cff09_product_image.jpg', '2024-03-07 10:17:20'),
+(246, 210, '1045694dc8d452d62f070c096ed0f882_product_image.png', '2024-03-07 10:17:20'),
+(247, 210, '9f558c428245ec82cdb4a9a35945d1c4_product_image.jpg', '2024-03-07 10:17:49'),
+(248, 210, 'bfd56c8c148826580855e8b88f9d8e7e_product_image.png', '2024-03-07 10:17:49'),
+(249, 210, '58ac50111efe0d4dcb7c1bd9f914a857_product_image.jpg', '2024-03-07 10:20:25'),
+(250, 210, 'a0ed8da527d15eb6299fea6f3a7e523a_product_image.png', '2024-03-07 10:20:25'),
+(251, 210, '0d284b3b2d62ea353c7c83e03466da8f_product_image.jpg', '2024-03-07 10:20:39'),
+(252, 210, 'a76640330f1fe4412fcc8cc736b98949_product_image.png', '2024-03-07 10:20:39'),
+(253, 210, 'b9fba8e7575f91ae54ae25663c04f734_product_image.jpg', '2024-03-07 10:21:52'),
+(254, 210, '3ac602aeb85f336bcb25641ff60b6963_product_image.png', '2024-03-07 10:21:52'),
+(255, 210, '8dfc4bc72beb2da22f6159e5bdb5e34b_product_image.jpg', '2024-03-07 10:22:38'),
+(256, 210, '980f0e94a5a7b2591d39e5edc8d7ef3e_product_image.png', '2024-03-07 10:22:38'),
+(257, 210, '80c7898dd9c9b7a5b9dacbc64683751d_product_image.jpg', '2024-03-07 10:23:19'),
+(258, 210, '8c08924f9d497c1483016d9e3e09b44c_product_image.png', '2024-03-07 10:23:19'),
+(259, 210, '2064ca9ee4f0ee6fcf2f3ff57d8cd661_product_image.jpg', '2024-03-07 10:24:25'),
+(260, 210, 'fddc16b7252150f1b0cb47e4b076ed41_product_image.png', '2024-03-07 10:24:25'),
+(261, 210, '0491ec82147b2d2dcba3c1f3499885b0_product_image.jpg', '2024-03-07 10:25:56'),
+(262, 210, 'eb0ac5228abcb40565f14c4db5e74c48_product_image.png', '2024-03-07 10:25:56'),
+(263, 210, '95142912a4c23e6948d796902b943826_product_image.jpg', '2024-03-07 10:27:34'),
+(264, 210, '7de35ee0f021455398e7c13c83d10a2e_product_image.png', '2024-03-07 10:27:34'),
+(265, 210, '1743d63d42d9a185fd94f0dfe70e82a7_product_image.jpg', '2024-03-07 10:29:18'),
+(266, 210, '1cb1ad13311dcbc9ecb1339523327d60_product_image.png', '2024-03-07 10:29:18'),
+(267, 210, '7a86760d8f16c20de3b1dbf7ca37e368_product_image.jpg', '2024-03-07 10:31:56'),
+(268, 210, '862f2c52badb0f7b9909ab44542ae7ef_product_image.png', '2024-03-07 10:31:56'),
+(269, 210, 'ad43db0645585bec786cacc1e761d14a_product_image.jpg', '2024-03-07 10:32:53'),
+(270, 210, '16e657ace135707911d149a3d6c9233d_product_image.png', '2024-03-07 10:32:53'),
+(271, 210, '99d939f1cedd6544c75a3318ca3b70f7_product_image.jpg', '2024-03-07 10:33:13'),
+(272, 210, '49142e6f22fec9959ed81e25ba92b5c6_product_image.png', '2024-03-07 10:33:13'),
+(273, 210, '04ea6133fa1c0f03b35e2120f352fbd8_product_image.jpg', '2024-03-07 10:36:17'),
+(274, 210, '2e4b58f86857560ce695df1038fef8d5_product_image.png', '2024-03-07 10:36:17'),
+(275, 210, 'c93381e07c8c02c5ea429b464bf57639_product_image.jpg', '2024-03-07 10:37:02'),
+(276, 210, 'b5049bcc29bfa79efa58021f8481215e_product_image.png', '2024-03-07 10:37:02'),
+(277, 210, 'dc1cea0f13d7401512ad5d3c49384662_product_image.jpg', '2024-03-07 10:40:12'),
+(278, 210, 'ddf681274380de58dc77ae45d4b29bc2_product_image.png', '2024-03-07 10:40:12'),
+(279, 210, '73576d631fadf199db3e15ef24165fc8_product_image.jpg', '2024-03-07 10:41:00'),
+(280, 210, 'fb4012a15564a6d4de22d12507278e69_product_image.png', '2024-03-07 10:41:00'),
+(281, 210, '3752819a0650872385cda3fa5dcd78b8_product_image.jpg', '2024-03-07 10:52:49'),
+(282, 210, 'ff34c5c93ff85e3da6aadd34b4e91b12_product_image.png', '2024-03-07 10:52:49'),
+(283, 210, 'ead67c15f7ea4e6a7277c8a7f6f89747_product_image.jpg', '2024-03-07 10:55:37'),
+(284, 210, '2be2f2cc903131a633053322ad929d03_product_image.png', '2024-03-07 10:55:37'),
+(285, 210, '61858a3b5989d34d030860a53822dd6c_product_image.jpg', '2024-03-07 10:56:12'),
+(286, 210, 'c747072c98e5f250f25086cf06178636_product_image.png', '2024-03-07 10:56:12'),
+(287, 210, 'c3cdd186b49b052b64fdf45ebc676fbe_product_image.jpg', '2024-03-07 10:56:36'),
+(288, 210, '064acdbdc09befd9ec033fed801ef7ae_product_image.png', '2024-03-07 10:56:36'),
+(289, 210, '20189c6b2b0300633f0cd7c46eed564b_product_image.jpg', '2024-03-07 10:57:07'),
+(290, 210, '3e026457fc0cc1889b8e43e82c03bb0f_product_image.png', '2024-03-07 10:57:07'),
+(291, 210, '96eeb5ebd80d261fd83d9f3300f3fac3_product_image.jpg', '2024-03-07 10:58:29'),
+(292, 210, '1fdbc0e04ea66c37250189a0f21e8fa9_product_image.png', '2024-03-07 10:58:29'),
+(293, 210, '1034b46a19845c056bb13070288d436b_product_image.jpg', '2024-03-07 10:58:41'),
+(294, 210, '07d8d556ea2a60eed22a992509e5406c_product_image.png', '2024-03-07 10:58:41'),
+(295, 210, '4c8ad1703f92c1e3b4fd7118c3d5fd57_product_image.jpg', '2024-03-07 11:02:44'),
+(296, 210, 'bf1411a961b1274b21e74100a9aec484_product_image.png', '2024-03-07 11:02:44'),
+(297, 210, '88067d61a737d0c63ed833c508039cc6_product_image.jpg', '2024-03-07 11:05:03'),
+(298, 210, '13bed027a2bd69483f275c7ec9851b6a_product_image.png', '2024-03-07 11:05:03'),
+(299, 210, 'bb52f0d33edbcd9a681fec70b4961f3d_product_image.png', '2024-03-07 11:08:29'),
+(300, 210, '91afbc7b8541ca0986f0a131771813d1_product_image.png', '2024-03-07 11:08:29'),
+(301, 210, '284ff532e2ae2c79e8aaccbfcaaf9c1f_product_image.png', '2024-03-07 11:11:59'),
+(302, 210, 'e5d06ebc187f0b02950b2e6bc22e1882_product_image.png', '2024-03-07 11:11:59'),
+(304, 245, '05c9cc0003776403eadd859e5c48c2f5_product_image.png', '2024-03-07 11:26:08'),
+(305, 245, '3481a8197e8492c697ac7d95bee949e2_product_image.jpg', '2024-03-07 11:32:00');
 
 -- --------------------------------------------------------
 
@@ -728,7 +643,7 @@ CREATE TABLE `query` (
   `query` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -741,7 +656,7 @@ CREATE TABLE `site_settings` (
   `setting_name` varchar(100) NOT NULL,
   `setting_data` longtext NOT NULL,
   `date_time` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `site_settings`
@@ -767,7 +682,7 @@ CREATE TABLE `site_slider` (
   `image` varchar(255) NOT NULL,
   `sequence` int(50) NOT NULL,
   `date_time` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `site_slider`
@@ -789,7 +704,7 @@ CREATE TABLE `subcategories` (
   `name` varchar(120) NOT NULL,
   `icon` varchar(200) NOT NULL,
   `date_time` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subcategories`
@@ -830,7 +745,7 @@ CREATE TABLE `wishlist` (
   `customer_id` int(255) NOT NULL,
   `product_id` int(255) NOT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `wishlist`
@@ -860,19 +775,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `captain`
---
-ALTER TABLE `captain`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_id` (`unique_id`);
-
---
--- Indexes for table `captain_payments`
---
-ALTER TABLE `captain_payments`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -897,18 +799,6 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `deliveries`
---
-ALTER TABLE `deliveries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `featured_hotdeals`
---
-ALTER TABLE `featured_hotdeals`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `ordered_products`
 --
 ALTER TABLE `ordered_products`
@@ -918,12 +808,6 @@ ALTER TABLE `ordered_products`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pincode`
---
-ALTER TABLE `pincode`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -979,22 +863,10 @@ ALTER TABLE `admin`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `captain`
---
-ALTER TABLE `captain`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `captain_payments`
---
-ALTER TABLE `captain_payments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1015,46 +887,28 @@ ALTER TABLE `customers`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `deliveries`
---
-ALTER TABLE `deliveries`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `featured_hotdeals`
---
-ALTER TABLE `featured_hotdeals`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
 -- AUTO_INCREMENT for table `ordered_products`
 --
 ALTER TABLE `ordered_products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `pincode`
---
-ALTER TABLE `pincode`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=306;
 
 --
 -- AUTO_INCREMENT for table `query`

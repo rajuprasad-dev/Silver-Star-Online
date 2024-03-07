@@ -1052,7 +1052,7 @@ class operations extends database
 			$numrows = parent::numrows();
 			$res = parent::result();
 
-			$order_data = "SELECT * FROM `orders` WHERE id = '$this->order_id'";
+			$order_data = "SELECT * FROM `orders` WHERE `id` = '$this->order_id'";
 
 			if (parent::sql($order_data)) {
 				$order_data_res = parent::result();
@@ -1060,9 +1060,16 @@ class operations extends database
 
 				if ($order_data_num > 0) {
 					$order_products = json_decode($order_data_res[0]['products'], true);
-					$products_id_list = is_array($order_products) ? $order_products[0] : $order_products;
 
-					$prods = "SELECT * FROM products WHERE id = '" . (!empty($products_id_list) ? $products_id_list : 0) . "'";
+					$order_id_list = array();
+
+					foreach ($order_products as $key => $order) {
+						array_push($order_id_list, $order['id']);
+					}
+
+					$products_id_list = is_array($order_id_list) ? $order_id_list[0] : $order_id_list;
+
+					$prods = "SELECT * FROM `products` WHERE `id` = '" . (!empty($products_id_list) ? $products_id_list : 0) . "'";
 
 					if (parent::sql($prods)) {
 						$prod_res = parent::result();
@@ -1071,7 +1078,7 @@ class operations extends database
 						if ($prod_num > 0) {
 							$customer_id = $order_data_res[0]['customer_id'];
 
-							$cust = "SELECT * FROM customers WHERE id = '$customer_id'";
+							$cust = "SELECT * FROM `customers` WHERE `id` = '$customer_id'";
 							if (parent::sql($cust)) {
 								$cust_res = parent::result()[0];
 								$cust_num = parent::numrows();
@@ -1080,36 +1087,54 @@ class operations extends database
 
 									$sms_products = count($order_products) > 1 ? $prod_res[0]['name'] . " + " . count($order_products) . " More" : $prod_res[0]['name'];
 
+									$orderID = $order_data_res[0]['order_id'];
+
+									if ($this->status == "Placed") {
+
+										$message = "Your Order with order id <b>" . $orderID . "</b> is confirmed and ready to be packed it will be delivered to your address : " . $order_data_res[0]['booking_address'] . ". By Regards Silver Star";
+
+										$title = "Your Order is Confirmed";
+									}
+
+									if ($this->status == "Packed") {
+
+										$message = "Your Order with order id <b>" . $orderID . "</b> is packed and ready to shipped it will be delivered to your address : " . $order_data_res[0]['booking_address'] . ". By Regards Silver Star";
+
+										$title = "Your Order is Packed Successfully";
+									}
+
 									if ($this->status == "Shipped") {
 
-										$message = "Order for " . $this->order_id . " is shipped will be delivered to your address : " . $order_data_res[0]['address'] . ". By Regards Silver Star";
+										$message = "Your Order with order id <b>" . $orderID . "</b> is shipped will be delivered to your address : " . $order_data_res[0]['booking_address'] . ". By Regards Silver Star";
 
-										$title = "Order Shipped Successfully";
+										$title = "Your Order is Shipped Successfully";
 									}
 
 									if ($this->status == "Out For Delivery") {
 
-										$message = "Order for " . $this->order_id . " is out for delivery it will be delivered by 9 pm today you can contact the captain on 9123456789. By Regards Silver Star";
+										$message = "Your Order with order id <b>" . $orderID . "</b> is out for delivery it will be delivered to your address : " . $order_data_res[0]['booking_address'] . ". By Regards Silver Star";
 
-										$title = "Order Out For Delivery";
+										$title = "Your Order is Out For Delivery";
 									}
 
 									if ($this->status == "Delivered") {
 
-										$message = "Order for " . $this->order_id . " is delivered successfully on " . date("d M Y h:i:s a") . ". By Regards Silver Star";
+										$message = "Your Order with order id <b>" . $orderID . "</b> is delivered successfully on " . date("d M Y h:i:s a") . ". By Regards Silver Star";
 
-										$title = "Order Delivered Successfully";
+										$title = "Your Order is Delivered Successfully";
 									}
 
 									if ($this->status == "Cancelled") {
 
-										$message = "Order for " . $this->order_id . " is Cancelled successfully if already paid it will be refunded within 5-7 working days, Thank you. By Regards Silver Star";
+										$message = "Your Order with order id <b>" . $orderID . "</b> is Cancelled successfully if already paid it will be refunded within 5-7 working days, Thank you. By Regards Silver Star";
 
-										$title = "Order Cancelled Successfully";
+										$title = "Your Order is Cancelled Successfully";
 									}
 
-									// send placed email
-									parent::send_order_notifications($cust_res['phone'], $cust_res['email'], $title, $message, $prod_res);
+									if ($this->status != "Pending") {
+										// send placed email
+										parent::send_order_notifications($cust_res['phone'], $cust_res['email'], $title, $message, $cust_res['name']);
+									}
 								}
 							} else {
 								return 'Server Error';

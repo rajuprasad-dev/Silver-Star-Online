@@ -51,8 +51,8 @@ if ($db->sql($sql)) {
                         // echo 'bg-info text-white';
                     } ?>">
                             <td>
-                                <a href="javascript:void(0);" class="font-weight-bold">ORDR
-                                    <?php echo 9999 + $data['id']; ?>
+                                <a href="javascript:void(0);" class="font-weight-bold">
+                                    <?php echo "ORDR" . (9999 + $data['id']); ?>
                                 </a>
                             </td>
                             <td>

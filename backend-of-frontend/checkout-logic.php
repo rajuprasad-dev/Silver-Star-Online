@@ -6,45 +6,45 @@ include_once "conn.php";
 if (isset($_POST['firstName'])) {
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
-    $country = $_POST["country"];
-    $state = $_POST["state"];
-    $city = $_POST["city"];
-    $address = $_POST["address"];
-    $differentAddress = isset($_POST["differentAddress"]) ? $_POST["differentAddress"] : "";
-
-    if (!empty($differentAddress)) {
-        $address = $differentAddress;
-    } else {
-        // Concatenate values into a single string
-        $address = "Country: $country, State: $state, City: $city, Address: $address";
-    }
     $email = $_POST["email"];
-    $pincode = $_POST["pincode"];
     $phone = $_POST["phone"];
+    $address = $_POST["address"];
+    $city = $_POST["city"];
+    $state = $_POST["state"];
+    $country = $_POST["country"];
+    $pincode = $_POST["pincode"];
     $companyName = $_POST["companyName"];
     $orderNote = $_POST["orderNote"];
+    $differentAddress = isset($_POST["differentAddress"]) ? $_POST["differentAddress"] : "";
+
     $orderID = "ORD" . date("YmdHis") . mt_rand(1000, 9999);
 
+    if (!empty($differentAddress)) {
+        $full_address = $differentAddress;
+    } else {
+        // Concatenate values into a single string
+        $full_address = "{$address}, {$city}, {$state}, {$country}, {$pincode}";
+    }
+
     // Store variables in the session
-    $_SESSION['firstName'] = $firstName;
-    $_SESSION['lastName'] = $lastName;
-    $_SESSION['country'] = $country;
-    $_SESSION['state'] = $state;
-    $_SESSION['city'] = $city;
-    $_SESSION['address'] = $address;
-    $_SESSION['email'] = $email;
-    $_SESSION['pincode'] = $pincode;
-    $_SESSION['phone'] = $phone;
-    $_SESSION['companyName'] = $companyName;
-    $_SESSION['orderNote'] = $orderNote;
-    $_SESSION['orderID'] = $orderID;
+    $_SESSION['TEMP']['cart_information'] = [
+        'userId' => $_SESSION['userId'],
+        'firstName' => $firstName,
+        'lastName' => $lastName,
+        'country' => $country,
+        'state' => $state,
+        'city' => $city,
+        'address' => $full_address,
+        'email' => $email,
+        'pincode' => $pincode,
+        'phone' => $phone,
+        'companyName' => $companyName,
+        'orderNote' => $orderNote,
+        'orderID' => $orderID,
+    ];
 }
 
 $purpose = 'product-payment';
-$uid = $_SESSION['userId'];
-// $temp = $_GET['temp'];
-// $_SESSION['TEMP'] = $temp;
-$_SESSION['UID'] = $uid;
 
 $ch = curl_init();
 
@@ -76,11 +76,35 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
 $response = curl_exec($ch);
 curl_close($ch);
 
+// echo "<pre>";
+// print_r($response);
+// die;
+
 if ($response) {
     $response = json_decode($response);
     // echo '<pre>';
     // print_r($response);
-    $_SESSION['TID'] = $response->payment_request->id;
+    $_SESSION['TEMP']['coupon'] = [
+        "discount" => $_SESSION['discount_amount'] ?? "0",
+        "code" => $_SESSION['coupon_code'] ?? "",
+    ];
+    $_SESSION['TEMP']['payment_response'] = $response;
+    $_SESSION['TEMP']['cart'] = [
+        "cart_products" => $_SESSION['cart_products'],
+        "subtotal" => $_SESSION['subtotalCartAmount'],
+        "cart_discount" => $_SESSION['cart_discount'],
+        "total" => $_SESSION['totalCartAmount'],
+    ];
+
+    unset($_SESSION['password']);
+    unset($_SESSION['cart_products']);
+    unset($_SESSION['subtotalCartAmount']);
+    unset($_SESSION['cart_discount']);
+    unset($_SESSION['totalCartAmount']);
+    unset($_SESSION['coupon_code']);
+    unset($_SESSION['discount_amount']);
+    unset($_SESSION['coupon_set']);
+
     header('location:' . $response->payment_request->longurl);
 } else {
     header('location:' . $_SERVER['HTTP_REFERER']);

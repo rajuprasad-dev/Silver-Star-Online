@@ -32,7 +32,7 @@ $db->connect();
                 <h4>Total Products<br><span class="card_count">
                         <?php echo $products_numrows; ?>
                     </span></h4>
-                <a href="products" class="stretched_link"></a>
+                <a href="manage_products" class="stretched_link"></a>
             </div>
         </div>
 
@@ -51,7 +51,7 @@ $db->connect();
                 <h4>Today's Orders<br><span class="card_count">
                         <?php echo $todays_orders_numrows; ?>
                     </span></h4>
-                <a href="orders" class="stretched_link"></a>
+                <a href="manage_orders" class="stretched_link"></a>
             </div>
         </div>
 
@@ -70,7 +70,7 @@ $db->connect();
                 <h4>Total Orders<br><span class="card_count">
                         <?php echo $orders_numrows; ?>
                     </span></h4>
-                <a href="orders" class="stretched_link"></a>
+                <a href="manage_orders" class="stretched_link"></a>
             </div>
         </div>
 
@@ -133,16 +133,15 @@ $db->connect();
                     foreach ($result as $data) {
                         $billing_details = json_decode($data['address'], true);
                         ?>
-                        <tr
-                            class="<?php if ($data['order_status'] == "Shipped") {
-                                echo 'bg-warning';
-                            } elseif ($data['order_status'] == "Delivered") {
-                                echo 'bg-tertiary text-white';
-                            } elseif ($data['order_status'] == "Cancelled") {
-                                echo 'bg-danger text-white';
-                            } elseif ($data['order_status'] == "Shipped") {
-                                echo 'bg-info text-white';
-                            } ?>">
+                        <tr class="<?php if ($data['order_status'] == "Shipped") {
+                            echo 'bg-warning';
+                        } elseif ($data['order_status'] == "Delivered") {
+                            echo 'bg-tertiary text-white';
+                        } elseif ($data['order_status'] == "Cancelled") {
+                            echo 'bg-danger text-white';
+                        } elseif ($data['order_status'] == "Shipped") {
+                            echo 'bg-info text-white';
+                        } ?>">
                             <td>
                                 <a href="javascript:void(0);" class="font-weight-bold">ORDR
                                     <?php echo 9999 + $data['id']; ?>
@@ -173,10 +172,9 @@ $db->connect();
                                     <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="icon icon-sm">
-                                            <span
-                                                class="fas fa-ellipsis-h <?php if (($data['order_status'] == "Delivered") || ($data['order_status'] == "Cancelled") || ($data['order_status'] == "Shipped")) {
-                                                    echo 'text-white';
-                                                } ?>"></span>
+                                            <span class="fas fa-ellipsis-h <?php if (($data['order_status'] == "Delivered") || ($data['order_status'] == "Cancelled") || ($data['order_status'] == "Shipped")) {
+                                                echo 'text-white';
+                                            } ?>"></span>
                                         </span>
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>

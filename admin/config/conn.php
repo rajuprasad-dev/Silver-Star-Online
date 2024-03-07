@@ -374,7 +374,7 @@ class database
     }
 
     // Send SMS & EMAIL NOTIFICATIONS
-    public function send_order_notifications($phone_num = '', $email = '', $type = '', $message = '', $product = '')
+    public function send_order_notifications($phone_num = '', $email = '', $title, $message = '', $username = '')
     {
         $data = array();
         $output = array();
@@ -383,21 +383,21 @@ class database
             // storing data in array
             $email_data = array();
 
-            $email_data['type'] = $type;
+            $email_data['update_title'] = $title;
+            $email_data['username'] = $username;
             $email_data['message'] = $message;
-            $email_data['product'] = $product;
 
             // getting and storing contents of the email page in variable
             $email_layout = file_get_contents("../class/order.html");
 
             // looping through the email page and replacing the key with the variable
             foreach ($email_data as $key => $data_value) {
-                $email_layout = str_replace('{{ ' . $key . ' }}', $data_value, $email_layout);
+                $email_layout = str_replace('{{' . $key . '}}', $data_value, $email_layout);
             }
 
             // setting mail environment and defining variables
             $to = $email;
-            $subject = 'Notification From Saabmall';
+            $subject = 'Order Notification From Silver Star Online';
             $body = $email_layout;
 
             if ($this->send_email($to, $subject, $body)) {

@@ -43,9 +43,7 @@ if ($login->numrows() > 0) {
     <meta name="googlebot-news" content="snippet">
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../src/images/favicon.ico">
-    <link rel="apple-touch-icon" href="../src/images/apple-touch-icon.png">
-    <link rel="image_src" href="../src/images/favicon-192x192.png">
+    <link rel="shortcut icon" href="../assets/img/favicon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -55,7 +53,7 @@ if ($login->numrows() > 0) {
 
     <!-- Twitter -->
     <meta property="twitter:card" content="">
-    <meta property="twitter:url" content="https://qwwikservices.com">
+    <meta property="twitter:url" content="https://silverstar.in">
     <meta property="twitter:title" content="">
     <meta property="twitter:description" content="">
 

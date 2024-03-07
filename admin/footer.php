@@ -1,13 +1,16 @@
-                <footer class="footer section py-2">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <p class="mb-0">Copyright © 2021-<span class="current-year"><?php echo date("Y"); ?></span></p>
-                        </div>
-                    </div>
-                </footer>
-            </main>
+<footer class="footer section py-2">
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="mb-0">Copyright © 2023-<span class="current-year">
+                    <?php echo date("Y"); ?>
+                </span>
+            </p>
         </div>
     </div>
+</footer>
+</main>
+</div>
+</div>
 </div>
 
 <!-- jquery -->
@@ -21,8 +24,11 @@
 <!-- Datatable -->
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.24/r-2.2.7/sp-1.2.2/datatables.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js">
+</script>
+<script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-colvis-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/datatables.min.js">
+    </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
 <!-- select2 -->
@@ -36,4 +42,5 @@
 <!-- data -->
 <script src="./assets/js/data.js"></script>
 </body>
+
 </html>
