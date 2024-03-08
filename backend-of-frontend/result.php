@@ -32,7 +32,7 @@ if ($status == "Credit") {
 	$companyName = $temp['cart_information']['companyName'];
 	$orderNote = $temp['cart_information']['orderNote'];
 	$orderID = $temp['cart_information']['orderID'];
-	$cart_products = json_encode($temp['cart']['cart_products']);
+	$cart_products = clean($conn, json_encode($temp['cart']['cart_products']));
 	$subtotal = $temp['cart']['subtotal'];
 	$cart_discount = $temp['cart']['cart_discount'];
 	$delivery_charges = $temp['cart']['delivery_charges'] ?? 0;

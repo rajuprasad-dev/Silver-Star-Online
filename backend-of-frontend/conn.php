@@ -41,6 +41,19 @@ function check_image($src = "")
     }
 }
 
+function clean($conn, $array)
+{
+    if (is_array($array)) {
+        $data = array();
+        foreach ($array as $key => $value) {
+            $data[$key] = clean($conn, $value);
+        }
+
+        return $data;
+    } else {
+        return $conn->real_escape_string($array);
+    }
+}
 
 function send_email($email, $subject, $body)
 {
