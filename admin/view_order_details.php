@@ -99,7 +99,7 @@ if ($db->sql($sql)) {
                     </td>
                 </tr>
                 <tr>
-                    <th>Amount</th>
+                    <th>Subtotal</th>
                     <td>₹
                         <?php echo $result['cart_amount']; ?>
                     </td>
@@ -126,6 +126,51 @@ if ($db->sql($sql)) {
                     <th>Coupon Discount</th>
                     <td>₹
                         <?php echo !empty($result['coupon_discount']) ? $result['coupon_discount'] : 0; ?>
+                    </td>
+                </tr>
+                <?php
+                if (!empty($result["igst"])) {
+                    ?>
+                <tr>
+                    <th>IGST</th>
+                    <td>₹
+                        <?php echo !empty($result['igst']) ? $result['igst'] : 0; ?>
+                    </td>
+                </tr>
+                <?php
+                } else {
+                    ?>
+                <tr>
+                    <th>CGST</th>
+                    <td>₹
+                        <?php echo !empty($result['cgst']) ? $result['cgst'] : 0; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>SGST</th>
+                    <td>₹
+                        <?php echo !empty($result['sgst']) ? $result['sgst'] : 0; ?>
+                    </td>
+                </tr>
+                <?php
+                }
+                ?>
+                <tr>
+                    <th>GST Number</th>
+                    <td>
+                        <?php echo !empty($result['gstNumber']) ? $result['gstNumber'] : "Not Available"; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Company Name</th>
+                    <td>
+                        <?php echo !empty($result['companyName']) ? $result['companyName'] : "Not Available"; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Order Note</th>
+                    <td>
+                        <?php echo !empty($result['order_note']) ? $result['order_note'] : "Not Available"; ?>
                     </td>
                 </tr>
                 <tr>
@@ -162,10 +207,11 @@ if ($db->sql($sql)) {
                                     $order_status = array('Pending', 'Placed', 'Packed', 'Shipped', 'Out For Delivery', 'Delivered', 'Cancelled');
                                     foreach ($order_status as $key => $status) {
                                         ?>
-                                        <option value='<?php echo $status; ?>' <?php echo $status == $result['order_status'] ? 'selected' : ''; ?>>
-                                            <?php echo $status; ?>
-                                        </option>
-                                        <?php
+                                    <option value='<?php echo $status; ?>'
+                                        <?php echo $status == $result['order_status'] ? 'selected' : ''; ?>>
+                                        <?php echo $status; ?>
+                                    </option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -186,16 +232,16 @@ if ($db->sql($sql)) {
 
                                 if ($deliv_num == 0) {
                                     ?>
-                                    <div class="assign_delivery_boy_module_div mt-3">
-                                        <label>Assign Captain</label>
-                                        <div class="input-group btn_group_div_main">
-                                            <span title="Enter Delivery Amount For Captain" type="number" class="form-control"
-                                                id="delivery_amount_main" contenteditable="true">
-                                                <?php echo $result['delivery_charges']; ?>
-                                            </span>
-                                            <select class="form-select delivery_captain_dropdown">
-                                                <option value="" selected disabled>Select Captain</option>
-                                                <?php
+                        <div class="assign_delivery_boy_module_div mt-3">
+                            <label>Assign Captain</label>
+                            <div class="input-group btn_group_div_main">
+                                <span title="Enter Delivery Amount For Captain" type="number" class="form-control"
+                                    id="delivery_amount_main" contenteditable="true">
+                                    <?php echo $result['delivery_charges']; ?>
+                                </span>
+                                <select class="form-select delivery_captain_dropdown">
+                                    <option value="" selected disabled>Select Captain</option>
+                                    <?php
                                                 $del_sql = "SELECT * FROM captain";
                                                 if ($db->sql($del_sql)) {
                                                     $del_res = $db->result();
@@ -204,22 +250,22 @@ if ($db->sql($sql)) {
                                                     if ($del_num > 0) {
                                                         foreach ($del_res as $d => $captain) {
                                                             ?>
-                                                            <option value="<?php echo base64_encode($captain['id']); ?>">
-                                                                <?php echo $captain['name']; ?>
-                                                            </option>
-                                                            <?php
+                                    <option value="<?php echo base64_encode($captain['id']); ?>">
+                                        <?php echo $captain['name']; ?>
+                                    </option>
+                                    <?php
                                                         }
                                                     }
                                                 }
                                                 ?>
-                                            </select>
-                                            <button data-customer="<?php echo base64_encode($result['customer_id']); ?>"
-                                                data-id="<?php echo base64_encode($result['id']); ?>"
-                                                class="btn btn-info submit_btn px-4" type="button"
-                                                id="assign_captain_main_btn">Assign</button>
-                                        </div>
-                                    </div>
-                                    <?php
+                                </select>
+                                <button data-customer="<?php echo base64_encode($result['customer_id']); ?>"
+                                    data-id="<?php echo base64_encode($result['id']); ?>"
+                                    class="btn btn-info submit_btn px-4" type="button"
+                                    id="assign_captain_main_btn">Assign</button>
+                            </div>
+                        </div>
+                        <?php
                                 } else {
                                     $cap_id = $deliv_res[0]['captain_id'];
                                     $delcap_sql = "SELECT * FROM captain WHERE `id` = '$cap_id'";

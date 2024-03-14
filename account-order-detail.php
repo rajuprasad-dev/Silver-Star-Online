@@ -182,6 +182,51 @@ $orderId = $_POST['order_id'];
                                                 <?php echo !empty($result['coupon_discount']) ? $result['coupon_discount'] : 0; ?>
                                             </td>
                                         </tr>
+                                        <?php
+                                        if (!empty($result["igst"])) {
+                                            ?>
+                                            <tr>
+                                                <th>IGST</th>
+                                                <td>₹
+                                                    <?php echo !empty($result['igst']) ? $result['igst'] : 0; ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <tr>
+                                                <th>CGST</th>
+                                                <td>₹
+                                                    <?php echo !empty($result['cgst']) ? $result['cgst'] : 0; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>SGST</th>
+                                                <td>₹
+                                                    <?php echo !empty($result['sgst']) ? $result['sgst'] : 0; ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        <tr>
+                                            <th>GST Number</th>
+                                            <td>
+                                                <?php echo !empty($result['gstNumber']) ? $result['gstNumber'] : "Not Available"; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <td>
+                                                <?php echo !empty($result['companyName']) ? $result['companyName'] : "Not Available"; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Order Note</th>
+                                            <td>
+                                                <?php echo !empty($result['order_note']) ? $result['order_note'] : "Not Available"; ?>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <th>Final Amount</th>
                                             <td>₹

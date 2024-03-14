@@ -285,6 +285,10 @@ if ($login->numrows() > 0) {
                                         <li class="nav-item"><a class="nav-link"
                                                 href="manage_terms_and_conditions"><span>Terms & Conditions</span></a>
                                         </li>
+
+                                        <li class="nav-item"><a class="nav-link"
+                                                href="manage_payment_gateway"><span>Payment Gateway</span></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
