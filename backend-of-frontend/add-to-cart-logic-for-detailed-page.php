@@ -4,7 +4,7 @@ include_once "conn.php";
 
 if (isset($_POST["product_id"])) {
 
-    if (!isset($_SESSION['username']) || !isset($_SESSION['password']) || !isset($_SESSION['userId'])) {
+    if (!isset($_SESSION['username']) || !isset($_SESSION['userId'])) {
         $_SESSION['login_cart_alert'] = "set";
         header("location:" . $_SERVER['HTTP_REFERER']);
     }

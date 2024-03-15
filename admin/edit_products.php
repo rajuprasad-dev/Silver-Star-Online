@@ -108,10 +108,10 @@ if ($db->sql($sql)) {
                         // }
                         // if ($sub_categ_num > 0) {
                         //     foreach ($sub_categ_res as $key => $subcategory) {
-                        //          ?>
-                        //         <option <?php // echo $subcategory['name'] == $result[0]['subcategory_name'] ? 'selected' : '';  ?>
-                        //             value="<?php // echo base64_encode($subcategory['id']);  ?>">
-                        //             <?php  // echo $subcategory['name'];  ?>
+                        //           ?>
+                        //         <option <?php // echo $subcategory['name'] == $result[0]['subcategory_name'] ? 'selected' : '';   ?>
+                        //             value="<?php // echo base64_encode($subcategory['id']);   ?>">
+                        //             <?php  // echo $subcategory['name'];   ?>
                         //         </option>
                         //         <?php
                         //     }
@@ -151,9 +151,9 @@ if ($db->sql($sql)) {
                 <div class="form-group mb-4">
                     <label for="product_quantity_unit" class="form-label">Select Quantity Unit</label>
                     <select name="product_quantity_unit" class="form-control" id="product_quantity_unit" name="unit"
-                        required="">
-                        <option <?php echo $result[0]['quantity_unit'] == '' ? 'selected' : ''; ?> value="" disabled=""
-                            selected="">Select Unit</option>
+                        required="" readonly>
+                        <option <?php echo $result[0]['quantity_unit'] == '' ? 'selected' : ''; ?> value="" disabled="">
+                            Select Unit</option>
                         <option <?php echo $result[0]['quantity_unit'] == 'item' ? 'selected' : ''; ?> value="item">item
                         </option>
                         <option <?php echo $result[0]['quantity_unit'] == 'ml' ? 'selected' : ''; ?> value="ml">ml

@@ -5,119 +5,6 @@ session_start();
 <html lang="en">
 
 <?php include "head.php" ?>
-<style>
-    /* Custom CSS for controlling the image size */
-    .carousel-control-prev img,
-    .carousel-control-next img {
-        width: 8vw;
-        /* Set the desired width */
-        height: auto;
-        /* Automatically adjust the height to maintain the aspect ratio */
-    }
-
-    button:focus {
-        outline: none;
-    }
-
-    @media only screen and (max-width: 767px) {
-
-        /* Styles for mobile screens (using only row class) */
-        #categories {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    .image-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: -50px;
-    }
-
-    @media (min-width: 768px) {
-
-        .icon-width {
-            width: 8vw;
-        }
-
-    }
-
-    @media (max-width: 767px) {
-
-        .icon-width {
-            width: 10vw;
-        }
-
-    }
-
-    .facebook {
-        background: #3B5998;
-        color: white;
-    }
-
-
-    .instagram {
-        background: #25D366;
-        color: white;
-    }
-
-
-
-    .youtube {
-        background: #bb0000;
-        color: white;
-    }
-
-
-    .sticky-buttons-icons {
-        z-index: 999;
-        position: fixed;
-        top: 50%;
-        width: auto;
-        background-color: white;
-        /* Adjust as needed */
-        padding: 0px;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        /* Optional: Add a shadow for visual separation */
-    }
-
-    .sticky-buttons-icons a {
-        display: block;
-        text-align: center;
-        padding: 16px;
-        transition: all 0.3s ease;
-        color: white;
-        font-size: 15px;
-    }
-    }
-
-    /* Styles for screens up to 768px (Mobile) */
-    @media screen and (min-width: 768px) {
-
-
-        .sticky-buttons-icons {
-            z-index: 999;
-            position: fixed;
-            top: 50%;
-            width: auto;
-            background-color: white;
-            /* Adjust as needed */
-            padding: 0px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            /* Optional: Add a shadow for visual separation */
-        }
-
-        .sticky-buttons-icons a {
-            display: block;
-            text-align: center;
-            padding: 16px;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 20px;
-        }
-    }
-</style>
 
 <body>
 
@@ -166,52 +53,29 @@ session_start();
             ?>
 
             <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
-        <div class="card" onmouseover="changeImage(this, 'images/earings2.jpg')"
-          onmouseout="restoreImage(this, 'images/earings.jpg')">
-          <img src="images/earings.jpg" alt="Card 2 Image" style="height:350px;">
-          <div class="card-body text-left">
-            <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
-                style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
-            <h5 class="card-text2-dinnis mt-4"><b class="custom-link">Card 1</b></h5>
-            <p class="card-text2-dinnis"><span class="custom-link">Clothing, Women</span></p>
-            <p class="card-text2-dinnis mt-3"><span class="custom-link">Rs 250</span></p>
-          </div>
-        </div>
-      </div>
-    -->
-
-
-
-
+                <div class="card" onmouseover="changeImage(this, 'images/earings2.jpg')"
+                onmouseout="restoreImage(this, 'images/earings.jpg')">
+                <img src="images/earings.jpg" alt="Card 2 Image" style="height:350px;">
+                <div class="card-body text-left">
+                    <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
+                        style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
+                    <h5 class="card-text2-dinnis mt-4"><b class="custom-link">Card 1</b></h5>
+                    <p class="card-text2-dinnis"><span class="custom-link">Clothing, Women</span></p>
+                    <p class="card-text2-dinnis mt-3"><span class="custom-link">Rs 250</span></p>
+                </div>
+                </div>
+            </div> -->
         </div>
     </div>
 
-
-
-    <div class="container px-5 py-5" id="products">
-        <div class="row pt-5" id="categories">
-            <div class="col px-5 py-5">
-                <?php include "backend-of-frontend/fetch-categories-part1.php" ?>
-                <!-- <div class="col-md-12 mb-5">
-          <a style="color:black;" href="./">
-            <img src="images/section-image3.png" class="img-fluid" alt="Image 3">
-          </a>
-        </div> -->
-
-            </div>
-            <div class="col px-5 py-5">
-                <!-- <div class="col-md-12 mb-5">
-          <a style="color:black;" href="./">
-            <img src="images/section-image11.png" class="img-fluid" alt="Image 2">
-          </a>
-        </div> -->
-                <?php include "backend-of-frontend/fetch-categories-part2.php" ?>
-
+    <div class="mx-5 my-5">
+        <h1 class="mx-5 my-5 text-center">Our Categories</h1>
+        <div class="products-container" id="products">
+            <div class="row pt-5" id="categories">
+                <?php include "backend-of-frontend/fetch-categories.php" ?>
             </div>
         </div>
     </div>
-
-
 
     <div class="mx-5 my-5">
         <div id="myUniqueCarousel" class="carousel slide" data-ride="carousel">
@@ -261,18 +125,18 @@ session_start();
                 <div class="carousel-item active">
                     <div class="row text-center justify-content-around">
                         <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <div class="card ">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-5.jpg"
-                  alt="Card 1 Image" style="height:200px;">
-                <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
-                    style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
-                <div class="card-body text-center">
-                  <h5 class="card-text2-dinnis mt-4"><b>Card 1</b></h5>
-                  <p class="card-text2-dinnis">Clothing, Women</p>
-                  <p class="card-text2-dinnis mt-3">250 rs</p>
-                </div>
-              </div>
-            </div> -->
+                            <div class="card ">
+                                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-5.jpg"
+                                alt="Card 1 Image" style="height:200px;">
+                                <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
+                                    style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
+                                <div class="card-body text-center">
+                                <h5 class="card-text2-dinnis mt-4"><b>Card 1</b></h5>
+                                <p class="card-text2-dinnis">Clothing, Women</p>
+                                <p class="card-text2-dinnis mt-3">250 rs</p>
+                                </div>
+                            </div>
+                        </div> -->
                         <?php include "backend-of-frontend/fetch-new-collection.php" ?>
 
                     </div>
@@ -283,18 +147,18 @@ session_start();
                     <div class="row text-center justify-content-around">
 
                         <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-2 ">
-              <div class="card">
-                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-6.jpg"
-                  alt="Card 2 Image" style="height:200px;">
-                <div class="card-body text-center">
-                  <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
-                      style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
-                  <h5 class="card-text2-dinnis mt-4"><b>Card 1</b></h5>
-                  <p class="card-text2-dinnis">Clothing, Women</p>
-                  <p class="card-text2-dinnis mt-3">250 rs</p>
-                </div>
-              </div>
-            </div> -->
+                            <div class="card">
+                                <img src="https://ascella.qodeinteractive.com/wp-content/uploads/2022/12/slider-list-img-new-6.jpg"
+                                alt="Card 2 Image" style="height:200px;">
+                                <div class="card-body text-center">
+                                <button type="button" class="btn-dinnis px-3 py-3" style="position:absolute;top:295px;"><a
+                                    style="color:inherit;text-decoration:none;" class="custom-link px-2 py-2">Add To Cart</a></button>
+                                <h5 class="card-text2-dinnis mt-4"><b>Card 1</b></h5>
+                                <p class="card-text2-dinnis">Clothing, Women</p>
+                                <p class="card-text2-dinnis mt-3">250 rs</p>
+                                </div>
+                            </div>
+                        </div> -->
                         <?php include "backend-of-frontend/fetch-new-collection-offset5.php" ?>
                     </div>
                 </div>
@@ -329,9 +193,6 @@ session_start();
             </div>
         </div>
     </div>
-
-
-
 
     <section class="background-section text-center px-5 py-5 mt-5">
         <h1 class="mb-5">KIND WORDS</h1>

@@ -96,15 +96,15 @@ if ($db->sql($sql)) {
                         <div class="form-group">
                             <label for="product_quantity_unit" class="form-label">Select Quantity Unit</label>
                             <select name="product_quantity_unit" class="form-control" id="product_quantity_unit"
-                                name="unit" required="">
-                                <option value="" disabled="" selected="">Select Unit</option>
+                                name="unit" required="" readonly>
+                                <option value="" disabled="">Select Unit</option>
                                 <option value="item">item</option>
                                 <option value="ml">ml</option>
                                 <option value="litre">litre</option>
                                 <option value="kg">kg</option>
                                 <option value="gm">gm</option>
                                 <option value="set">set</option>
-                                <option value="piece">piece</option>
+                                <option value="piece" selected="">piece</option>
                                 <option value="half">half</option>
                                 <option value="full">full</option>
                                 <option value="dozen">dozen</option>
@@ -202,7 +202,7 @@ if ($db->sql($sql)) {
                             </td>
                             <!-- <td>
                         <span
-                            class="font-weight-normal wrap_text_data"><?php //echo !empty($data['subcategory_name']) ? $data['subcategory_name'] : "Not Available";     ?></span>
+                            class="font-weight-normal wrap_text_data"><?php //echo !empty($data['subcategory_name']) ? $data['subcategory_name'] : "Not Available";       ?></span>
                     </td> -->
                             <td>
                                 <?php echo !empty($data['name']) ? trim($data['name']) : "Not Available"; ?>

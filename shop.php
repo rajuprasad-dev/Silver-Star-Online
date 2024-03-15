@@ -112,41 +112,41 @@ include_once "backend-of-frontend/conn.php";
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 ?>
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                                    <a href="detailed-product?product_id=<?= $row['id'] ?>">
-                                        <div class="card"
-                                            onmouseover="changeImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')"
-                                            onmouseout="restoreImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')">
-                                            <div class="card" style="position: relative; overflow: hidden;">
-                                                <img src="<?= check_image("src/images/products/thumbnails/" . $row['image']); ?>"
-                                                    alt="<?= $row['name']; ?>"
-                                                    style="height: 350px; width: 100%; object-fit: cover; border: 1px solid #dfdfdf;">
-                                            </div>
-                                            <div class="card-body text-left">
-                                                <form method="post" action="backend-of-frontend/add-to-cart-logic">
-                                                    <input type="hidden" name="product_id" value="<?= $row['id']; ?>">
-                                                    <input type="submit" class="btn-dinnis px-3 py-3"
-                                                        style="position:absolute;top:295px;" value="Add To Cart" />
-                                                </form>
-                                                <h5 class="card-text2-dinnis mt-4"><b class="custom-link">
-                                                        <?= $row['name'] ?>
-                                                    </b></h5>
-                                                <p class="card-text2-dinnis">
-                                                    <span class="custom-link">
-                                                        <?= $row['category_name']; ?>
-                                                    </span>
-                                                </p>
-                                                <p class="card-text2-dinnis mt-3">
-                                                    <span class="custom-link">Rs
-                                                        <?= $row['selling_price'] ?>
-                                                    </span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <a href="detailed-product?product_id=<?= $row['id'] ?>">
+                                <div class="card"
+                                    onmouseover="changeImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')"
+                                    onmouseout="restoreImage(this, '<?= check_image('src/images/products/thumbnails/' . $row['image']); ?>')">
+                                    <div class="card" style="position: relative; overflow: hidden;">
+                                        <img src="<?= check_image("src/images/products/thumbnails/" . $row['image']); ?>"
+                                            alt="<?= $row['name']; ?>"
+                                            style="height: 350px; width: 100%; object-fit: cover; border: 1px solid #dfdfdf;">
+                                    </div>
+                                    <div class="card-body text-left">
+                                        <form method="post" action="backend-of-frontend/add-to-cart-logic">
+                                            <input type="hidden" name="product_id" value="<?= $row['id']; ?>">
+                                            <input type="submit" class="btn-dinnis px-3 py-3"
+                                                style="position:absolute;top:295px;" value="Add To Cart" />
+                                        </form>
+                                        <h5 class="card-text2-dinnis mt-4"><b class="custom-link">
+                                                <?= $row['name'] ?>
+                                            </b></h5>
+                                        <p class="card-text2-dinnis">
+                                            <span class="custom-link">
+                                                <?= $row['category_name']; ?>
+                                            </span>
+                                        </p>
+                                        <p class="card-text2-dinnis mt-3">
+                                            <span class="custom-link">Rs
+                                                <?= $row['selling_price'] ?>
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <?php
+                            </a>
+
+                        </div>
+                        <?php
                             }
                         } else {
                             echo "No products found.";

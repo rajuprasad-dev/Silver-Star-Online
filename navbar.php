@@ -18,16 +18,20 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link custom-link text-nowrap" href="./">Home</a>
+                            <a class="nav-link custom-link text-nowrap<?php echo basename($_SERVER['PHP_SELF']) == "index.php" ? " active" : ""; ?>"
+                                href="./">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link custom-link text-nowrap" href="shop">Shop</a>
+                            <a class="nav-link custom-link text-nowrap<?php echo basename($_SERVER['PHP_SELF']) == "shop.php" ? " active" : ""; ?>"
+                                href="shop">Shop</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link custom-link text-nowrap" href="about-us">About Us</a>
+                            <a class="nav-link custom-link text-nowrap<?php echo basename($_SERVER['PHP_SELF']) == "about-us.php" ? " active" : ""; ?>"
+                                href="about-us">About Us</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link custom-link text-nowrap" href="contact-us">Contact Us</a>
+                            <a class="nav-link custom-link text-nowrap<?php echo basename($_SERVER['PHP_SELF']) == "contact-us.php" ? " active" : ""; ?>"
+                                href="contact-us">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -41,13 +45,27 @@
 
         <div class="nav-action-buttons hide-smal">
             <div>
-                <a class="navbar-brand " href="account">
+                <a class="navbar-brand" href="account">
                     <img src="images/user.png" alt="Cart" height="30">
                 </a>
             </div>
             <div>
-                <a class="navbar-brand " href="cart">
+                <a class="navbar-brand cart-icon" href="cart">
                     <img src="images/shopping-cart.png" alt="Cart" height="30">
+                    <?php
+                    include_once "backend-of-frontend/conn.php";
+
+                    $userId = 0;
+                    if (isset($_SESSION['userId'])) {
+                        $userId = $_SESSION['userId'];
+                    }
+
+                    $cart_sql = "SELECT * FROM `cart` WHERE `customer_id` = '$userId'";
+                    $cart_query = $conn->query($cart_sql);
+                    $cart_count = $cart_query->num_rows ?? "0";
+
+                    echo "<span class='cart-count badge badge-dark'>{$cart_count}</span>";
+                    ?>
                 </a>
             </div>
             <div>
@@ -59,13 +77,15 @@
     </div>
 </nav>
 <div class="sticky-buttons-icons icon-width">
-    <div class="text-center">
+    <div class="text-center bg-transparent">
+        <a href="https://wa.me/+917021379952" class="whatsapp" style="color:inherit;"><i class="fa fa-whatsapp"
+                style="color:white;"></i></a>
         <a href="https://www.instagram.com/skinks.tattoo/" class="instagram" style="color:inherit;"><i
-                class="fa fa-whatsapp" style="color:white;"></i></a>
-        <!-- <a href="https://www.facebook.com/getinkstattoostudio/" class="facebook" style="color:inherit;"><i
-		  class="fa fa-facebook" style="color:white;"></i></a> -->
-        <!-- <a href="https://www.youtube.com/channel/UCCAwfef58ZEjiUA_nEHLeRA" class="youtube" style="color:inherit;"><i
-		  class="fa fa-youtube" style="color:white;"></i></a> -->
+                class="fa fa-instagram" style="color:white;"></i></a>
+        <a href="https://www.facebook.com/getinkstattoostudio/" class="facebook" style="color:inherit;"><i
+                class="fa fa-facebook" style="color:white;"></i></a>
     </div>
-
+</div>
+<div class="sticky-buttons-right">
+    <a href="./shop">Silver 925</a>
 </div>
