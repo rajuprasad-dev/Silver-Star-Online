@@ -15,9 +15,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center mb-4 d-flex justify-content-center align-items-center">
-                            <img src="../images/silver-star.png" alt="Silver Star" width="80">
+                            <img src="../assets/img/logo.png" alt="Silver Star" width="80">
                             <h3 class="mb-0 mt-2 ml-3">Silver Star</h3>
-                            <p>GST Number: 27ANUPS3850M1Z1</p>
                         </div>
                     </div>
                 </div>
@@ -37,10 +36,24 @@
                             <div class="my-1">
                                 <?php echo $result['booking_address']; ?>
                             </div>
-                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b
-                                    class="text-600">
+                            <?php
+                            if ($result['gstNumber']) {
+                                ?>
+                                <div class="my-1">
+                                    <span>GST: </span>
+                                    <b class="text-600">
+                                        <?php echo $result['gstNumber']; ?>
+                                    </b>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            <div class="my-1">
+                                <i class="fa fa-phone fa-flip-horizontal text-secondary"></i>
+                                <b class="text-600">
                                     <?php echo $result['c_phone']; ?>
-                                </b></div>
+                                </b>
+                            </div>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -50,6 +63,13 @@
                         <div class="text-grey-m2">
                             <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
                                 Invoice
+                            </div>
+
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>
+                                <span class="text-600 text-90">GST No:</span>
+                                <span>
+                                    27ANUPS3850M1Z1
+                                </span>
                             </div>
 
                             <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>

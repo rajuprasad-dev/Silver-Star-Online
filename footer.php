@@ -3,7 +3,7 @@
         <div class="col-sm-6 text-center">
             <h4><b>Silver Star</b></h4>
             <nav class="nav flex-row justify-content-center">
-                <a class="mb-2 custom-link active mx-2"><i style="font-size:24px" class="fa fa-cc-visa"></i></a>
+                <a class="mb-2 custom-link mx-2"><i style="font-size:24px" class="fa fa-cc-visa"></i></a>
                 <a class=" mb-2 custom-link mx-2"><i style="font-size:24px" class="fa fa-cc-mastercard"></i></a>
                 <a class=" mb-2 custom-link mx-2"><i style="font-size:24px" class="fa fa-amazon"></i></a>
                 <a class=" mb-2 custom-link mx-2"><i style="font-size:24px" class="fa fa-cc-amex"></i></a>
@@ -14,37 +14,27 @@
             <div class="row align-items-top text-center">
                 <div class="col-6 col-md-4 mt-5 mt-sm-0  text-sm-left">
                     <nav class="nav flex-column">
-                        <a class="mb-2"><span class="custom-link active">Home</span></a>
-                        <a class="mb-2"><span class="custom-link">Features</span></a>
-                        <a class="mb-2"><span class="custom-link">Pricing</span></a>
-                        <a class="mb-2"><span class="custom-link">Team</span></a>
-                        <a class="mb-2"><span class="custom-link">Contact Us</span></a>
+                        <a class="mb-2" href="./"><span class="custom-link">Home</span></a>
+                        <a class="mb-2" href="./shop"><span class="custom-link">Shop</span></a>
+                        <a class="mb-2" href="./about-us"><span class="custom-link">About Us</span></a>
+                        <a class="mb-2" href="./contact-us"><span class="custom-link">Contact Us</span></a>
                     </nav>
                 </div>
 
                 <div class="col-6 col-md-4 mt-5 mt-sm-0 text-sm-left">
                     <nav class="nav flex-column">
-                        <a class="mb-2 custom-link" href="privacy-policy">Privacy Policy</a>
-                        <a class="mb-2 custom-link" href="refund-policy">Refund Policy</a>
-                        <a class="mb-2 custom-link" href="about-us">About Us</a>
-                        <a class="mb-2 custom-link" href="terms-and-conditons">Terms & Conditions</a>
+                        <a class="mb-2 custom-link" href="./privacy-policy">Privacy Policy</a>
+                        <a class="mb-2 custom-link" href="./refund-policy">Refund Policy</a>
+                        <a class="mb-2 custom-link" href="./terms-and-conditons">Terms & Conditions</a>
                     </nav>
                 </div>
-
-                <!-- <div class="col-4 col-md-4 col-lg-3 mt-5 mt-sm-0 text-sm-left">
-          <nav class="nav flex-column">
-            <a class="mb-2"><span class="custom-link">Privacy Policy</span></a>
-            <a class="mb-2"><span class="custom-link">Terms</span></a>
-            <a class="mb-2"><span class="custom-link">Support</span></a>
-          </nav>
-        </div> -->
             </div>
         </div>
     </div>
     <hr class="my-4">
     <div class="row mt-3 justify-content-around">
         <div class="col text-left">
-            © Copyright 2023 | E-Commerce Website
+            © Copyright 2023 | Silver Star
         </div>
         <div class="col text-right">
             Designed & Developed By
@@ -56,13 +46,13 @@
 </footer>
 
 <script type="text/javascript">
-function changeImage(card, newImageSrc) {
-    const image = card.querySelector('img');
-    image.src = newImageSrc;
-}
+    function changeImage ( card, newImageSrc ) {
+        const image = card.querySelector( 'img' );
+        image.src = newImageSrc;
+    }
 
-function restoreImage(card, originalImageSrc) {
-    const image = card.querySelector('img');
-    image.src = originalImageSrc;
-}
+    function restoreImage ( card, originalImageSrc ) {
+        const image = card.querySelector( 'img' );
+        image.src = originalImageSrc;
+    }
 </script>

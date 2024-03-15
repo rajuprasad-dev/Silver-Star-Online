@@ -6,34 +6,34 @@ session_start();
 
 <?php include "head.php" ?>
 <style>
-    /* Custom CSS for controlling the image size */
-    .carousel-control-prev img,
-    .carousel-control-next img {
-        width: 8vw;
-        /* Set the desired width */
-        height: auto;
-        /* Automatically adjust the height to maintain the aspect ratio */
-    }
+/* Custom CSS for controlling the image size */
+.carousel-control-prev img,
+.carousel-control-next img {
+    width: 8vw;
+    /* Set the desired width */
+    height: auto;
+    /* Automatically adjust the height to maintain the aspect ratio */
+}
 
-    button:focus {
-        outline: none;
-    }
+button:focus {
+    outline: none;
+}
 
-    @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
 
-        /* Styles for mobile screens (using only row class) */
-        #categories {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    .image-grid {
+    /* Styles for mobile screens (using only row class) */
+    #categories {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: -50px;
+        flex-direction: column;
     }
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -50px;
+}
 </style>
 
 <body>
@@ -49,8 +49,8 @@ session_start();
                     If you have any questions or inquiries, feel free to reach out to us. We are here to assist you.
                 </p>
                 <p>
-                    <strong>Email:</strong> owner@example.com<br>
-                    <strong>Phone:</strong> (123) 456-7890
+                    <strong>Email:</strong> info@silverstaronline.in<br>
+                    <strong>Phone:</strong> +91 81694 40710
                 </p>
                 <form action="process_form" method="post" id="contactForm">
                     <div class="form-group">
@@ -76,60 +76,40 @@ session_start();
         </div>
     </section>
 
-
-
-
-
-
-
-
-
     <?php include "footer.php" ?>
 
     <!-- Bootstrap JS and jQuery scripts (include at the end of the body for better performance) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function changeImage(card, newImageSrc) {
-            const image = card.querySelector('img');
-            image.src = newImageSrc;
-        }
-
-        function restoreImage(card, originalImageSrc) {
-            const image = card.querySelector('img');
-            image.src = originalImageSrc;
-        }
-    </script>
-
 </body>
 
 </html>
-
 <script>
-    // Function to show the alert
+// Function to show the alert
 
 
-    function showAlert() {
-        $('#alertModal').modal('show');
-        setTimeout(function () {
-            $('#alertModal').modal('hide');
-        }, 3000);
-    }
+function showAlert() {
+    $('#alertModal').modal('show');
+    setTimeout(function() {
+        $('#alertModal').modal('hide');
+    }, 3000);
+}
 
-    function showAlert1() {
-        $('#loginAlertModal').modal('show');
-        setTimeout(function () {
-            $('#loginAlertModal').modal('hide');
-        }, 3000);
-    }
-    function showAlert2() {
-        $('#alreadyAddedAlertModal').modal('show');
-        setTimeout(function () {
-            $('#alreadyAddedAlertModal').modal('hide');
-        }, 3000);
-    }
-    <?php
+function showAlert1() {
+    $('#loginAlertModal').modal('show');
+    setTimeout(function() {
+        $('#loginAlertModal').modal('hide');
+    }, 3000);
+}
+
+function showAlert2() {
+    $('#alreadyAddedAlertModal').modal('show');
+    setTimeout(function() {
+        $('#alreadyAddedAlertModal').modal('hide');
+    }, 3000);
+}
+<?php
 
     if (isset($_SESSION['already_added']) && !empty($_SESSION['already_added'])) {
         echo 'showAlert2();';
@@ -137,8 +117,8 @@ session_start();
         $_SESSION['already_added'] = '';
     }
     ?>
-    // Check if the session variable is set
-    <?php
+// Check if the session variable is set
+<?php
 
     if (isset($_SESSION['cart_alert']) && !empty($_SESSION['cart_alert'])) {
         echo 'showAlert();';
@@ -147,7 +127,7 @@ session_start();
     }
     ?>
 
-    <?php
+<?php
     if (isset($_SESSION['login_cart_alert']) && !empty($_SESSION['login_cart_alert'])) {
         echo 'showAlert1();';
         // Clear the session variable to prevent the alert from showing again on page refresh
@@ -155,13 +135,13 @@ session_start();
     }
     ?>
 
-    // Event listener for keypress
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "a") {
-            showAlert();
-        }
-    });
+// Event listener for keypress
+document.addEventListener("keydown", function(event) {
+    if (event.key === "a") {
+        showAlert();
+    }
+});
 
-    // Event listener for button click
-    document.getElementById("showAlert").addEventListener("click", showAlert);
+// Event listener for button click
+document.getElementById("showAlert").addEventListener("click", showAlert);
 </script>

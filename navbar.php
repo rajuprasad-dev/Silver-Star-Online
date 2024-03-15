@@ -78,12 +78,12 @@
 </nav>
 <div class="sticky-buttons-icons icon-width">
     <div class="text-center bg-transparent">
-        <a href="https://wa.me/+917021379952" class="whatsapp" style="color:inherit;"><i class="fa fa-whatsapp"
-                style="color:white;"></i></a>
-        <a href="https://www.instagram.com/skinks.tattoo/" class="instagram" style="color:inherit;"><i
-                class="fa fa-instagram" style="color:white;"></i></a>
-        <a href="https://www.facebook.com/getinkstattoostudio/" class="facebook" style="color:inherit;"><i
-                class="fa fa-facebook" style="color:white;"></i></a>
+        <a href="https://wa.me/+918169440710" target="_blank" class="whatsapp" style="color:inherit;"><i
+                class="fa fa-whatsapp" style="color:white;"></i></a>
+        <a href="https://www.instagram.com/silverstaronline/" target="_blank" class="instagram"
+            style="color:inherit;"><i class="fa fa-instagram" style="color:white;"></i></a>
+        <a href="https://www.facebook.com/silverstaronline.in/" target="_blank" class="facebook"
+            style="color:inherit;"><i class="fa fa-facebook" style="color:white;"></i></a>
     </div>
 </div>
 <div class="sticky-buttons-right">
