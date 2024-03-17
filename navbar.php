@@ -56,13 +56,13 @@
                     include_once "backend-of-frontend/conn.php";
 
                     $userId = 0;
-                    if (isset($_SESSION['userId'])) {
+                    if (isset ($_SESSION['userId'])) {
                         $userId = $_SESSION['userId'];
                     }
 
                     $cart_sql = "SELECT * FROM `cart` WHERE `customer_id` = '$userId'";
                     $cart_query = $conn->query($cart_sql);
-                    $cart_count = $cart_query->num_rows ?? "0";
+                    $cart_count = $cart_query->num_rows && $userId > 0 ? $cart_query->num_rows : "0";
 
                     echo "<span class='cart-count badge badge-dark'>{$cart_count}</span>";
                     ?>

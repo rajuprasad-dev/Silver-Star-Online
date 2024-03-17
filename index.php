@@ -39,11 +39,11 @@ session_start();
         </div>
     </div>
 
-    <div class=" mx-5 my-5 text-center">
+    <div class="mx-5 my-5 text-center">
         <h1 class="mx-5 my-5">Latest Beauty</h1>
         <div class="row text-center">
             <?php
-            if (isset($_POST['product_name'])) {
+            if (isset ($_POST['product_name'])) {
                 include "backend-of-frontend/fetch-latest-beauty-with-search.php";
 
             } else {
@@ -69,7 +69,7 @@ session_start();
     </div>
 
     <div class="mx-5 my-5">
-        <h1 class="mx-5 my-5 text-center">Our Categories</h1>
+        <h1 class="my-5 text-center">Our Categories</h1>
         <div class="products-container" id="products">
             <div class="row pt-5" id="categories">
                 <?php include "backend-of-frontend/fetch-categories.php" ?>

@@ -583,6 +583,10 @@ input::placeholder {
 	border-radius: 10px;
 }
 
+.categories-card button {
+	padding: 0;
+}
+
 /* Custom CSS for controlling the image size */
 .carousel-control-prev img,
 .carousel-control-next img {
@@ -594,15 +598,6 @@ input::placeholder {
 
 button:focus {
 	outline: none;
-}
-
-@media only screen and (max-width: 767px) {
-
-	/* Styles for mobile screens (using only row class) */
-	#categories {
-		display: flex;
-		flex-direction: column;
-	}
 }
 
 .image-grid {
@@ -720,5 +715,5 @@ button:focus {
 	writing-mode: vertical-rl;
 	transform: rotate(180deg);
 	font-size: 18px;
-	padding: 20px 15px;
+	padding: 20px 10px;
 }
